@@ -12,6 +12,6 @@ public class AuthenticateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.authenticate_act);
+        setContentView(R.layout.mobile_frg);
     }
 }
