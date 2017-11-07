@@ -14,9 +14,10 @@
 
     <com.owjmedia.faaz.utils.CustomTextView
         android:id="@+id/txtHint"
-        android:text="@string/login_desc"
+        style="@style/CustomTextView"
         android:layout_below="@+id/imgLogo"
-        style="@style/CustomTextView" />
+        android:text="@string/login_desc"
+        android:textStyle="bold" />
 
 
     <android.support.design.widget.TextInputLayout
@@ -31,9 +32,9 @@
             android:inputType="phone" />
     </android.support.design.widget.TextInputLayout>
 
-    <Button
+    <com.owjmedia.faaz.utils.CustomTextView
         android:id="@+id/btnContinue"
-        style="@style/CustomButton"
+        style="@style/ClickableTextView"
         android:layout_below="@+id/tilPhone"
         android:layout_marginTop="64dp"
         android:text="@string/str_continue" />
