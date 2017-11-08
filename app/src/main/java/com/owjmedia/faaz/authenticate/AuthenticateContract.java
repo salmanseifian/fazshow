@@ -9,11 +9,11 @@ public interface AuthenticateContract {
 
     interface View extends BaseView<Presenter>{
 
-        void setLoadingIndicator();
+        void setLoadingIndicator(boolean active);
 
         void showPhoneNumberSentSuccessfully(String token, int expire_in);
 
-        void showAuthenticationCompleted();
+        void showAuthenticationCompleted(String accessToken);
 
         void showMessage(String message);
 
@@ -24,7 +24,7 @@ public interface AuthenticateContract {
 
         void sendPhoneNumber(String phoneNumber);
 
-        void sendVerificationCode(String code);
+        void confirmPhoneNumber(String token, int code);
 
     }
 }

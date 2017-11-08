@@ -7,13 +7,10 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
-import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,23 +20,25 @@ import butterknife.OnClick;
  * Created by salman on 11/8/17.
  */
 
-public class PhoneFragment extends Fragment implements AuthenticateContract.View {
+public class CodeFragment extends Fragment implements AuthenticateContract.View {
+
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.phone_frg, container, false);
+        return inflater.inflate(R.layout.code_frg, container, false);
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        mPresenter = new AuthenticatePresenter(this);
     }
 
     @OnClick(R.id.btnContinue)
-    public void sendPhoneNumber() {
-        mPresenter.sendPhoneNumber(edtPhone.getText().toString());
+    public void confirmPhoneNumber() {
+        mPresenter.confirmPhoneNumber(getToken(), Integer.parseInt(edtCode.getText().toString()));
     }
 
     @Override
@@ -52,31 +51,20 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         Toast.makeText(getActivity(), code, Toast.LENGTH_SHORT).show();
     }
 
+
     @Override
     public void setLoadingIndicator(boolean active) {
-        if (active) {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.VISIBLE);
-        } else {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.INVISIBLE);
-        }
 
     }
 
     @Override
     public void showPhoneNumberSentSuccessfully(String token, int expire_in) {
-        CodeFragment codeFragment = new CodeFragment();
-        Bundle bundle = new Bundle();
-        bundle.putString(Constants.KEYS.TOKEN, token);
-        bundle.putInt(Constants.KEYS.EXPIRES_IN, expire_in);
-        codeFragment.setArguments(bundle);
-        ActivityUtils.addFragmentToActivity(getActivity().getSupportFragmentManager(), codeFragment, R.id.contentFrame);
+
     }
 
     @Override
     public void showAuthenticationCompleted(String accessToken) {
-
+        Toast.makeText(getActivity(), accessToken, Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -84,14 +72,17 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
+    private String getToken() {
+        return getArguments().getString(Constants.KEYS.TOKEN);
+    }
+
+    private String getExpiresIn() {
+        return getArguments().getString(Constants.KEYS.EXPIRES_IN);
+    }
+
     private AuthenticateContract.Presenter mPresenter;
 
-    @BindView(R.id.edtPhone)
-    TextInputEditText edtPhone;
 
-    @BindView(R.id.btnContinue)
-    TypefacedTextView btnContinue;
-
-    @BindView(R.id.prg)
-    ProgressBar prg;
+    @BindView(R.id.edtCode)
+    TextInputEditText edtCode;
 }

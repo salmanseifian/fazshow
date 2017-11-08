@@ -3,4 +3,7 @@
     <string name="hint_phone_number">شماره موبایل</string>
     <string name="str_continue">ادامه</string>
     <string name="login_desc">برای ورود یا ثبت نام شماره موبایل خود را وارد نمایید.</string>
+    <string name="please_enter_sent_code">لطفا کد پیامک شده را وارد کنید</string>
+    <string name="hint_verification_code">کد تایید</string>
+    <string name="confirm">تایید</string>
 </resources>
