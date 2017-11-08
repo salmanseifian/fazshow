@@ -1,8 +1,8 @@
 package com.owjmedia.faaz.authenticate;
 
 
-import com.owjmedia.faaz.utils.ApiClient;
-import com.owjmedia.faaz.utils.ApiInterface;
+import com.owjmedia.faaz.general.networking.ApiClient;
+import com.owjmedia.faaz.general.networking.ApiInterface;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

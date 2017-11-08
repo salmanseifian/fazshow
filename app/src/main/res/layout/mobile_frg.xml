@@ -12,7 +12,7 @@
         android:scaleType="centerInside"
         android:src="@drawable/ic_logo" />
 
-    <com.owjmedia.faaz.utils.CustomTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtHint"
         style="@style/CustomTextView"
         android:layout_below="@+id/imgLogo"
@@ -32,7 +32,7 @@
             android:inputType="phone" />
     </android.support.design.widget.TextInputLayout>
 
-    <com.owjmedia.faaz.utils.CustomTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/btnContinue"
         style="@style/ClickableTextView"
         android:layout_below="@+id/tilPhone"

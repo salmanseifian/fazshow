@@ -1,4 +1,6 @@
-package com.owjmedia.faaz.utils;
+package com.owjmedia.faaz.general.networking;
+
+import com.owjmedia.faaz.general.Constants;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

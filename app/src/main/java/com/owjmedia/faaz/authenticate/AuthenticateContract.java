@@ -1,7 +1,7 @@
 package com.owjmedia.faaz.authenticate;
 
-import com.owjmedia.faaz.BasePresenter;
-import com.owjmedia.faaz.BaseView;
+import com.owjmedia.faaz.general.BasePresenter;
+import com.owjmedia.faaz.general.BaseView;
 
 
 

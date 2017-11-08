@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.utils;
+package com.owjmedia.faaz.general;
 
 
 public class Constants {

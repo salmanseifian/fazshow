@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.utils;
+package com.owjmedia.faaz.general.networking;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;

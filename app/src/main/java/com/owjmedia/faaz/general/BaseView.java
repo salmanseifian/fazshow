@@ -1,4 +1,4 @@
-package com.owjmedia.faaz;
+package com.owjmedia.faaz.general;
 
 /**
  * Created by salman on 11/5/17.

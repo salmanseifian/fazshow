@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.utils;
+package com.owjmedia.faaz.general.utils.CustomWidgets;
 
 import android.content.Context;
 import android.graphics.Typeface;
@@ -6,24 +6,26 @@ import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.TextView;
 
+import com.owjmedia.faaz.general.Constants;
 
-public class CustomTextView extends TextView {
-    public CustomTextView(Context context) {
+
+public class TypefacedTextView extends TextView {
+    public TypefacedTextView(Context context) {
         super(context);
         setTypeface(context);
     }
 
-    public CustomTextView(Context context, @Nullable AttributeSet attrs) {
+    public TypefacedTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setTypeface(context);
     }
 
-    public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TypefacedTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setTypeface(context);
     }
 
-    public CustomTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public TypefacedTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setTypeface(context);
     }
