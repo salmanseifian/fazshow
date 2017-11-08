@@ -34,4 +34,5 @@ ext{
     gsonVersion = '2.8.2'
     retrofitVersion = '2.3.0'
     converterGsonVersion = '2.3.0'
+    butterKnifeVersion = '8.8.1'
 }

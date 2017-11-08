@@ -1,15 +1,17 @@
 package com.owjmedia.faaz.general.networking;
 
-import okhttp3.ResponseBody;
+import com.owjmedia.faaz.data.AuthenticationRequest;
+import com.owjmedia.faaz.data.AuthenticationResponse;
+
 import retrofit2.Call;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
-import retrofit2.http.Query;
 
 /**
  * Created by salman on 11/7/17.
  */
 
 public interface ApiInterface {
-    @POST("login")
-    Call<ResponseBody> sendPhoneNumber(@Query("phone_number")  String phoneNumber);
+    @POST("v1/users/auth/")
+    Call<AuthenticationResponse> sendPhoneNumber(@Body AuthenticationRequest authenticationRequest);
 }

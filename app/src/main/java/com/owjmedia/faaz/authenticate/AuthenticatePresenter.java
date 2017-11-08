@@ -1,6 +1,8 @@
 package com.owjmedia.faaz.authenticate;
 
 
+import com.owjmedia.faaz.data.AuthenticationRequest;
+import com.owjmedia.faaz.data.AuthenticationResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 
@@ -27,20 +29,21 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
     @Override
     public void sendPhoneNumber(String phoneNumber) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseBody>  call = apiService.sendPhoneNumber(phoneNumber);
+        AuthenticationRequest authenticationRequest = new AuthenticationRequest(phoneNumber);
+        Call<AuthenticationResponse> call = apiService.sendPhoneNumber(authenticationRequest);
 
-        call.enqueue(new Callback<ResponseBody>() {
+        call.enqueue(new Callback<AuthenticationResponse>() {
             @Override
-            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                mAuthenticateView.showPhoneNumeberSentSuccessfully();
+            public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
+                mAuthenticateView.showResponseCode(String.valueOf(response.code()));
+                mAuthenticateView.showPhoneNumberSentSuccessfully(response.body().getToken(), response.body().getExpiresIn());
             }
 
             @Override
-            public void onFailure(Call<ResponseBody> call, Throwable t) {
-                
+            public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
+                mAuthenticateView.showMessage(t.getMessage());
             }
         });
-
     }
 
     @Override

@@ -11,7 +11,7 @@ public interface AuthenticateContract {
 
         void setLoadingIndicator();
 
-        void showPhoneNumeberSentSuccessfully();
+        void showPhoneNumberSentSuccessfully(String token, int expire_in);
 
         void showAuthenticationCompleted();
 

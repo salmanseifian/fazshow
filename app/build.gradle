@@ -16,7 +16,7 @@ android {
     buildTypes {
         debug {
             minifyEnabled true
-            useProguard false
+            useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
@@ -34,6 +34,8 @@ dependencies {
     compile "com.google.code.gson:gson:$rootProject.ext.gsonVersion"
     compile "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     compile "com.squareup.retrofit2:converter-gson:$rootProject.ext.converterGsonVersion"
+    compile "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
 
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
