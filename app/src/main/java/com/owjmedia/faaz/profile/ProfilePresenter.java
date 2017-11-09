@@ -6,6 +6,7 @@ import com.owjmedia.faaz.data.UpdateProfileRequest;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.utils.AppSettings;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -32,10 +33,10 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public void updateProfile(String gender, String city, int year_of_birth) {
+    public void updateProfile(String token, String gender, String city, int year_of_birth) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest(gender, city, year_of_birth);
-        Call<ResponseBody> call = apiService.updateProfile(Constants.KEYS.TOKEN, updateProfileRequest);
+        Call<ResponseBody> call = apiService.updateProfile(token, updateProfileRequest);
         mProfileView.setLoadingIndicator(true);
 
         call.enqueue(new Callback<ResponseBody>() {

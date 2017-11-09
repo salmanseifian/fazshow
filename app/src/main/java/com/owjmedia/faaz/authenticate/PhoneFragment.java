@@ -61,7 +61,6 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
             btnContinue.setVisibility(View.INVISIBLE);
             prg.setVisibility(View.INVISIBLE);
         }
-
     }
 
     @Override

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="128dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_logo" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+        android:id="@+id/edtGender"
+        style="@style/CustomEditText"
+        android:layout_below="@+id/imgLogo"
+        android:layout_marginTop="16dp"
+        android:hint="@string/gender" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+        android:id="@+id/edtCity"
+        style="@style/CustomEditText"
+        android:layout_below="@+id/edtGender"
+        android:layout_marginTop="16dp"
+        android:hint="@string/city" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+        android:id="@+id/edtBirthYear"
+        style="@style/CustomEditText"
+        android:layout_below="@+id/edtCity"
+        android:layout_marginTop="16dp"
+        android:hint="@string/birth_year" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/edtBirthYear"
+        android:layout_marginTop="32dp">
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/btnContinue"
+            style="@style/ClickableTextView"
+            android:layout_centerInParent="true"
+            android:text="@string/save" />
+
+        <ProgressBar
+            android:id="@+id/prg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+</RelativeLayout>

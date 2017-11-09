@@ -7,10 +7,15 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.AppSettings;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.profile.ProfileFragment;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -54,7 +59,13 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active) {
+            btnContinue.setVisibility(View.INVISIBLE);
+            prg.setVisibility(View.VISIBLE);
+        } else {
+            btnContinue.setVisibility(View.INVISIBLE);
+            prg.setVisibility(View.INVISIBLE);
+        }
     }
 
     @Override
@@ -64,7 +75,8 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void showAuthenticationCompleted(String accessToken) {
-        Toast.makeText(getActivity(), accessToken, Toast.LENGTH_SHORT).show();
+        AppSettings.setString(getContext(), Constants.KEYS.TOKEN, accessToken);
+        ActivityUtils.replaceFragmentToActivity(getActivity().getSupportFragmentManager(), new ProfileFragment(), R.id.contentFrame);
     }
 
     @Override
@@ -85,4 +97,10 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @BindView(R.id.edtCode)
     TextInputEditText edtCode;
+
+    @BindView(R.id.btnContinue)
+    TypefacedTextView btnContinue;
+
+    @BindView(R.id.prg)
+    ProgressBar prg;
 }
