@@ -42,12 +42,14 @@ public class ProfilePresenter implements ProfileContract.Presenter {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                mProfileView.setLoadingIndicator(false);
                 mProfileView.profileUpdatedSuccessfully();
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                mProfileView.setLoadingIndicator(false);
+                mProfileView.showMessage(t.getMessage());
             }
         });
     }

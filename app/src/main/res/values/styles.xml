@@ -6,6 +6,8 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
     <style name="CustomEditText">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?actionBarSize</item>

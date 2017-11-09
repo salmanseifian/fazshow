@@ -29,7 +29,8 @@
         style="@style/CustomEditText"
         android:layout_below="@+id/edtCity"
         android:layout_marginTop="16dp"
-        android:hint="@string/birth_year" />
+        android:hint="@string/birth_year"
+        android:inputType="number" />
 
     <RelativeLayout
         android:layout_width="match_parent"

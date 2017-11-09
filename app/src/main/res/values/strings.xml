@@ -10,4 +10,7 @@
     <string name="city">شهر</string>
     <string name="birth_year">سال تولد</string>
     <string name="save">ذخیره</string>
+    <string name="voting">رای دهی</string>
+    <string name="profile">حساب کاربری</string>
+    <string name="faazMosbat">فاز مثبت</string>
 </resources>

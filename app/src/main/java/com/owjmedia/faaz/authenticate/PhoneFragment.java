@@ -7,13 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.wang.avi.AVLoadingIndicatorView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -56,10 +56,11 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     public void setLoadingIndicator(boolean active) {
         if (active) {
             btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.VISIBLE);
+            prg.show();
         } else {
             btnContinue.setVisibility(View.INVISIBLE);
             prg.setVisibility(View.INVISIBLE);
+            prg.hide();
         }
     }
 
@@ -92,5 +93,6 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     TypefacedTextView btnContinue;
 
     @BindView(R.id.prg)
-    ProgressBar prg;
+    AVLoadingIndicatorView prg;
+
 }
