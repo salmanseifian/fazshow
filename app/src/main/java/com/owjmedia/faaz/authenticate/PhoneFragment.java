@@ -2,6 +2,7 @@ package com.owjmedia.faaz.authenticate;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,10 +10,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.Validator;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import butterknife.BindView;
@@ -39,7 +42,10 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
 
     @OnClick(R.id.btnContinue)
     public void sendPhoneNumber() {
-        mPresenter.sendPhoneNumber(edtPhone.getText().toString());
+        if (Validator.isPhoneNumberValid(edtPhone.getText().toString()))
+            mPresenter.sendPhoneNumber(edtPhone.getText().toString());
+        else
+            showMessage(getString(R.string.input_is_not_valid));
     }
 
     @Override
@@ -56,11 +62,10 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     public void setLoadingIndicator(boolean active) {
         if (active) {
             btnContinue.setVisibility(View.INVISIBLE);
-            prg.show();
+            lottieLoading.playAnimation();
         } else {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.INVISIBLE);
-            prg.hide();
+            btnContinue.setVisibility(View.VISIBLE);
+            lottieLoading.cancelAnimation();
         }
     }
 
@@ -92,7 +97,7 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     @BindView(R.id.btnContinue)
     TypefacedTextView btnContinue;
 
-    @BindView(R.id.prg)
-    AVLoadingIndicatorView prg;
+    @BindView(R.id.lottieLoading)
+    LottieAnimationView lottieLoading;
 
 }

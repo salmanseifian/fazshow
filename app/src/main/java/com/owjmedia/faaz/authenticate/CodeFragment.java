@@ -10,11 +10,13 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppSettings;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.ProfileFragment;
 
 import butterknife.BindView;
@@ -41,11 +43,6 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
         mPresenter = new AuthenticatePresenter(this);
     }
 
-    @OnClick(R.id.btnContinue)
-    public void confirmPhoneNumber() {
-        mPresenter.confirmPhoneNumber(getToken(), Integer.parseInt(edtCode.getText().toString()));
-    }
-
     @Override
     public void setPresenter(AuthenticateContract.Presenter presenter) {
         mPresenter = presenter;
@@ -61,10 +58,10 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     public void setLoadingIndicator(boolean active) {
         if (active) {
             btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.VISIBLE);
+            lottieLoading.playAnimation();
         } else {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.INVISIBLE);
+            btnContinue.setVisibility(View.VISIBLE);
+            lottieLoading.cancelAnimation();
         }
     }
 
@@ -84,6 +81,15 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
     }
 
+
+    @OnClick(R.id.btnContinue)
+    public void confirmPhoneNumber() {
+        if (Validator.isStringValid(edtCode.getText().toString()))
+            mPresenter.confirmPhoneNumber(getToken(), Integer.parseInt(edtCode.getText().toString()));
+        else
+            showMessage(getString(R.string.input_is_not_valid));
+    }
+
     private String getToken() {
         return getArguments().getString(Constants.KEYS.TOKEN);
     }
@@ -101,6 +107,6 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     @BindView(R.id.btnContinue)
     TypefacedTextView btnContinue;
 
-    @BindView(R.id.prg)
-    ProgressBar prg;
+    @BindView(R.id.lottieLoading)
+    LottieAnimationView lottieLoading;
 }
