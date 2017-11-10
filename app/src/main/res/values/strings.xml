@@ -16,4 +16,6 @@
     <string name="profile_desc">برای شرکت در قرعه کشی، پروفایل خود را تکمیل کنید</string>
     <string name="input_is_not_valid">مقدار وارده معتبر نیست</string>
     <string name="inputs_is_not_valid">مقادیر وارد شده معتبر نیستند</string>
+    <string name="boys">پسران</string>
+    <string name="girls">دختران</string>
 </resources>
