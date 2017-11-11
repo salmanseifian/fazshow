@@ -4,6 +4,7 @@ import com.owjmedia.faaz.data.AuthenticationRequest;
 import com.owjmedia.faaz.data.AuthenticationResponse;
 import com.owjmedia.faaz.data.ConfirmationRequest;
 import com.owjmedia.faaz.data.ConfirmationResponse;
+import com.owjmedia.faaz.data.NewsResponse;
 import com.owjmedia.faaz.data.UpdateProfileRequest;
 import com.owjmedia.faaz.data.VoteDetailRequest;
 import com.owjmedia.faaz.data.VoteDetailResponse;
@@ -45,4 +46,6 @@ public interface ApiInterface {
     @POST("v1/polls/{poll_id}/voting/")
     Call<ResponseBody> vote(@Header("Authorization") String accessToken, @Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);
 
+    @GET("v1/news/")
+    Call<NewsResponse> getNews();
 }
