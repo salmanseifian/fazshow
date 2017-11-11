@@ -6,6 +6,7 @@ import android.widget.TextView;
 
 import com.github.vipulasri.timelineview.TimelineView;
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.data.VotingResponse;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,6 +20,15 @@ class VotingViewHolder extends RecyclerView.ViewHolder {
     public VotingViewHolder(View itemView) {
         super(itemView);
         ButterKnife.bind(this, itemView);
+    }
+
+    public void bind(final VotingResponse votingResponse, final VotingAdapter.OnItemClickListener listener) {
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(votingResponse);
+            }
+        });
     }
 
     @BindView(R.id.text_timeline_date)

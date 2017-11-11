@@ -7,14 +7,13 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.AppSettings;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.ProfileFragment;
@@ -49,12 +48,6 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     }
 
     @Override
-    public void showResponseCode(String code) {
-        Toast.makeText(getActivity(), code, Toast.LENGTH_SHORT).show();
-    }
-
-
-    @Override
     public void setLoadingIndicator(boolean active) {
         if (active) {
             btnContinue.setVisibility(View.INVISIBLE);
@@ -72,7 +65,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void showAuthenticationCompleted(String accessToken) {
-        AppSettings.setString(getContext(), Constants.KEYS.TOKEN, accessToken);
+        AppManager.setString(getContext(), Constants.KEYS.TOKEN, accessToken);
         ActivityUtils.replaceFragmentToActivity(getActivity().getSupportFragmentManager(), new ProfileFragment(), R.id.contentFrame);
     }
 

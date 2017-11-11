@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_circle">
+
+    <com.owjmedia.faaz.general.utils.RoundedImageView
+        android:id="@+id/imgCandidate"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_centerInParent="true" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txtCandidateName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="16dp"
+        android:layout_toRightOf="@+id/imgCandidate"
+        android:gravity="right"
+        android:textColor="@color/colorBlack" />
+
+</RelativeLayout>

@@ -5,6 +5,8 @@ import com.owjmedia.faaz.data.AuthenticationResponse;
 import com.owjmedia.faaz.data.ConfirmationRequest;
 import com.owjmedia.faaz.data.ConfirmationResponse;
 import com.owjmedia.faaz.data.UpdateProfileRequest;
+import com.owjmedia.faaz.data.VoteDetailRequest;
+import com.owjmedia.faaz.data.VoteDetailResponse;
 import com.owjmedia.faaz.data.VotingResponse;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 /**
@@ -35,4 +38,11 @@ public interface ApiInterface {
 
     @GET("v1/polls/")
     Call<List<VotingResponse>> getVotings(@Query("poll_type") String pollType);
+
+    @GET("v1/polls/{poll_id}")
+    Call<VoteDetailResponse> getCandidates(@Path("poll_id") String pollId);
+
+    @POST("v1/polls/{poll_id}/voting/")
+    Call<ResponseBody> vote(@Header("Authorization") String accessToken, @Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);
+
 }

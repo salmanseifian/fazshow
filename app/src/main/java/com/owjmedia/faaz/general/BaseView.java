@@ -10,7 +10,5 @@ public interface BaseView<T> {
 
     void setLoadingIndicator(boolean active);
 
-    void showResponseCode(String code);
-
     void showMessage(String message);
 }

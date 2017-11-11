@@ -33,11 +33,9 @@ public class VotingPresenter implements VotingContract.Presenter {
         Call<List<VotingResponse>> call = apiService.getVotings(pollType);
 
         mVotingView.setLoadingIndicator(true);
-
         call.enqueue(new Callback<List<VotingResponse>>() {
             @Override
             public void onResponse(Call<List<VotingResponse>> call, Response<List<VotingResponse>> response) {
-                mVotingView.showResponseCode(String.valueOf(response.code()));
                 mVotingView.setLoadingIndicator(false);
                 mVotingView.showVotings(response.body());
             }

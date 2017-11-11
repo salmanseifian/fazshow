@@ -5,7 +5,6 @@ import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +12,10 @@ import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
+import com.owjmedia.faaz.votedetail.VoteDetailFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,13 +41,24 @@ public class BoysFragment extends Fragment implements VotingContract.View {
         ButterKnife.bind(this, view);
         mVotingPresenter = new VotingPresenter(this);
 
+        mProgressDialog = new ProgressDialog(getActivity());
+
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         initViews();
     }
 
     private void initViews() {
         mVotingPresenter.getVotings("boys");
-        mVotingAdapter = new VotingAdapter(mVotingResponse);
+        mVotingAdapter = new VotingAdapter(mVotingResponse, new VotingAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(VotingResponse votingResponse) {
+                Fragment fragment = new VoteDetailFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.KEYS.POLL_ID, String.valueOf(votingResponse.getId()));
+                fragment.setArguments(bundle);
+                ActivityUtils.addFragmentToActivity(getActivity().getSupportFragmentManager(), fragment, R.id.contentFrame);
+            }
+        });
         mRecyclerView.setAdapter(mVotingAdapter);
     }
 
@@ -55,18 +69,17 @@ public class BoysFragment extends Fragment implements VotingContract.View {
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
-    }
-
-    @Override
-    public void showResponseCode(String code) {
-        Toast.makeText(getContext(), code, Toast.LENGTH_SHORT).show();
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getContext(), message, Toast.LENGTH_SHORT).show();
+
     }
+
 
     @Override
     public void showVotings(List<VotingResponse> votingResponses) {
@@ -80,6 +93,8 @@ public class BoysFragment extends Fragment implements VotingContract.View {
 
     VotingAdapter mVotingAdapter;
     List<VotingResponse> mVotingResponse = new ArrayList<>();
+
+    ProgressDialog mProgressDialog;
 
 
 }

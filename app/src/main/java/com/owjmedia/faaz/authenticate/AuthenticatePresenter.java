@@ -38,7 +38,6 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
             @Override
             public void onResponse(Call<AuthenticationResponse> call, Response<AuthenticationResponse> response) {
                 mAuthenticateView.setLoadingIndicator(false);
-                mAuthenticateView.showResponseCode(String.valueOf(response.code()));
                 mAuthenticateView.showPhoneNumberSentSuccessfully(response.body().getToken(), response.body().getExpiresIn());
             }
 
@@ -59,7 +58,6 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
         call.enqueue(new Callback<ConfirmationResponse>() {
             @Override
             public void onResponse(Call<ConfirmationResponse> call, Response<ConfirmationResponse> response) {
-                mAuthenticateView.showResponseCode(String.valueOf(response.code()));
                 mAuthenticateView.showAuthenticationCompleted(response.body().getAccessToken());
             }
 

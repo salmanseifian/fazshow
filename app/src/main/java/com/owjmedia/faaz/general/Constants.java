@@ -9,6 +9,7 @@ public class Constants {
     public static final class KEYS {
         public static final String TOKEN = "token";
         public static final String EXPIRES_IN = "expires_in";
+        public static final String POLL_ID = "pollId";
     }
 
     public static final class FONTS {

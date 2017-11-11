@@ -53,10 +53,6 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         mPresenter = presenter;
     }
 
-    @Override
-    public void showResponseCode(String code) {
-        Toast.makeText(getActivity(), code, Toast.LENGTH_SHORT).show();
-    }
 
     @Override
     public void setLoadingIndicator(boolean active) {

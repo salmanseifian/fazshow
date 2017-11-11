@@ -6,4 +6,6 @@
     <color name="colorAccentDark">#00E676</color>
     <color name="colorEditTextBackground">#449B26AF</color>
     <color name="colorWhite">@android:color/white</color>
+    <color name="colorBlack">@android:color/black</color>
+    <color name="colorPrimaryTransparent">#119B26AF</color>
 </resources>

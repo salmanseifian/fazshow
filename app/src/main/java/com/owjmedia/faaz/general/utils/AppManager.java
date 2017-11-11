@@ -9,7 +9,11 @@ import com.owjmedia.faaz.general.Constants;
  * Created by salman on 11/9/17.
  */
 
-public class AppSettings {
+public class AppManager {
+
+    public static boolean isLogin(Context context) {
+        return getString(context, Constants.KEYS.TOKEN) != null && !getString(context, Constants.KEYS.TOKEN).isEmpty();
+    }
 
 
     public static void setString(Context context, String key, String value) {

@@ -12,12 +12,10 @@ import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
-import com.owjmedia.faaz.general.utils.AppSettings;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.Validator;
-
-import java.util.zip.Inflater;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -59,14 +57,8 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     }
 
     @Override
-    public void showResponseCode(String code) {
-        Snackbar.make(getView(), code, Snackbar.LENGTH_SHORT).show();
-    }
-
-    @Override
     public void showMessage(String message) {
         Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
-
     }
 
     @Override
@@ -77,7 +69,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @OnClick(R.id.btnContinue)
     public void saveProfile() {
         if (Validator.isStringValid(edtGender.getText().toString()) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
-            mProfilePresenter.updateProfile(AppSettings.getString(getContext(), Constants.KEYS.TOKEN), edtGender.getText().toString(), edtCity.getText().toString(),
+            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), edtGender.getText().toString(), edtCity.getText().toString(),
                     Integer.parseInt(edtBirthYear.getText().toString()));
         else
             showMessage(getString(R.string.inputs_is_not_valid));

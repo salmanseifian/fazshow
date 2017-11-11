@@ -1,12 +1,8 @@
 package com.owjmedia.faaz.profile;
 
-import com.owjmedia.faaz.data.AuthenticationRequest;
-import com.owjmedia.faaz.data.AuthenticationResponse;
 import com.owjmedia.faaz.data.UpdateProfileRequest;
-import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
-import com.owjmedia.faaz.general.utils.AppSettings;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
