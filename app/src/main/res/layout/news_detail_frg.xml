@@ -23,10 +23,18 @@
                 android:scaleType="centerCrop"
                 android:src="@drawable/placeholder_news" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieLike"
+                android:layout_width="match_parent"
+                android:layout_height="64dp"
+                android:layout_below="@+id/imgNews"
+                app:lottie_fileName="like.json"
+                />
+
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 android:id="@+id/txtNewsTitle"
                 style="@style/CustomTextView"
-                android:layout_below="@+id/imgNews" />
+                android:layout_below="@+id/lottieLike" />
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 android:id="@+id/txtNewsContent"

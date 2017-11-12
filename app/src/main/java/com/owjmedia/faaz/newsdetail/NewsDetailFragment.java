@@ -8,14 +8,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.NewsDetailResponse;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by seifian on 11/12/17.
@@ -26,7 +29,7 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.new_detail_frg, container, false);
+        return inflater.inflate(R.layout.news_detail_frg, container, false);
     }
 
     @Override
@@ -69,6 +72,13 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
         return getArguments().getString(Constants.KEYS.NEWS_ID);
     }
 
+    @OnClick(R.id.lottieLike)
+    public void like() {
+        lottieLike.playAnimation();
+        mNewsDetailPresenter.like(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getNewsId());
+    }
+
+
     private NewsDetailContract.Presenter mNewsDetailPresenter;
 
     @BindView(R.id.imgNews)
@@ -79,5 +89,9 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
 
     @BindView(R.id.txtNewsContent)
     TypefacedTextView txtNewsContent;
+
+    @BindView(R.id.lottieLike)
+    LottieAnimationView lottieLike;
+
 
 }
