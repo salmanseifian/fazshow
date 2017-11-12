@@ -10,8 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="192dp"
         app:lottie_autoPlay="true"
-        app:lottie_loop="true"
-        app:lottie_fileName="gift.json" />
+        app:lottie_fileName="gift.json"
+        app:lottie_loop="true" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtHint"
@@ -26,14 +26,16 @@
         style="@style/CustomEditText"
         android:layout_below="@+id/txtHint"
         android:layout_marginTop="8dp"
-        android:hint="@string/gender" />
+        android:hint="@string/gender"
+        android:inputType="text" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
         android:id="@+id/edtCity"
         style="@style/CustomEditText"
         android:layout_below="@+id/edtGender"
         android:layout_marginTop="8dp"
-        android:hint="@string/city" />
+        android:hint="@string/city"
+        android:inputType="text" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
         android:id="@+id/edtBirthYear"

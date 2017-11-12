@@ -20,25 +20,19 @@
         android:text="@string/login_desc"
         android:textStyle="bold" />
 
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilPhone"
-        style="@style/CustomTextInputLayout"
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+        android:id="@+id/edtPhone"
+        style="@style/CustomEditText"
         android:layout_below="@+id/txtHint"
-        android:layout_marginTop="32dp">
-
-        <android.support.design.widget.TextInputEditText
-            android:id="@+id/edtPhone"
-            style="@style/CustomTextInputEditText"
-            android:hint="@string/hint_phone_number"
-            android:inputType="phone" />
-    </android.support.design.widget.TextInputLayout>
+        android:layout_marginTop="8dp"
+        android:hint="@string/hint_phone_number"
+        android:inputType="phone" />
 
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tilPhone"
+        android:layout_below="@+id/edtPhone"
         android:layout_marginTop="64dp">
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView

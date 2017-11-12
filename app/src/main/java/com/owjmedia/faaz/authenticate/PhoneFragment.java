@@ -2,8 +2,6 @@ package com.owjmedia.faaz.authenticate;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,9 +12,9 @@ import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.Validator;
-import com.wang.avi.AVLoadingIndicatorView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -88,7 +86,7 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     private AuthenticateContract.Presenter mPresenter;
 
     @BindView(R.id.edtPhone)
-    TextInputEditText edtPhone;
+    TypefacedEditText edtPhone;
 
     @BindView(R.id.btnContinue)
     TypefacedTextView btnContinue;

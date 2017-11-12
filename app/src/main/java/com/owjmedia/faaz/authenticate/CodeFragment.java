@@ -2,7 +2,6 @@ package com.owjmedia.faaz.authenticate;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.TextInputEditText;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +13,7 @@ import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.ProfileFragment;
@@ -95,7 +95,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
 
     @BindView(R.id.edtCode)
-    TextInputEditText edtCode;
+    TypefacedEditText edtCode;
 
     @BindView(R.id.btnContinue)
     TypefacedTextView btnContinue;
