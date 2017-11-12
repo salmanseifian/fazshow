@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Item;
 import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import java.util.List;
 import java.util.zip.Inflater;
@@ -38,6 +39,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         Result news = mNews.get(position);
         holder.bind(news, listener);
         holder.txtNewsTitle.setText(news.getTitle());
+        ImageHelper.getInstance(mContext).imageLoader(news.getFeaturedImage(), holder.imgNews, ImageHelper.ImageType.NEWS);
     }
 
 

@@ -20,7 +20,7 @@ public class Result {
     private String subtitle;
     @SerializedName("featured_image")
     @Expose
-    private Object featuredImage;
+    private String featuredImage;
     @SerializedName("enable")
     @Expose
     private boolean enable;
@@ -52,11 +52,11 @@ public class Result {
         this.subtitle = subtitle;
     }
 
-    public Object getFeaturedImage() {
+    public String getFeaturedImage() {
         return featuredImage;
     }
 
-    public void setFeaturedImage(Object featuredImage) {
+    public void setFeaturedImage(String featuredImage) {
         this.featuredImage = featuredImage;
     }
 

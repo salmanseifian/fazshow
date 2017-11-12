@@ -36,7 +36,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
         Item votingItem = mVoteItems.get(position);
         holder.bind(votingItem, listener);
         holder.txtCandidateName.setText(votingItem.getText());
-        ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate);
+        ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
     }
 
     @Override

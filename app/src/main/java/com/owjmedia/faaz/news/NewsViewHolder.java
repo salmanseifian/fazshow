@@ -2,6 +2,7 @@ package com.owjmedia.faaz.news;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Item;
@@ -31,6 +32,8 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
+    @BindView((R.id.imgNews))
+    ImageView imgNews;
     @BindView(R.id.txtNewsTitle)
     TypefacedTextView txtNewsTitle;
 }

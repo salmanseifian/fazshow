@@ -23,11 +23,28 @@ public class ImageHelper {
         return instance;
     }
 
-    public void imageLoader(String imageUrl, ImageView imageView) {
-        Picasso.with(context)
-                .load(imageUrl)
-                .placeholder(R.drawable.avatar)
-                .into(imageView);
+    public void imageLoader(String imageUrl, ImageView imageView, ImageType imageType) {
+        switch (imageType) {
+            case AVATAR:
+                Picasso.with(context)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.avatar)
+                        .into(imageView);
+                break;
+            case NEWS:
+                Picasso.with(context)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.placeholder_news)
+                        .into(imageView);
+                break;
+            default:
+                break;
+        }
+
+    }
+
+    public enum ImageType {
+        NEWS, AVATAR, POLL
     }
 
     private static ImageHelper instance;
