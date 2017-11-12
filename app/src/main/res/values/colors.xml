@@ -7,5 +7,5 @@
     <color name="colorEditTextBackground">#449B26AF</color>
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
-    <color name="colorPrimaryTransparent">#119B26AF</color>
+    <color name="colorPrimaryTransparent">#66691A99</color>
 </resources>

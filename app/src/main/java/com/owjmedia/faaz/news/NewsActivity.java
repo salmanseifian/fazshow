@@ -16,8 +16,12 @@ import android.view.MenuItem;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
+import com.owjmedia.faaz.authenticate.CodeFragment;
 import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
+import com.owjmedia.faaz.newsdetail.NewsDetailFragment;
 import com.owjmedia.faaz.vote.VotingActivity;
 
 import java.util.List;
@@ -62,7 +66,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mNewsAdapter = new NewsAdapter(mNews, new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Result newsItem) {
-
+                NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
+                newsDetailFragment.setArguments(bundle);
+                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), newsDetailFragment, R.id.contentFrame);
             }
         });
         mRecyclerView.setAdapter(mNewsAdapter);

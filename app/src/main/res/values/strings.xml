@@ -20,4 +20,5 @@
     <string name="girls">دختران</string>
     <string name="login">ورود</string>
     <string name="you_should_login_for_voting">برای شرکت در رای گیری ابتدا وارد شوید</string>
+    <string name="vote_hint">برای رای دهی بر روی فرد مورد نظر ضربه بزنید</string>
 </resources>

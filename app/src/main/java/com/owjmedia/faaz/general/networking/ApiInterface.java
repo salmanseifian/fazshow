@@ -4,6 +4,7 @@ import com.owjmedia.faaz.data.AuthenticationRequest;
 import com.owjmedia.faaz.data.AuthenticationResponse;
 import com.owjmedia.faaz.data.ConfirmationRequest;
 import com.owjmedia.faaz.data.ConfirmationResponse;
+import com.owjmedia.faaz.data.NewsDetailResponse;
 import com.owjmedia.faaz.data.NewsResponse;
 import com.owjmedia.faaz.data.UpdateProfileRequest;
 import com.owjmedia.faaz.data.VoteDetailRequest;
@@ -48,4 +49,10 @@ public interface ApiInterface {
 
     @GET("v1/news/")
     Call<NewsResponse> getNews();
+
+    @GET("v1/news/{news_id}/")
+    Call<NewsDetailResponse> getNewsDetail(@Path("news_id") String newsId);
+
+    @POST("v1/news/{news_id}/like/")
+    Call<ResponseBody> like(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
 }
