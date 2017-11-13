@@ -13,7 +13,6 @@ import com.owjmedia.faaz.data.VotingResponse;
 import java.util.List;
 
 
-
 class VotingAdapter extends RecyclerView.Adapter<VotingViewHolder> {
 
     VotingAdapter(List<VotingResponse> votingList, OnItemClickListener listener) {
@@ -39,9 +38,10 @@ class VotingAdapter extends RecyclerView.Adapter<VotingViewHolder> {
             holder.mTimelineView.setMarker(ResourcesCompat.getDrawable(mContext.getResources(), R.drawable.ic_radio_button_checked, null));
         }
 
-        if (!votingResponse.getUpdated().isEmpty()) {
+
+        if (!votingResponse.getCreated().isEmpty()) {
             holder.mDate.setVisibility(View.VISIBLE);
-            holder.mDate.setText(votingResponse.getUpdated());
+            holder.mDate.setText("27");
         } else
             holder.mDate.setVisibility(View.GONE);
 
