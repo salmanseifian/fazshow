@@ -24,7 +24,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="128dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/placeholder_news" />
+                android:src="@drawable/placeholder_news"
+                android:transitionName="@string/news_image"/>
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 android:id="@+id/txtNewsTitle"

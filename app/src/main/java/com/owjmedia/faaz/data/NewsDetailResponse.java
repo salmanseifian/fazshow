@@ -27,9 +27,9 @@ public class NewsDetailResponse {
     @SerializedName("news_categories")
     @Expose
     private String newsCategories;
-    @SerializedName("featured_image")
+    @SerializedName("image")
     @Expose
-    private String featuredImage;
+    private String image;
     @SerializedName("created_jalali")
     @Expose
     private String createdJalali;
@@ -82,12 +82,12 @@ public class NewsDetailResponse {
         this.newsCategories = newsCategories;
     }
 
-    public String getFeaturedImage() {
-        return featuredImage;
+    public String getImage() {
+        return image;
     }
 
-    public void setFeaturedImage(String featuredImage) {
-        this.featuredImage = featuredImage;
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getCreatedJalali() {

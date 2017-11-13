@@ -3,11 +3,8 @@ package com.owjmedia.faaz.newsdetail;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v7.app.AppCompatActivity;
 import android.text.Html;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -23,25 +20,20 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by seifian on 11/12/17.
+ * Created by seifian on 11/13/17.
  */
 
-public class NewsDetailFragment extends Fragment implements NewsDetailContract.View {
-
-    @Nullable
+public class NewsDetailActivity extends AppCompatActivity implements NewsDetailContract.View {
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.news_detail_frg, container, false);
-    }
-
-    @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this, view);
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.news_detail_frg);
+        ButterKnife.bind(this);
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.getNewsDetail(getNewsId());
     }
+
 
     @Override
     public void setPresenter(NewsDetailContract.Presenter presenter) {
@@ -66,7 +58,7 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
         } else {
             txtNewsContent.setText(Html.fromHtml(newsDetailResponse.getContent()));
         }
-        ImageHelper.getInstance(getContext()).imageLoader(newsDetailResponse.getImage(), imgNews, ImageHelper.ImageType.NEWS);
+        ImageHelper.getInstance(this).imageLoader(newsDetailResponse.getImage(), imgNews, ImageHelper.ImageType.NEWS);
     }
 
     @Override
@@ -75,13 +67,13 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
     }
 
     private String getNewsId() {
-        return getArguments().getString(Constants.KEYS.NEWS_ID);
+        return getIntent().getStringExtra(Constants.KEYS.NEWS_ID);
     }
 
     @OnClick(R.id.lottieLike)
     public void like() {
         lottieLike.playAnimation();
-        mNewsDetailPresenter.like(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getNewsId());
+        mNewsDetailPresenter.like(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
     }
 
 
@@ -98,6 +90,4 @@ public class NewsDetailFragment extends Fragment implements NewsDetailContract.V
 
     @BindView(R.id.lottieLike)
     LottieAnimationView lottieLike;
-
-
 }

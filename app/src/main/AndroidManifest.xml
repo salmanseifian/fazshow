@@ -25,6 +25,9 @@
         <activity
             android:name=".vote.VotingActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".newsdetail.NewsDetailActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

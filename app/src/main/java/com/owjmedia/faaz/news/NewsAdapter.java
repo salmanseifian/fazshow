@@ -5,14 +5,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.Item;
 import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import java.util.List;
-import java.util.zip.Inflater;
 
 /**
  * Created by salman on 11/11/17.
@@ -39,7 +38,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         Result news = mNews.get(position);
         holder.bind(news, listener);
         holder.txtNewsTitle.setText(news.getTitle());
-        ImageHelper.getInstance(mContext).imageLoader(news.getFeaturedImage(), holder.imgNews, ImageHelper.ImageType.NEWS);
+        ImageHelper.getInstance(mContext).imageLoader(news.getImage(), holder.imgNews, ImageHelper.ImageType.NEWS);
     }
 
 
@@ -49,7 +48,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     }
 
     interface OnItemClickListener {
-        void onItemClick(Result newsItem);
+        void onItemClick(Result newsItem, ImageView imgNews);
     }
 
     public void update(List<Result> news) {

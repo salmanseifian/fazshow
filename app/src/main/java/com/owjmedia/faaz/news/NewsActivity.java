@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.news;
 
+import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -13,6 +14,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
@@ -21,6 +24,7 @@ import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
+import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
 import com.owjmedia.faaz.newsdetail.NewsDetailFragment;
 import com.owjmedia.faaz.vote.VotingActivity;
 
@@ -65,13 +69,15 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mRecyclerView.setHasFixedSize(true);
         mNewsAdapter = new NewsAdapter(mNews, new NewsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Result newsItem) {
-                NewsDetailFragment newsDetailFragment = new NewsDetailFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
-                newsDetailFragment.setArguments(bundle);
-                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), newsDetailFragment, R.id.contentFrame);
+            public void onItemClick(Result newsItem, ImageView imgNews) {
+                Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
+                String transitionName = getString(R.string.news_image);
+
+                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(NewsActivity.this, imgNews, transitionName);
+                intent.putExtra(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
+                startActivity(intent, transitionActivityOptions.toBundle());
             }
+
         });
         mRecyclerView.setAdapter(mNewsAdapter);
         mNewsPresenter.getNews();
