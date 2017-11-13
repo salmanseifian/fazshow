@@ -4,7 +4,11 @@
     android:layout_height="match_parent"
     android:background="@drawable/blure_bg">
 
-    <include layout="@layout/recyclerview" />
+
+    <com.volokh.danylo.utils.DebugRecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         style="@style/CustomTextView"

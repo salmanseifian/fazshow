@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -44,6 +45,15 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         mNewsDetailPresenter.getNewsDetail(getNewsId());
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                onBackPressed();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     @Override
     public void setPresenter(NewsDetailContract.Presenter presenter) {

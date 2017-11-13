@@ -72,7 +72,7 @@ public class DebugRecyclerView extends RecyclerView {
         mPaintForCircle.setAlpha(100 /*This is not percents*/);
 
         mPaintForCross = new Paint();
-        mPaintForCross.setColor(Color.BLACK);
+        mPaintForCross.setColor(Color.TRANSPARENT);
         mPaintForCross.setStrokeWidth(5);
     }
 

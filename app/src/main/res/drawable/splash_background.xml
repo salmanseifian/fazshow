@@ -9,7 +9,7 @@
         android:height="128dp">
         <bitmap
             android:gravity="center"
-            android:src="@mipmap/ic_launcher" />
+            android:src="@drawable/ic_logo_transparent" />
     </item>
 
 </layer-list>

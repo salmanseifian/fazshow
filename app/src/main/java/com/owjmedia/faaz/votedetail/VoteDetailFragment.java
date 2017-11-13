@@ -3,7 +3,6 @@ package com.owjmedia.faaz.votedetail;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,12 +16,15 @@ import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.volokh.danylo.layoutmanager.LondonEyeLayoutManager;
 import com.volokh.danylo.layoutmanager.scroller.IScrollHandler;
+import com.volokh.danylo.utils.DebugRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.owjmedia.faaz.R.id.recyclerView;
 
 
 public class VoteDetailFragment extends Fragment implements VoteDetailContract.View {
@@ -54,8 +56,9 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
         int xOrigin = -screenWidth / 2;
         int yOrigin = screenHeight / 2;
-//        mRecyclerView.setParameters(circleRadius, xOrigin, yOrigin);
-
+//        int xOrigin = -200;
+//        int yOrigin = 0;
+        mRecyclerView.setParameters(circleRadius, xOrigin, yOrigin);
 //
 //            // use this setting to improve performance if you know that changes
 //            // in content do not change the layout size of the RecyclerView
@@ -70,6 +73,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
         mRecyclerView.setLayoutManager(mLondonEyeLayoutManager);//new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
+//        mRecyclerView.setLayoutManager(new CircularLayoutManager(getContext(), 200, -100));
         mVoteDetailAdapter = new VoteDetailAdapter(mVotingItems, new VoteDetailAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(Item voteItem) {
@@ -126,8 +130,8 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     LondonEyeLayoutManager mLondonEyeLayoutManager;
     List<Item> mVotingItems = new ArrayList<>();
 
-    @BindView(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @BindView(recyclerView)
+    DebugRecyclerView mRecyclerView;
 
     ProgressDialog mProgressDialog;
 

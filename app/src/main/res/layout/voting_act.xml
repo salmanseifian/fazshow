@@ -12,22 +12,22 @@
 
         <include layout="@layout/app_bar" />
 
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTabLayout
-                android:id="@+id/tabs"
+            <android.support.v4.view.ViewPager
+                android:id="@+id/viewpager"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="?colorPrimary"
-                app:tabGravity="fill"
-                app:tabMode="fixed"
-                app:tabSelectedTextColor="@color/colorAccentDark"
-                app:tabTextColor="@color/colorWhite" />
-        </android.support.v4.view.ViewPager>
+                android:layout_height="match_parent"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="?colorPrimary"
+                    app:tabGravity="fill"
+                    app:tabMode="fixed"
+                    app:tabSelectedTextColor="@color/colorAccentDark"
+                    app:tabTextColor="@color/colorWhite" />
+            </android.support.v4.view.ViewPager>
 
 
     </android.support.design.widget.CoordinatorLayout>
