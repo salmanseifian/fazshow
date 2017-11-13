@@ -3,7 +3,9 @@ package com.owjmedia.faaz.newsdetail;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.widget.ImageView;
 
@@ -27,8 +29,16 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.news_detail_frg);
+        setContentView(R.layout.news_detail_act);
         ButterKnife.bind(this);
+
+        // Set up the toolbar.
+        setSupportActionBar(toolbar);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayShowTitleEnabled(false);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.getNewsDetail(getNewsId());
@@ -78,6 +88,9 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
 
 
     private NewsDetailContract.Presenter mNewsDetailPresenter;
+
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
 
     @BindView(R.id.imgNews)
     ImageView imgNews;

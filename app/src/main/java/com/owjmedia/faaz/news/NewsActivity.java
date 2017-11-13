@@ -14,18 +14,14 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
-import com.owjmedia.faaz.authenticate.CodeFragment;
 import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.Constants;
-import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
-import com.owjmedia.faaz.newsdetail.NewsDetailFragment;
 import com.owjmedia.faaz.vote.VotingActivity;
 
 import java.util.List;
@@ -48,8 +44,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         // Set up the toolbar.
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
-        ab.setHomeAsUpIndicator(R.drawable.ic_menu);
-        ab.setDisplayHomeAsUpEnabled(true);
+        if (ab != null) {
+            ab.setDisplayShowTitleEnabled(false);
+            ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
 
         // Set up the navigation drawer.
         if (navigationView != null) {
@@ -104,6 +103,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @Override
     public void showNews(List<Result> news) {
         mNewsAdapter.update(news);
+        mRecyclerView.scheduleLayoutAnimation();
     }
 
     @Override

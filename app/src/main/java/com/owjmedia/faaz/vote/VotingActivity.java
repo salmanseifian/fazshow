@@ -28,7 +28,11 @@ public class VotingActivity extends AppCompatActivity {
 
         // Set up the toolbar.
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayShowTitleEnabled(false);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
 
         // Set up view pager
         setupViewPager();
