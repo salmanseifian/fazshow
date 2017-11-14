@@ -1,8 +1,18 @@
 package com.owjmedia.faaz.general.utils;
 
+import android.app.Activity;
+import android.content.Context;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.Fragment;
+import android.view.Gravity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Toast;
+
+import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 
 /**
  * Created by salman on 11/8/17.
@@ -31,6 +41,19 @@ public class ActivityUtils {
         transaction.addToBackStack(null);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
         transaction.commit();
+    }
+
+    public static void showToast(Context context, String message) {
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View view = inflater.inflate(R.layout.custom_toast, (ViewGroup) ((Activity) context).findViewById(R.id.custom_toast));
+
+        TypefacedTextView txtToast = view.findViewById(R.id.txt_toast);
+        txtToast.setText(message);
+
+        Toast toast = new Toast(context);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(view);
+        toast.show();
     }
 
 }

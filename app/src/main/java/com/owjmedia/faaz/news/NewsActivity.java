@@ -19,6 +19,7 @@ import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
@@ -149,6 +150,16 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     public void goToVote() {
         Intent votingIntent = new Intent(NewsActivity.this, VotingActivity.class);
         startActivity(votingIntent);
+    }
+
+    @OnClick(R.id.rl_competition)
+    public void goToCompetition() {
+        ActivityUtils.showToast(this, getString(R.string.soon));
+    }
+
+    @OnClick(R.id.rl_club)
+    public void goToClub() {
+        ActivityUtils.showToast(this, getString(R.string.soon));
     }
 
     @OnClick(R.id.rl_exit)
