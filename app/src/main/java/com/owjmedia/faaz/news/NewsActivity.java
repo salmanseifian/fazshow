@@ -3,17 +3,15 @@ package com.owjmedia.faaz.news;
 import android.app.ActivityOptions;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
-import android.support.v4.view.GravityCompat;
-import android.support.v4.widget.DrawerLayout;
+import android.support.design.widget.BottomSheetBehavior;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
@@ -28,10 +26,8 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
-/**
- * Created by salman on 11/9/17.
- */
 
 public class NewsActivity extends AppCompatActivity implements NewsContract.View {
 
@@ -50,17 +46,21 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
             ab.setDisplayHomeAsUpEnabled(true);
         }
 
-        // Set up the navigation drawer.
-        if (navigationView != null) {
-            setupDrawerContent(navigationView);
-        }
-
         mNewsPresenter = new NewsPresenter(this);
         mProgressDialog = new ProgressDialog(this);
+
+        // init the bottom sheet behavior
+        mBottomSheetBahavior = BottomSheetBehavior.from(mBottomSheet);
 
         // Set up recycler view
         initView();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
     }
 
     private void initView() {
@@ -110,52 +110,47 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case android.R.id.home:
-                mDrawerLayout.openDrawer(GravityCompat.START);
+                if (mBottomSheetBahavior.getState() != BottomSheetBehavior.STATE_COLLAPSED)
+                    mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                else
+                    mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
                 return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void setupDrawerContent(NavigationView navigationView) {
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                switch (item.getItemId()) {
-                    case R.id.profile:
-                        Intent profileIntent = new Intent(NewsActivity.this, AuthenticateActivity.class);
-                        startActivity(profileIntent);
-                        break;
-                    case R.id.voting:
-                        Intent votingIntent = new Intent(NewsActivity.this, VotingActivity.class);
-                        startActivity(votingIntent);
-                        break;
-                    default:
-                        break;
-                }
-                item.setChecked(true);
-                mDrawerLayout.closeDrawers();
-                return true;
-            }
-        });
-
+    @OnClick(R.id.rl_header)
+    public void hideBottomSheet() {
+        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
     }
+
+    @OnClick(R.id.rl_profile)
+    public void goToProfile() {
+        Intent profileIntent = new Intent(NewsActivity.this, AuthenticateActivity.class);
+        startActivity(profileIntent);
+    }
+
+    @OnClick(R.id.rl_vote)
+    public void goToVote() {
+        Intent votingIntent = new Intent(NewsActivity.this, VotingActivity.class);
+        startActivity(votingIntent);
+    }
+
 
     private NewsContract.Presenter mNewsPresenter;
     private NewsAdapter mNewsAdapter;
     private List<Result> mNews;
 
     ProgressDialog mProgressDialog;
+    BottomSheetBehavior mBottomSheetBahavior;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
-    @BindView(R.id.drawerLayout)
-    DrawerLayout mDrawerLayout;
-
-    @BindView(R.id.nav_view)
-    NavigationView navigationView;
-
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
+
+    @BindView(R.id.bottom_sheet)
+    View mBottomSheet;
 
 }

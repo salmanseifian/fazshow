@@ -59,5 +59,28 @@
         <item name="android:textSize">14sp</item>
     </style>
 
+    <style name="MenuItem">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:background">?selectableItemBackground</item>
+        <item name="android:clickable">true</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="MenuItemText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:layout_marginRight">8dp</item>
+    </style>
+
+    <style name="MenuItemIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_alignParentRight">true</item>
+    </style>
+
 
 </resources>
