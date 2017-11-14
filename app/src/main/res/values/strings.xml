@@ -24,4 +24,7 @@
     <string name="news_image">newsImage</string>
     <string name="competition">مسابقه</string>
     <string name="club">باشگاه</string>
+    <string name="info">درباره ما</string>
+    <string name="exit">خروج</string>
+    <string name="login_and_register">ورود و عضویت</string>
 </resources>

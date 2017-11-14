@@ -91,4 +91,36 @@
             android:text="@string/club" />
     </RelativeLayout>
 
+    <RelativeLayout
+        android:id="@+id/rl_info"
+        style="@style/MenuItem">
+
+        <ImageView
+            android:id="@+id/img_info"
+            style="@style/MenuItemIcon"
+            android:src="@drawable/ic_info" />
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/txt_info"
+            style="@style/MenuItemText"
+            android:layout_toLeftOf="@+id/img_info"
+            android:text="@string/info" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_exit"
+        style="@style/MenuItem">
+
+        <ImageView
+            android:id="@+id/img_exit"
+            style="@style/MenuItemIcon"
+            android:src="@drawable/ic_exit_to_app" />
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/txt_exit"
+            style="@style/MenuItemText"
+            android:layout_toLeftOf="@+id/img_exit"
+            android:text="@string/exit" />
+    </RelativeLayout>
+
 </LinearLayout>

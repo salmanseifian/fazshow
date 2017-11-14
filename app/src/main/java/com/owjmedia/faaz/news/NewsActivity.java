@@ -12,12 +12,15 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
 import com.owjmedia.faaz.vote.VotingActivity;
@@ -51,6 +54,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
         // init the bottom sheet behavior
         mBottomSheetBahavior = BottomSheetBehavior.from(mBottomSheet);
+        setupBottomSheet();
 
         // Set up recycler view
         initView();
@@ -61,6 +65,17 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     protected void onResume() {
         super.onResume();
         mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        setupBottomSheet();
+    }
+
+    private void setupBottomSheet() {
+        if (!AppManager.isLogin(this)) {
+            mRlExit.setVisibility(View.INVISIBLE);
+            mTxtProfile.setText(getString(R.string.login_and_register));
+        } else {
+            mRlExit.setVisibility(View.VISIBLE);
+            mTxtProfile.setText(getString(R.string.profile));
+        }
     }
 
     private void initView() {
@@ -136,6 +151,12 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         startActivity(votingIntent);
     }
 
+    @OnClick(R.id.rl_exit)
+    public void logout() {
+        AppManager.setString(this, Constants.KEYS.TOKEN, null);
+        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+    }
+
 
     private NewsContract.Presenter mNewsPresenter;
     private NewsAdapter mNewsAdapter;
@@ -152,5 +173,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @BindView(R.id.bottom_sheet)
     View mBottomSheet;
+
+    @BindView(R.id.txt_profile)
+    TypefacedTextView mTxtProfile;
+
+    @BindView(R.id.rl_exit)
+    ViewGroup mRlExit;
 
 }
