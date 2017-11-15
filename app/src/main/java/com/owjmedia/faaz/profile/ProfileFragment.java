@@ -2,19 +2,18 @@ package com.owjmedia.faaz.profile;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 
 import butterknife.BindView;
@@ -37,7 +36,10 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+
         mProfilePresenter = new ProfilePresenter(this);
+
+        mProgressDialog = new ProgressDialog(getContext());
     }
 
     @Override
@@ -47,18 +49,15 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if (active) {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.VISIBLE);
-        } else {
-            btnContinue.setVisibility(View.INVISIBLE);
-            prg.setVisibility(View.INVISIBLE);
-        }
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
     }
 
     @Override
@@ -78,6 +77,8 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     private ProfileContract.Presenter mProfilePresenter;
 
+    ProgressDialog mProgressDialog;
+
     @BindView(R.id.edtGender)
     TypefacedEditText edtGender;
 
@@ -87,9 +88,5 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @BindView(R.id.edtBirthYear)
     TypefacedEditText edtBirthYear;
 
-    @BindView(R.id.btnContinue)
-    TypefacedTextView btnContinue;
 
-    @BindView(R.id.prg)
-    ProgressBar prg;
 }

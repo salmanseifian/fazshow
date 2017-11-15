@@ -8,13 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.ProfileFragment;
 
@@ -39,7 +38,10 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+
         mPresenter = new AuthenticatePresenter(this);
+
+        mProgressDialog = new ProgressDialog(getContext());
     }
 
     @Override
@@ -49,13 +51,11 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void setLoadingIndicator(boolean active) {
-        if (active) {
-            btnContinue.setVisibility(View.INVISIBLE);
-            lottieLoading.playAnimation();
-        } else {
-            btnContinue.setVisibility(View.VISIBLE);
-            lottieLoading.cancelAnimation();
-        }
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
+
     }
 
     @Override
@@ -71,7 +71,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
     }
 
 
@@ -93,13 +93,10 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     private AuthenticateContract.Presenter mPresenter;
 
+    ProgressDialog mProgressDialog;
 
     @BindView(R.id.edtCode)
     TypefacedEditText edtCode;
 
-    @BindView(R.id.btnContinue)
-    TypefacedTextView btnContinue;
 
-    @BindView(R.id.lottieLoading)
-    LottieAnimationView lottieLoading;
 }

@@ -8,12 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 
 import butterknife.BindView;
@@ -36,6 +35,8 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+
+        mProgressDialog = new ProgressDialog(getContext());
     }
 
     @OnClick(R.id.btnContinue)
@@ -43,7 +44,7 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         if (Validator.isPhoneNumberValid(edtPhone.getText().toString()))
             mPresenter.sendPhoneNumber(edtPhone.getText().toString());
         else
-            showMessage(getString(R.string.input_is_not_valid));
+            ActivityUtils.showToast(getContext(), getString(R.string.input_is_not_valid), "emoji_shock.json");
     }
 
     @Override
@@ -55,11 +56,9 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     @Override
     public void setLoadingIndicator(boolean active) {
         if (active) {
-            btnContinue.setVisibility(View.INVISIBLE);
-            lottieLoading.playAnimation();
+            mProgressDialog.show();
         } else {
-            btnContinue.setVisibility(View.VISIBLE);
-            lottieLoading.cancelAnimation();
+            mProgressDialog.cancel();
         }
     }
 
@@ -80,18 +79,14 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
 
     @Override
     public void showMessage(String message) {
-        Toast.makeText(getActivity(), message, Toast.LENGTH_SHORT).show();
+        ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
     }
 
     private AuthenticateContract.Presenter mPresenter;
 
+    ProgressDialog mProgressDialog;
+
     @BindView(R.id.edtPhone)
     TypefacedEditText edtPhone;
-
-    @BindView(R.id.btnContinue)
-    TypefacedTextView btnContinue;
-
-    @BindView(R.id.lottieLoading)
-    LottieAnimationView lottieLoading;
 
 }

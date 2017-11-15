@@ -48,12 +48,12 @@
 
                 <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                     android:id="@+id/txtNewsTitle"
-                    style="@style/CustomTextView"
+                    style="@style/NewsTitleTextView"
                     android:layout_below="@+id/lottieLike" />
 
                 <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                     android:id="@+id/txtNewsContent"
-                    style="@style/ContentTextView"
+                    style="@style/NewsContentTextView"
                     android:layout_below="@+id/txtNewsTitle" />
 
             </RelativeLayout>

@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 
@@ -43,12 +44,15 @@ public class ActivityUtils {
         transaction.commit();
     }
 
-    public static void showToast(Context context, String message) {
+    public static void showToast(Context context, String message, String animationName) {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.custom_toast, (ViewGroup) ((Activity) context).findViewById(R.id.custom_toast));
 
         TypefacedTextView txtToast = view.findViewById(R.id.txt_toast);
         txtToast.setText(message);
+
+        LottieAnimationView lottieToast = view.findViewById(R.id.lottie_toat);
+        lottieToast.setAnimation(animationName);
 
         Toast toast = new Toast(context);
         toast.setDuration(Toast.LENGTH_SHORT);

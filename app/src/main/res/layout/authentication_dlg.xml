@@ -16,7 +16,7 @@
         android:id="@+id/txtVote"
         android:text="@string/you_should_login_for_voting"
         android:layout_below="@+id/lottieRegisterToVote"
-        style="@style/CustomTextView" />
+        style="@style/NewsTitleTextView" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtGoToAuthentication"

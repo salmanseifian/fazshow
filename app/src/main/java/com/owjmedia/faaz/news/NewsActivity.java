@@ -2,6 +2,7 @@ package com.owjmedia.faaz.news;
 
 import android.app.ActivityOptions;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
@@ -86,11 +87,15 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
             @Override
             public void onItemClick(Result newsItem, ImageView imgNews) {
                 Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
-                String transitionName = getString(R.string.news_image);
-
-                ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(NewsActivity.this, imgNews, transitionName);
                 intent.putExtra(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
-                startActivity(intent, transitionActivityOptions.toBundle());
+
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    String transitionName = getString(R.string.news_image);
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(NewsActivity.this, imgNews, transitionName);
+                    startActivity(intent, transitionActivityOptions.toBundle());
+                } else {
+                    startActivity(intent);
+                }
             }
 
         });
@@ -154,12 +159,12 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @OnClick(R.id.rl_competition)
     public void goToCompetition() {
-        ActivityUtils.showToast(this, getString(R.string.soon));
+        ActivityUtils.showToast(this, getString(R.string.soon), "emoji_wink.json");
     }
 
     @OnClick(R.id.rl_club)
     public void goToClub() {
-        ActivityUtils.showToast(this, getString(R.string.soon));
+        ActivityUtils.showToast(this, getString(R.string.soon), "emoji_wink.json");
     }
 
     @OnClick(R.id.rl_exit)

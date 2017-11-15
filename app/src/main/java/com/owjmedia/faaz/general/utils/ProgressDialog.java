@@ -16,11 +16,7 @@ public class ProgressDialog extends Dialog {
 
     public ProgressDialog(@NonNull Context context) {
         super(context);
-    }
-
-    @Override
-    public void setCancelable(boolean flag) {
-        super.setCancelable(false);
+        setCancelable(false);
     }
 
 
@@ -36,7 +32,6 @@ public class ProgressDialog extends Dialog {
             instance = new ProgressDialog(context);
         return instance;
     }
-
 
 
     private static ProgressDialog instance;

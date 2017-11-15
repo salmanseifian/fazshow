@@ -15,10 +15,9 @@
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtHint"
-        style="@style/CustomTextView"
+        style="@style/DescriptionTextView"
         android:layout_below="@+id/lottieGift"
-        android:text="@string/profile_desc"
-        android:textStyle="bold" />
+        android:text="@string/profile_desc" />
 
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
@@ -45,23 +44,12 @@
         android:hint="@string/birth_year"
         android:inputType="number" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/btnContinue"
+        style="@style/ClickableTextView"
         android:layout_below="@+id/edtBirthYear"
-        android:layout_marginTop="16dp">
+        android:layout_centerInParent="true"
+        android:layout_marginTop="16dp"
+        android:text="@string/save" />
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/btnContinue"
-            style="@style/ClickableTextView"
-            android:layout_centerInParent="true"
-            android:text="@string/save" />
-
-        <ProgressBar
-            android:id="@+id/prg"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true" />
-
-    </RelativeLayout>
 </RelativeLayout>
