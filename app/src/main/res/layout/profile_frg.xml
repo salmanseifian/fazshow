@@ -26,12 +26,19 @@
         android:layout_below="@+id/txtHint"
         android:layout_marginTop="8dp"
         android:hint="@string/gender"
-        android:inputType="text" />
+        android:inputType="text"
+        android:visibility="gone" />
+
+    <android.support.v7.widget.AppCompatSpinner
+        android:id="@+id/spinnerGender"
+        style="@style/CustomEditText"
+        android:gravity="center"
+        android:layout_below="@+id/txtHint" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
         android:id="@+id/edtCity"
         style="@style/CustomEditText"
-        android:layout_below="@+id/edtGender"
+        android:layout_below="@+id/spinnerGender"
         android:layout_marginTop="8dp"
         android:hint="@string/city"
         android:inputType="text" />
@@ -51,5 +58,11 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="16dp"
         android:text="@string/save" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txtSkip"
+        style="@style/DescriptionTextView"
+        android:layout_below="@+id/btnContinue"
+        android:text="@string/complete_later" />
 
 </RelativeLayout>

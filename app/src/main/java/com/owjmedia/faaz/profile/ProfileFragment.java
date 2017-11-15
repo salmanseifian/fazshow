@@ -6,6 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
@@ -15,6 +17,9 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +45,19 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         mProfilePresenter = new ProfilePresenter(this);
 
         mProgressDialog = new ProgressDialog(getContext());
+
+        // Set up spinner
+        setUpSpinner();
+    }
+
+    private void setUpSpinner() {
+        List<String> list = new ArrayList<>();
+        list.add(getString(R.string.male));
+        list.add(getString(R.string.female));
+        ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getContext(),
+                R.layout.item_spinner, list);
+        dataAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
+        spinnerGender.setAdapter(dataAdapter);
     }
 
     @Override
@@ -67,11 +85,16 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     @OnClick(R.id.btnContinue)
     public void saveProfile() {
-        if (Validator.isStringValid(edtGender.getText().toString()) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
-            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), edtGender.getText().toString(), edtCity.getText().toString(),
+        if (Validator.isStringValid(spinnerGender.getSelectedItem().toString()) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
+            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), spinnerGender.getSelectedItem().toString(), edtCity.getText().toString(),
                     Integer.parseInt(edtBirthYear.getText().toString()));
         else
             showMessage(getString(R.string.inputs_is_not_valid));
+    }
+
+    @OnClick(R.id.txtSkip)
+    public void skip() {
+        getActivity().finish();
     }
 
 
@@ -81,6 +104,9 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     @BindView(R.id.edtGender)
     TypefacedEditText edtGender;
+
+    @BindView(R.id.spinnerGender)
+    Spinner spinnerGender;
 
     @BindView(R.id.edtCity)
     TypefacedEditText edtCity;

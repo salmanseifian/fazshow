@@ -28,4 +28,8 @@
     <string name="exit">خروج</string>
     <string name="login_and_register">ورود و عضویت</string>
     <string name="soon">به زودی</string>
+    <string name="male">مرد</string>
+    <string name="female">زن</string>
+    <string name="skip">بعدأ</string>
+    <string name="complete_later">بعدا تکمیل می کنم</string>
 </resources>

@@ -171,6 +171,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     public void logout() {
         AppManager.setString(this, Constants.KEYS.TOKEN, null);
         mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
+        setupBottomSheet();
     }
 
 
