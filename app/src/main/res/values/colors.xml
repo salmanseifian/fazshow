@@ -8,5 +8,6 @@
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
     <color name="colorPrimaryTransparent">#66691A99</color>
+    <color name="colorCardItemVote">#cc9B26AF</color>
     <color name="colorEditTextHint">#bbb</color>
 </resources>

@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Item;
 import com.owjmedia.faaz.general.utils.ImageHelper;
@@ -27,7 +28,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     public VoteDetailViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
-        View view = mLayoutInflater.inflate(R.layout.item_vote, parent, false);
+        View view = mLayoutInflater.inflate(R.layout.item_vote_carousel, parent, false);
         return new VoteDetailViewHolder(view);
     }
 
@@ -45,7 +46,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     }
 
     interface OnItemClickListener {
-        void onItemClick(Item voteItem);
+        void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView);
     }
 
     public void update(List<Item> voteItems) {

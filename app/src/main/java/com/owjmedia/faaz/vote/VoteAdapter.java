@@ -13,32 +13,26 @@ import com.owjmedia.faaz.data.VotingResponse;
 import java.util.List;
 
 
-class VotingAdapter extends RecyclerView.Adapter<VotingViewHolder> {
+class VoteAdapter extends RecyclerView.Adapter<VoteViewHolder> {
 
-    VotingAdapter(List<VotingResponse> votingList, OnItemClickListener listener) {
+    VoteAdapter(List<VotingResponse> votingList, OnItemClickListener listener) {
         this.mVotingList = votingList;
         this.listener = listener;
     }
 
     @Override
-    public VotingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public VoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
         View view = mLayoutInflater.inflate(R.layout.item_timeline_line_padding, parent, false);
-        return new VotingViewHolder(view);
+        return new VoteViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(VotingViewHolder holder, int position) {
+    public void onBindViewHolder(VoteViewHolder holder, int position) {
         final VotingResponse votingResponse = mVotingList.get(position);
         holder.bind(votingResponse, listener);
-        if (!votingResponse.isEnable()) {
-            holder.mTimelineView.setMarker(ResourcesCompat.getDrawable(mContext.getResources(), R.drawable.ic_radio_button_unchecked, null));
-        } else if (votingResponse.isEnable()) {
-            holder.mTimelineView.setMarker(ResourcesCompat.getDrawable(mContext.getResources(), R.drawable.ic_radio_button_checked, null));
-        }
-
-
+//
         if (!votingResponse.getCreated().isEmpty()) {
             holder.mDate.setVisibility(View.VISIBLE);
             holder.mDate.setText("27");

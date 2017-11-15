@@ -14,9 +14,9 @@ import retrofit2.Response;
  * Created by salman on 11/10/17.
  */
 
-public class VotingPresenter implements VotingContract.Presenter {
+public class VotePresenter implements VoteContract.Presenter {
 
-    public VotingPresenter(VotingContract.View mVotingContract) {
+    public VotePresenter(VoteContract.View mVotingContract) {
         this.mVotingView = mVotingContract;
 
         mVotingView.setPresenter(this);
@@ -50,6 +50,6 @@ public class VotingPresenter implements VotingContract.Presenter {
 
     }
 
-    private final VotingContract.View mVotingView;
+    private final VoteContract.View mVotingView;
 
 }

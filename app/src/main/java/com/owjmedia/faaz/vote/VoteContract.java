@@ -10,7 +10,7 @@ import java.util.List;
  * Created by salman on 11/10/17.
  */
 
-public interface VotingContract {
+public interface VoteContract {
 
     interface View extends BaseView<Presenter> {
 

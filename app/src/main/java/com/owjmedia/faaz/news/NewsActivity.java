@@ -25,7 +25,7 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
-import com.owjmedia.faaz.vote.VotingActivity;
+import com.owjmedia.faaz.vote.VoteActivity;
 
 import java.util.List;
 
@@ -153,7 +153,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @OnClick(R.id.rl_vote)
     public void goToVote() {
-        Intent votingIntent = new Intent(NewsActivity.this, VotingActivity.class);
+        Intent votingIntent = new Intent(NewsActivity.this, VoteActivity.class);
         startActivity(votingIntent);
     }
 

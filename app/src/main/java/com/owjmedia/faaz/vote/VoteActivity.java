@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
  * Created by salman on 11/9/17.
  */
 
-public class VotingActivity extends AppCompatActivity {
+public class VoteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

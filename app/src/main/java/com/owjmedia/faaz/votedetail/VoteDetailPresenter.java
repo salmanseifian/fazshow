@@ -4,8 +4,6 @@ import com.owjmedia.faaz.data.VoteDetailRequest;
 import com.owjmedia.faaz.data.VoteDetailResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
-import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.AppManager;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -38,7 +36,7 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
         call.enqueue(new Callback<VoteDetailResponse>() {
             @Override
             public void onResponse(Call<VoteDetailResponse> call, Response<VoteDetailResponse> response) {
-                mVoteDetailView.showCandidates(response.body().getItems());
+                mVoteDetailView.showCandidates(response.body());
                 mVoteDetailView.setLoadingIndicator(false);
 
             }
@@ -46,7 +44,6 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
             @Override
             public void onFailure(Call<VoteDetailResponse> call, Throwable t) {
                 mVoteDetailView.setLoadingIndicator(false);
-                mVoteDetailView.showMessage(t.getMessage());
             }
         });
     }

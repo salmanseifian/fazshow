@@ -3,20 +3,25 @@ package com.owjmedia.faaz.votedetail;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
+import com.airbnb.lottie.LottieAnimationView;
+import com.azoft.carousellayoutmanager.CarouselLayoutManager;
+import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
+import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Item;
+import com.owjmedia.faaz.data.VoteDetailResponse;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.volokh.danylo.layoutmanager.LondonEyeLayoutManager;
 import com.volokh.danylo.layoutmanager.scroller.IScrollHandler;
-import com.volokh.danylo.utils.DebugRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,10 +49,11 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
         mProgressDialog = new ProgressDialog(getActivity());
         // Set up recycler view
-        initViews();
+//        initLondonLayoutManager();
+        initCarouselLayoutManager();
     }
 
-    private void initViews() {
+    private void initLondonLayoutManager() {
 
         int screenWidth = getActivity().getResources().getDisplayMetrics().widthPixels;
         int screenHeight = getActivity().getResources().getDisplayMetrics().heightPixels;
@@ -56,12 +62,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
         int xOrigin = -screenWidth / 2;
         int yOrigin = screenHeight / 2;
-//        int xOrigin = -200;
-//        int yOrigin = 0;
-        mRecyclerView.setParameters(circleRadius, xOrigin, yOrigin);
-//
-//            // use this setting to improve performance if you know that changes
-//            // in content do not change the layout size of the RecyclerView
+
         mRecyclerView.setHasFixedSize(true);
 
         mLondonEyeLayoutManager = new LondonEyeLayoutManager(
@@ -74,18 +75,33 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         mRecyclerView.setLayoutManager(mLondonEyeLayoutManager);//new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
 //        mRecyclerView.setLayoutManager(new CircularLayoutManager(getContext(), 200, -100));
+        initAdapter();
+    }
+
+    private void initCarouselLayoutManager() {
+        CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.addOnScrollListener(new CenterScrollListener());
+        layoutManager.setPostLayoutListener(new CarouselZoomPostLayoutListener());
+        initAdapter();
+    }
+
+    private void initAdapter() {
         mVoteDetailAdapter = new VoteDetailAdapter(mVotingItems, new VoteDetailAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Item voteItem) {
+            public void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView) {
                 if (!AppManager.isLogin(getContext()))
                     showAuthenticationDialog();
-                else
+                else {
                     mVoteDetailPresenter.vote(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
+                    lottieAnimationView.setVisibility(View.VISIBLE);
+                    lottieAnimationView.playAnimation();
+                }
             }
         });
 
         mRecyclerView.setAdapter(mVoteDetailAdapter);
-
         mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
@@ -110,13 +126,13 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
 
     @Override
-    public void showCandidates(List<Item> candidates) {
-        mVoteDetailAdapter.update(candidates);
+    public void showCandidates(VoteDetailResponse voteDetailResponse) {
+        txtPhaseTitle.setText(voteDetailResponse.getTitle());
+        mVoteDetailAdapter.update(voteDetailResponse.getItems());
     }
 
     @Override
     public void votedSuccessfully() {
-        Toast.makeText(getContext(), "Voted Successfully", Toast.LENGTH_SHORT).show();
     }
 
     private void showAuthenticationDialog() {
@@ -130,9 +146,12 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     LondonEyeLayoutManager mLondonEyeLayoutManager;
     List<Item> mVotingItems = new ArrayList<>();
 
-    @BindView(recyclerView)
-    DebugRecyclerView mRecyclerView;
-
     ProgressDialog mProgressDialog;
+
+    @BindView(recyclerView)
+    RecyclerView mRecyclerView;
+
+    @BindView(R.id.txt_phase_title)
+    TypefacedTextView txtPhaseTitle;
 
 }

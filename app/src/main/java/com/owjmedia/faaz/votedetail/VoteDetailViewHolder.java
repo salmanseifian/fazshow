@@ -3,6 +3,7 @@ package com.owjmedia.faaz.votedetail;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Item;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
@@ -23,7 +24,7 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(item);
+                listener.onItemClick(item, lottieCheck);
             }
         });
     }
@@ -33,5 +34,8 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.imgCandidate)
     RoundedImageView imgCandidate;
+
+    @BindView(R.id.lottieCheck)
+    LottieAnimationView lottieCheck;
 
 }

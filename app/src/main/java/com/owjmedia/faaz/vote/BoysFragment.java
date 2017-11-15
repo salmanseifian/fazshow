@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.VotingResponse;
@@ -27,7 +26,7 @@ import butterknife.ButterKnife;
  * Created by salman on 11/10/17.
  */
 
-public class BoysFragment extends Fragment implements VotingContract.View {
+public class BoysFragment extends Fragment implements VoteContract.View {
 
     @Nullable
     @Override
@@ -39,7 +38,7 @@ public class BoysFragment extends Fragment implements VotingContract.View {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        mVotingPresenter = new VotingPresenter(this);
+        mVotingPresenter = new VotePresenter(this);
 
         mProgressDialog = new ProgressDialog(getActivity());
 
@@ -49,7 +48,7 @@ public class BoysFragment extends Fragment implements VotingContract.View {
 
     private void initViews() {
         mVotingPresenter.getVotings("boys");
-        mVotingAdapter = new VotingAdapter(mVotingResponse, new VotingAdapter.OnItemClickListener() {
+        mVotingAdapter = new VoteAdapter(mVotingResponse, new VoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VotingResponse votingResponse) {
                 Fragment fragment = new VoteDetailFragment();
@@ -63,7 +62,7 @@ public class BoysFragment extends Fragment implements VotingContract.View {
     }
 
     @Override
-    public void setPresenter(VotingContract.Presenter presenter) {
+    public void setPresenter(VoteContract.Presenter presenter) {
         mVotingPresenter = presenter;
     }
 
@@ -86,12 +85,12 @@ public class BoysFragment extends Fragment implements VotingContract.View {
         mVotingAdapter.update(votingResponses);
     }
 
-    private VotingContract.Presenter mVotingPresenter;
+    private VoteContract.Presenter mVotingPresenter;
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    VotingAdapter mVotingAdapter;
+    VoteAdapter mVotingAdapter;
     List<VotingResponse> mVotingResponse = new ArrayList<>();
 
     ProgressDialog mProgressDialog;

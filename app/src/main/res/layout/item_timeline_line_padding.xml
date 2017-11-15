@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     style="?selectableItemBackground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="96dp"
     android:layout_marginLeft="10dp"
+    android:clickable="true"
     android:orientation="horizontal">
 
 
-    <com.github.vipulasri.timelineview.TimelineView
-        android:id="@+id/time_marker"
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txtTime"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:visibility="invisible"
-        app:line="@color/colorPrimary"
-        app:linePadding="5dp"
-        app:lineSize="3dp"
-        app:markerSize="20dp" />
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="13 - 14"
+        android:textColor="@color/colorWhite"
+        android:textStyle="bold" />
 
 
     <RelativeLayout
@@ -29,10 +29,11 @@
         android:background="@drawable/bg_date">
 
         <View
-            android:layout_width="2dp"
+            android:layout_width="4dp"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="@color/colorAccentDark" />
+            android:background="@color/colorAccentDark"
+            android:visibility="gone" />
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/text_timeline_date"
@@ -49,7 +50,7 @@
 
     <RelativeLayout
         android:layout_width="256dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="10dp"

@@ -4,20 +4,20 @@
     android:layout_height="match_parent"
     android:background="@drawable/blure_bg">
 
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        style="@style/DescriptionTextView"
+        android:text="@string/vote_hint" />
 
-    <com.volokh.danylo.utils.DebugRecyclerView
-        android:id="@+id/recyclerView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-        style="@style/NewsTitleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/txt_phase_title"
+        style="@style/DescriptionTextView"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"
-        android:text="@string/vote_hint"
-        android:textColor="@color/colorWhite" />
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+
+    <include layout="@layout/recycler_view" />
+
 
 </RelativeLayout>
