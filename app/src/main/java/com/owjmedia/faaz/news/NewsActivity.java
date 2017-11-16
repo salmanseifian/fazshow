@@ -16,6 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.crashlytics.android.Crashlytics;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.data.Result;
@@ -32,6 +33,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import io.fabric.sdk.android.Fabric;
 
 
 public class NewsActivity extends AppCompatActivity implements NewsContract.View {
@@ -39,6 +41,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.news_act);
         ButterKnife.bind(this);
 
