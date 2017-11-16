@@ -9,6 +9,7 @@ import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import java.util.List;
@@ -48,7 +49,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
     }
 
     interface OnItemClickListener {
-        void onItemClick(Result newsItem, ImageView imgNews);
+        void onItemClick(Result newsItem, ImageView imgNews, TypefacedTextView txtNews);
     }
 
     public void update(List<Result> news) {

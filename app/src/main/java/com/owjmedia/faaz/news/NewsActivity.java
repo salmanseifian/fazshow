@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Pair;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
@@ -89,13 +90,14 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mRecyclerView.setHasFixedSize(true);
         mNewsAdapter = new NewsAdapter(mNews, new NewsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Result newsItem, ImageView imgNews) {
+            public void onItemClick(Result newsItem, ImageView imgNews, TypefacedTextView txtNews) {
                 Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
                 intent.putExtra(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    String transitionName = getString(R.string.news_image);
-                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(NewsActivity.this, imgNews, transitionName);
+                    Pair<View, String> image = Pair.create((View) imgNews, getString(R.string.news_image));
+                    Pair<View, String> title = Pair.create((View) txtNews, getString(R.string.news_title));
+                    ActivityOptions transitionActivityOptions = ActivityOptions.makeSceneTransitionAnimation(NewsActivity.this, image, title);
                     startActivity(intent, transitionActivityOptions.toBundle());
                 } else {
                     startActivity(intent);

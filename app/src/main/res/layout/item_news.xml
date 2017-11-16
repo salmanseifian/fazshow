@@ -30,7 +30,8 @@
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 android:id="@+id/txtNewsTitle"
                 style="@style/NewsTitleTextView"
-                android:layout_below="@+id/imgNews" />
+                android:layout_below="@+id/imgNews"
+                android:transitionName="@string/news_title"/>
         </RelativeLayout>
     </android.support.v7.widget.CardView>
 

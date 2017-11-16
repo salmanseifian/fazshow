@@ -33,4 +33,6 @@
     <string name="skip">بعدأ</string>
     <string name="complete_later">بعدا تکمیل می کنم</string>
     <string name="version">نسخه </string>
+    <string name="toolbar_name">toolbar</string>
+    <string name="news_title">news_title</string>
 </resources>
