@@ -18,6 +18,7 @@ import android.widget.ImageView;
 
 import com.crashlytics.android.Crashlytics;
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.data.Result;
 import com.owjmedia.faaz.general.Constants;
@@ -168,6 +169,12 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @OnClick(R.id.rl_club)
     public void goToClub() {
         ActivityUtils.showToast(this, getString(R.string.soon), "emoji_wink.json");
+    }
+
+    @OnClick(R.id.rl_info)
+    public void goToInfo() {
+        Intent infoActivity = new Intent(NewsActivity.this, AboutActivity.class);
+        startActivity(infoActivity);
     }
 
     @OnClick(R.id.rl_exit)
