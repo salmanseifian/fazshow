@@ -2,6 +2,7 @@ package com.owjmedia.faaz.vote;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.owjmedia.faaz.R;
@@ -30,8 +31,15 @@ class VoteViewHolder extends RecyclerView.ViewHolder {
         });
     }
 
-    @BindView(R.id.text_timeline_date)
-    TextView mDate;
-    @BindView(R.id.text_timeline_title)
-    TextView mMessage;
+    @BindView(R.id.rl_phase)
+    ViewGroup rlPhase;
+    @BindView(R.id.txt_date)
+    TextView txtDate;
+    @BindView(R.id.txt_phase_title)
+    TextView txtPhaseTitle;
+    @BindView(R.id.txt_phase_description)
+    TextView txtPhaseDescription;
+    @BindView(R.id.txt_time)
+    TextView txtTime;
+
 }

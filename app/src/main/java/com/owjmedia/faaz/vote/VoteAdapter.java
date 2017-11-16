@@ -1,7 +1,6 @@
 package com.owjmedia.faaz.vote;
 
 import android.content.Context;
-import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,22 +23,26 @@ class VoteAdapter extends RecyclerView.Adapter<VoteViewHolder> {
     public VoteViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         mContext = parent.getContext();
         LayoutInflater mLayoutInflater = LayoutInflater.from(mContext);
-        View view = mLayoutInflater.inflate(R.layout.item_timeline_line_padding, parent, false);
+        View view = mLayoutInflater.inflate(R.layout.item_phase, parent, false);
         return new VoteViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(VoteViewHolder holder, int position) {
         final VotingResponse votingResponse = mVotingList.get(position);
-        holder.bind(votingResponse, listener);
-//
-        if (!votingResponse.getCreated().isEmpty()) {
-            holder.mDate.setVisibility(View.VISIBLE);
-            holder.mDate.setText("27");
-        } else
-            holder.mDate.setVisibility(View.GONE);
 
-        holder.mMessage.setText(votingResponse.getTitle());
+        holder.bind(votingResponse, listener);
+
+        if (votingResponse.isEnable()) {
+            holder.rlPhase.setBackgroundResource(R.drawable.bg_phase_enable);
+        } else {
+            holder.rlPhase.setBackgroundResource(R.drawable.bg_phase_disable);
+        }
+
+        holder.txtPhaseTitle.setText(votingResponse.getTitle());
+        holder.txtPhaseDescription.setText(votingResponse.getDescription());
+        holder.txtDate.setText("27");
+
     }
 
     @Override

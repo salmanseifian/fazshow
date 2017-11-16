@@ -42,7 +42,7 @@ public class BoysFragment extends Fragment implements VoteContract.View {
 
         mProgressDialog = new ProgressDialog(getActivity());
 
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, true));
         initViews();
     }
 

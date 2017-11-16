@@ -1,81 +1,79 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    style="?selectableItemBackground"
     android:layout_width="match_parent"
     android:layout_height="96dp"
     android:layout_marginLeft="10dp"
-    android:clickable="true"
     android:orientation="horizontal">
 
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-        android:id="@+id/txtTime"
+        android:id="@+id/txt_time"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="13 - 14"
+        android:text="13-14h"
         android:textColor="@color/colorWhite"
         android:textStyle="bold" />
 
 
     <RelativeLayout
-        android:id="@+id/rlTime"
+        android:id="@+id/rl_time"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_gravity="center"
-        android:layout_margin="8dp"
+        android:layout_marginLeft="8dp"
         android:background="@drawable/bg_date">
 
-        <View
-            android:layout_width="4dp"
-            android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            android:background="@color/colorAccentDark"
-            android:visibility="gone" />
-
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/text_timeline_date"
+            android:id="@+id/txt_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:gravity="center"
             android:text="24"
             android:textColor="@color/colorWhite"
-            android:textSize="16dp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/rl_phase"
         android:layout_width="256dp"
         android:layout_height="match_parent"
         android:layout_gravity="center_vertical"
         android:layout_marginBottom="16dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="16dp"
-        android:background="@drawable/bg_phase"
+        android:background="@drawable/bg_phase_enable"
         android:padding="16dp">
 
-        <LinearLayout
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/txt_phase_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="32dp"
+            android:gravity="left"
+            android:maxLines="1"
+            android:textColor="@android:color/white"
+            android:textSize="16sp"
+            tools:text="Order Successfully Completed" />
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/txt_phase_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-                android:id="@+id/text_timeline_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:gravity="left"
-                android:textColor="@android:color/white"
-                android:textSize="16dp"
-                tools:text="Order Successfully Completed" />
-
-        </LinearLayout>
+            android:layout_marginLeft="16dp"
+            android:gravity="left"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            tools:text="Order Successfully Completed" />
 
     </RelativeLayout>
 

@@ -20,8 +20,6 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
-import com.volokh.danylo.layoutmanager.LondonEyeLayoutManager;
-import com.volokh.danylo.layoutmanager.scroller.IScrollHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,34 +46,9 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         mVoteDetailPresenter = new VoteDetailPresenter(this);
 
         mProgressDialog = new ProgressDialog(getActivity());
+
         // Set up recycler view
-//        initLondonLayoutManager();
         initCarouselLayoutManager();
-    }
-
-    private void initLondonLayoutManager() {
-
-        int screenWidth = getActivity().getResources().getDisplayMetrics().widthPixels;
-        int screenHeight = getActivity().getResources().getDisplayMetrics().heightPixels;
-
-        int circleRadius = screenWidth;
-
-        int xOrigin = -screenWidth / 2;
-        int yOrigin = screenHeight / 2;
-
-        mRecyclerView.setHasFixedSize(true);
-
-        mLondonEyeLayoutManager = new LondonEyeLayoutManager(
-                circleRadius,
-                xOrigin,
-                yOrigin,
-                mRecyclerView,
-                IScrollHandler.Strategy.NATURAL);
-
-        mRecyclerView.setLayoutManager(mLondonEyeLayoutManager);//new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
-
-//        mRecyclerView.setLayoutManager(new CircularLayoutManager(getContext(), 200, -100));
-        initAdapter();
     }
 
     private void initCarouselLayoutManager() {
@@ -143,7 +116,6 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     VoteDetailContract.Presenter mVoteDetailPresenter;
 
     VoteDetailAdapter mVoteDetailAdapter;
-    LondonEyeLayoutManager mLondonEyeLayoutManager;
     List<Item> mVotingItems = new ArrayList<>();
 
     ProgressDialog mProgressDialog;
