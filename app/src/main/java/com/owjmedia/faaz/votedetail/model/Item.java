@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.data;
+package com.owjmedia.faaz.votedetail.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -18,9 +18,9 @@ public class Item {
     @SerializedName("image")
     @Expose
     private String image;
-    @SerializedName("enable")
+    @SerializedName("voted")
     @Expose
-    private boolean enable;
+    private boolean voted;
 
     public int getId() {
         return id;
@@ -46,12 +46,12 @@ public class Item {
         this.image = image;
     }
 
-    public boolean isEnable() {
-        return enable;
+    public boolean isVoted() {
+        return voted;
     }
 
-    public void setEnable(boolean enable) {
-        this.enable = enable;
+    public void setVoted(boolean voted) {
+        this.voted = voted;
     }
 
 }

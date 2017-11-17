@@ -1,6 +1,6 @@
 package com.owjmedia.faaz.profile;
 
-import com.owjmedia.faaz.data.UpdateProfileRequest;
+import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 

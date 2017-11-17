@@ -1,6 +1,6 @@
 package com.owjmedia.faaz.vote;
 
-import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 

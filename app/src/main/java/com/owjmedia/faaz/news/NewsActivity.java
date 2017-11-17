@@ -21,7 +21,7 @@ import com.crashlytics.android.Crashlytics;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
-import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;

@@ -13,8 +13,8 @@ import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.Item;
-import com.owjmedia.faaz.data.VoteDetailResponse;
+import com.owjmedia.faaz.votedetail.model.Item;
+import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
@@ -51,6 +51,16 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         initCarouselLayoutManager();
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (AppManager.getString(getContext(), Constants.KEYS.TOKEN) != null && mVoteDetailPresenter != null)
+            mVoteDetailPresenter.getCandidates(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID));
+        else
+            mVoteDetailPresenter.getCandidates("", getArguments().getString(Constants.KEYS.POLL_ID));
+
+    }
+
     private void initCarouselLayoutManager() {
         CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
         mRecyclerView.setLayoutManager(layoutManager);
@@ -68,6 +78,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
                     showAuthenticationDialog();
                 else {
                     mVoteDetailPresenter.vote(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
+                    voteItem.setVoted(true);
                     lottieAnimationView.setVisibility(View.VISIBLE);
                     lottieAnimationView.playAnimation();
                 }
@@ -75,7 +86,11 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         });
 
         mRecyclerView.setAdapter(mVoteDetailAdapter);
-        mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
+
+        if (AppManager.getString(getContext(), Constants.KEYS.TOKEN) != null)
+            mVoteDetailPresenter.getCandidates(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID));
+        else
+            mVoteDetailPresenter.getCandidates("", getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
 

@@ -1,14 +1,13 @@
 package com.owjmedia.faaz.authenticate;
 
 
-import com.owjmedia.faaz.data.AuthenticationRequest;
-import com.owjmedia.faaz.data.AuthenticationResponse;
-import com.owjmedia.faaz.data.ConfirmationRequest;
-import com.owjmedia.faaz.data.ConfirmationResponse;
+import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
+import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
+import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
+import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 
-import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

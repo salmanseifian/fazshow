@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 

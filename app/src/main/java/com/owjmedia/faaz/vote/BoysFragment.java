@@ -10,7 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.ProgressDialog;

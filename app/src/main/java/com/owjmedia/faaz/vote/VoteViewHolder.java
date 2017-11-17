@@ -6,7 +6,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

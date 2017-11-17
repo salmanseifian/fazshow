@@ -65,7 +65,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
 
     @Override
     public void showAuthenticationCompleted(String accessToken) {
-        AppManager.setString(getContext(), Constants.KEYS.TOKEN, accessToken);
+        AppManager.setString(getContext(), Constants.KEYS.TOKEN, "Bearer " + accessToken);
         ActivityUtils.replaceFragmentToActivity(getActivity().getSupportFragmentManager(), new ProfileFragment(), R.id.contentFrame);
     }
 

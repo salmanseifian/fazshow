@@ -5,7 +5,7 @@ import android.view.View;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.Item;
+import com.owjmedia.faaz.votedetail.model.Item;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.RoundedImageView;
 

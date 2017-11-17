@@ -1,15 +1,15 @@
 package com.owjmedia.faaz.general.networking;
 
-import com.owjmedia.faaz.data.AuthenticationRequest;
-import com.owjmedia.faaz.data.AuthenticationResponse;
-import com.owjmedia.faaz.data.ConfirmationRequest;
-import com.owjmedia.faaz.data.ConfirmationResponse;
-import com.owjmedia.faaz.data.NewsDetailResponse;
-import com.owjmedia.faaz.data.NewsResponse;
-import com.owjmedia.faaz.data.UpdateProfileRequest;
-import com.owjmedia.faaz.data.VoteDetailRequest;
-import com.owjmedia.faaz.data.VoteDetailResponse;
-import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
+import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
+import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
+import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
+import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
+import com.owjmedia.faaz.news.model.NewsResponse;
+import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
+import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
+import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 
 import java.util.List;
 
@@ -42,7 +42,7 @@ public interface ApiInterface {
     Call<List<VotingResponse>> getVotings(@Query("poll_type") String pollType);
 
     @GET("v1/polls/{poll_id}")
-    Call<VoteDetailResponse> getCandidates(@Path("poll_id") String pollId);
+    Call<VoteDetailResponse> getCandidates(@Header("Authorization") String accessToken, @Path("poll_id") String pollId);
 
     @POST("v1/polls/{poll_id}/voting/")
     Call<ResponseBody> vote(@Header("Authorization") String accessToken, @Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);

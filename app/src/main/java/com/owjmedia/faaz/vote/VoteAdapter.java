@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.VotingResponse;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 
 import java.util.List;
 

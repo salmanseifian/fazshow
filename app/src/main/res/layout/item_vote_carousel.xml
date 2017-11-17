@@ -23,8 +23,10 @@
             android:id="@+id/lottieCheck"
             android:layout_width="128dp"
             android:layout_height="128dp"
+            android:layout_marginTop="64dp"
             android:layout_centerHorizontal="true"
-            android:visibility="gone"
+            android:visibility="visible"
+            app:lottie_autoPlay="true"
             app:lottie_fileName="checked_done.json" />
 
 

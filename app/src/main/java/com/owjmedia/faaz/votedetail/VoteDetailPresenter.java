@@ -1,7 +1,7 @@
 package com.owjmedia.faaz.votedetail;
 
-import com.owjmedia.faaz.data.VoteDetailRequest;
-import com.owjmedia.faaz.data.VoteDetailResponse;
+import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
+import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 
@@ -28,9 +28,9 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
     }
 
     @Override
-    public void getCandidates(String pollId) {
+    public void getCandidates(String accessToken, String pollId) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<VoteDetailResponse> call = apiService.getCandidates(pollId);
+        Call<VoteDetailResponse> call = apiService.getCandidates(accessToken, pollId);
 
         mVoteDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<VoteDetailResponse>() {

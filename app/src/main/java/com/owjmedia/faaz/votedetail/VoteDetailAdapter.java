@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.data.Item;
+import com.owjmedia.faaz.votedetail.model.Item;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import java.util.List;
@@ -36,6 +36,12 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     public void onBindViewHolder(VoteDetailViewHolder holder, int position) {
         Item votingItem = mVoteItems.get(position);
         holder.bind(votingItem, listener);
+
+        if (votingItem.isVoted())
+            holder.lottieCheck.setVisibility(View.VISIBLE);
+        else
+            holder.lottieCheck.setVisibility(View.INVISIBLE);
+
         holder.txtCandidateName.setText(votingItem.getText());
         ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
     }

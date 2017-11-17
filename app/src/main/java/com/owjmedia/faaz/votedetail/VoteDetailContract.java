@@ -1,11 +1,8 @@
 package com.owjmedia.faaz.votedetail;
 
-import com.owjmedia.faaz.data.Item;
-import com.owjmedia.faaz.data.VoteDetailResponse;
+import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.BasePresenter;
 import com.owjmedia.faaz.general.BaseView;
-
-import java.util.List;
 
 
 interface VoteDetailContract {
@@ -19,7 +16,7 @@ interface VoteDetailContract {
 
     interface Presenter extends BasePresenter {
 
-        void getCandidates(String pollId);
+        void getCandidates(String accessToken, String pollId);
 
         void vote(String accessToken, String pollId, int itemId);
 

@@ -1,7 +1,6 @@
 package com.owjmedia.faaz.news;
 
-import com.owjmedia.faaz.data.NewsResponse;
-import com.owjmedia.faaz.data.Result;
+import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.BasePresenter;
 import com.owjmedia.faaz.general.BaseView;
 

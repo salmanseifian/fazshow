@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.data;
+package com.owjmedia.faaz.authenticate.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

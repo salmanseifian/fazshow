@@ -1,6 +1,6 @@
 package com.owjmedia.faaz.news;
 
-import com.owjmedia.faaz.data.NewsResponse;
+import com.owjmedia.faaz.news.model.NewsResponse;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
 
