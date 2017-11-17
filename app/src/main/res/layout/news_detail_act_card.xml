@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/appBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/app_bar" />
+    </RelativeLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBar">
+
+        <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_marginBottom="32dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="2dp"
+            app:contentPadding="8dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgNews"
+                    android:layout_width="match_parent"
+                    android:layout_height="256dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/placeholder_news"
+                    android:transitionName="@string/news_image" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottieLike"
+                    android:layout_width="match_parent"
+                    android:layout_height="64dp"
+                    android:layout_below="@+id/imgNews"
+                    app:lottie_fileName="like.json" />
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                    android:id="@+id/txtNewsTitle"
+                    style="@style/NewsTitleTextView"
+                    android:layout_below="@+id/lottieLike"
+                    android:transitionName="@string/news_title"/>
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                    android:id="@+id/txtNewsContent"
+                    style="@style/NewsContentTextView"
+                    android:layout_below="@+id/txtNewsTitle" />
+
+            </RelativeLayout>
+        </android.support.v7.widget.CardView>
+    </ScrollView>
+</RelativeLayout>
