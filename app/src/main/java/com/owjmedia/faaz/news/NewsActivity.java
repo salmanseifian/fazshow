@@ -124,7 +124,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @Override
     public void showMessage(String message) {
-
+        ActivityUtils.showToast(this, getString(R.string.no_internet_connection), "emoji_shock.json");
     }
 
     @Override
