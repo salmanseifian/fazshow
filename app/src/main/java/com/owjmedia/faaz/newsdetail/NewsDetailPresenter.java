@@ -25,9 +25,9 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
     }
 
     @Override
-    public void getNewsDetail(String newsId) {
+    public void getNewsDetail(String accessToken, String newsId) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<NewsDetailResponse> call = apiService.getNewsDetail(newsId);
+        Call<NewsDetailResponse> call = apiService.getNewsDetail(accessToken, newsId);
 
         mNewsDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsDetailResponse>() {

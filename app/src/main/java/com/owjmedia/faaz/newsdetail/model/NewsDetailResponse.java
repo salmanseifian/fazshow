@@ -24,6 +24,9 @@ public class NewsDetailResponse {
     @SerializedName("content")
     @Expose
     private String content;
+    @SerializedName("liked")
+    @Expose
+    private boolean liked;
     @SerializedName("news_categories")
     @Expose
     private String newsCategories;
@@ -98,4 +101,11 @@ public class NewsDetailResponse {
         this.createdJalali = createdJalali;
     }
 
+    public boolean isLiked() {
+        return liked;
+    }
+
+    public void setLiked(boolean liked) {
+        this.liked = liked;
+    }
 }

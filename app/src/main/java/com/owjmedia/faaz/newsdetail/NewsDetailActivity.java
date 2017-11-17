@@ -12,6 +12,7 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
@@ -42,7 +43,10 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         }
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
-        mNewsDetailPresenter.getNewsDetail(getNewsId());
+        if (AppManager.getString(this, Constants.KEYS.TOKEN) != null && mNewsDetailPresenter != null)
+            mNewsDetailPresenter.getNewsDetail(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
+        else
+            mNewsDetailPresenter.getNewsDetail("", getNewsId());
     }
 
     @Override
@@ -78,6 +82,10 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         } else {
             txtNewsContent.setText(Html.fromHtml(newsDetailResponse.getContent()));
         }
+
+        if (newsDetailResponse.isLiked()) {
+            lottieLike.playAnimation();
+        }
         ImageHelper.getInstance(this).imageLoader(newsDetailResponse.getImage(), imgNews, ImageHelper.ImageType.NEWS);
     }
 
@@ -92,8 +100,13 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
 
     @OnClick(R.id.lottieLike)
     public void like() {
-        lottieLike.playAnimation();
-        mNewsDetailPresenter.like(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
+        if (AppManager.isLogin(this)) {
+            lottieLike.playAnimation();
+            mNewsDetailPresenter.like(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
+        } else {
+            new AuthenticationDialog(this).show();
+        }
+
     }
 
 

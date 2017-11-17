@@ -36,4 +36,5 @@
     <string name="toolbar_name">toolbar</string>
     <string name="news_title">news_title</string>
     <string name="no_internet_connection">برنامه قادر به اتصال به سرور نیست</string>
+    <string name="you_should_login_first">ابتدا وارد شوید</string>
 </resources>
