@@ -2,16 +2,16 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/blure_bg">
+    android:background="@color/colorVoteDetailBackground">
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-        style="@style/DescriptionTextView"
+        style="@style/BlackDescriptionTextView"
         android:text="@string/vote_hint" />
 
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txt_phase_title"
-        style="@style/DescriptionTextView"
+        style="@style/BlackDescriptionTextView"
         android:layout_alignParentBottom="true"
         android:textSize="18sp"
         android:textStyle="bold" />

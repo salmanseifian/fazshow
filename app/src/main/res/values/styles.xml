@@ -25,7 +25,6 @@
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:layout_marginLeft">16dp</item>
     </style>
-
     <style name="ClickableTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?actionBarSize</item>
@@ -48,6 +47,17 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorWhite</item>
+    </style>
+
+    <style name="BlackDescriptionTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?actionBarSize</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
     </style>
 
     <style name="NewsTitleTextView">

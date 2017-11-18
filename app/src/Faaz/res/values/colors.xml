@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9B26AF</color>
-    <color name="colorPrimaryDark">#691A99</color>
+    <color name="colorPrimary">#9c27b0</color>
+    <color name="colorPrimaryDark">#6a0080</color>
     <color name="colorAccent">#68EFAD</color>
     <color name="colorAccentDark">#00E676</color>
     <color name="colorEditTextBackground">#449B26AF</color>
@@ -11,7 +11,7 @@
     <color name="colorBlack">@android:color/black</color>
     <color name="colorPrimaryTransparent">#66691A99</color>
     <color name="colorCardItemVote">#cc9B26AF</color>
-    <color name="colorEditTextHint">#bbb</color>
+    <color name="colorEditTextHint">#ddd</color>
     <color name="colorSplashBackground">#e4dfda</color>
     <color name="colorNewsListBackground">#e4dfda</color>
     <color name="colorProfileBackground">#e4dfda</color>
