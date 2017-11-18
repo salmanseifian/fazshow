@@ -38,6 +38,8 @@ public class VoteActivity extends AppCompatActivity {
         // Set up view pager
         setupViewPager();
         tabs.setupWithViewPager(viewPager);
+        tabs.getTabAt(0).setIcon(R.drawable.ic_boy);
+        tabs.getTabAt(1).setIcon(R.drawable.ic_girl);
 
     }
 
