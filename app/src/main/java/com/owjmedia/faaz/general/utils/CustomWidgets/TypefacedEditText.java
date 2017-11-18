@@ -5,7 +5,6 @@ import android.graphics.Typeface;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.owjmedia.faaz.general.Constants;
 

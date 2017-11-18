@@ -12,9 +12,9 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
-import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;

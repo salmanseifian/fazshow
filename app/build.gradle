@@ -31,6 +31,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+
+        Faaz {
+            applicationId "com.owjmedia.faaz"
+            versionCode 1
+            versionName "0.1.4"
+        }
+
+        Fehrest {
+            applicationId "com.owjmedia.fehrest"
+            versionCode 1
+            versionName "1.0"
+        }
+    }
 }
 
 dependencies {
