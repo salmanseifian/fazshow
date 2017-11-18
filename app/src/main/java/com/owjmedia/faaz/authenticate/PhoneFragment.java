@@ -35,6 +35,8 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
+        mPresenter = new AuthenticatePresenter(this);
+
         mProgressDialog = new ProgressDialog(getContext());
     }
 

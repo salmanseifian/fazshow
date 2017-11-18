@@ -36,13 +36,6 @@ public class ActivityUtils {
         transaction.commit();
     }
 
-    public static void replaceFragmentToActivityBackStack(FragmentManager fragmentManager, Fragment fragment, int frameId) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(frameId, fragment);
-        transaction.addToBackStack(null);
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction.commit();
-    }
 
     public static void showToast(Context context, String message, String animationName) {
         LayoutInflater inflater = LayoutInflater.from(context);

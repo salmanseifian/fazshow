@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="192dp"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="gift.json"
+        app:lottie_fileName="saeed_profile.json"
         app:lottie_loop="true" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView

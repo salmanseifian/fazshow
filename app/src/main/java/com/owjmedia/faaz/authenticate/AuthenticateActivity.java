@@ -20,16 +20,13 @@ public class AuthenticateActivity extends AppCompatActivity {
             PhoneFragment phoneFragment = (PhoneFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
             if (phoneFragment == null) {
                 phoneFragment = new PhoneFragment();
-                ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), phoneFragment, R.id.contentFrame);
+                ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), phoneFragment, R.id.contentFrame);
             }
 
-            mAuthenticatePresenter = new AuthenticatePresenter(phoneFragment);
         } else {
             ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), new ProfileFragment(), R.id.contentFrame);
         }
 
-
     }
 
-    private AuthenticatePresenter mAuthenticatePresenter;
 }

@@ -21,22 +21,22 @@
 
         <com.airbnb.lottie.LottieAnimationView
             android:id="@+id/lottieCheck"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_marginTop="64dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:layout_below="@+id/imgCandidate"
             android:layout_centerHorizontal="true"
-            android:visibility="visible"
             app:lottie_autoPlay="true"
-            app:lottie_fileName="checked_done.json" />
+            app:lottie_fileName="plus.json" />
 
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/txtCandidateName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/imgCandidate"
+            android:layout_below="@+id/lottieCheck"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="16dp"
             android:ellipsize="end"
             android:gravity="center"
             android:textColor="@color/colorWhite"
