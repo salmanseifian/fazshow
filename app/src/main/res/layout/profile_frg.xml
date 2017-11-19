@@ -5,18 +5,61 @@
     android:layout_height="match_parent"
     android:background="@color/colorProfileBackground">
 
+
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieGift"
         android:layout_width="match_parent"
-        android:layout_height="192dp"
+        android:layout_height="160dp"
         app:lottie_autoPlay="true"
         app:lottie_fileName="saeed_profile.json"
         app:lottie_loop="true" />
 
+    <RelativeLayout
+        android:id="@+id/rl_score"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_below="@+id/lottieGift">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/bg_score">
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="16dp"
+                android:layout_toRightOf="@+id/txt_score"
+                android:gravity="center"
+                android:text="@string/your_score"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/lottieStar"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                app:lottie_autoPlay="true"
+                app:lottie_fileName="star.json" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                android:id="@+id/txt_score"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginRight="8dp"
+                android:layout_toRightOf="@+id/lottieStar"
+                android:gravity="center"
+                android:textColor="@color/colorPrimary"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtHint"
         style="@style/BlackDescriptionTextView"
-        android:layout_below="@+id/lottieGift"
+        android:layout_below="@+id/rl_score"
         android:text="@string/profile_desc" />
 
 
@@ -33,7 +76,8 @@
         android:id="@+id/spinnerGender"
         style="@style/CustomEditText"
         android:layout_below="@+id/txtHint"
-        android:gravity="center" />
+        android:gravity="center"
+        android:prompt="@string/gender" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
         android:id="@+id/edtCity"

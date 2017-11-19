@@ -3,6 +3,7 @@ package com.owjmedia.faaz.general.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 
 /**
@@ -27,4 +28,19 @@ public class AppManager {
         SharedPreferences pref = context.getSharedPreferences(Constants.PREFS_NAME, 0);
         return pref.getString(key, null);
     }
+
+    public static String getEnglishGender(Context context, String persianGender) {
+        if (persianGender.equals(context.getString(R.string.male_persian)))
+            return context.getString(R.string.male_english);
+        else
+            return context.getString(R.string.female_english);
+    }
+
+    public static String getPersianGender(Context context, String englishGender) {
+        if (englishGender.equals(context.getString(R.string.male_english)))
+            return context.getString(R.string.male_persian);
+        else
+            return context.getString(R.string.female_persian);
+    }
+
 }

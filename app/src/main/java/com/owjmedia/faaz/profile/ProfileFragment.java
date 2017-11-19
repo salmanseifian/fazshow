@@ -14,8 +14,10 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
+import com.owjmedia.faaz.profile.model.ProfileResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,14 +47,16 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
         mProgressDialog = new ProgressDialog(getContext());
 
+        mProfilePresenter.getProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN));
+
         // Set up spinner
         setUpSpinner();
     }
 
     private void setUpSpinner() {
         List<String> list = new ArrayList<>();
-        list.add(getString(R.string.male));
-        list.add(getString(R.string.female));
+        list.add(getString(R.string.male_persian));
+        list.add(getString(R.string.female_persian));
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getContext(),
                 R.layout.item_spinner, list);
         dataAdapter.setDropDownViewResource(R.layout.item_spinner_dropdown);
@@ -82,10 +86,18 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         getActivity().finish();
     }
 
+    @Override
+    public void showProfile(ProfileResponse profileResponse) {
+        txtScore.setText(String.valueOf(profileResponse.getScore()));
+        edtGender.setText(profileResponse.getGender());
+        edtCity.setText(profileResponse.getCity());
+        edtBirthYear.setText(String.valueOf(profileResponse.getYearOfBirth()));
+    }
+
     @OnClick(R.id.btnContinue)
     public void saveProfile() {
         if (Validator.isStringValid(spinnerGender.getSelectedItem().toString()) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
-            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), spinnerGender.getSelectedItem().toString(), edtCity.getText().toString(),
+            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), AppManager.getEnglishGender(getContext(), spinnerGender.getSelectedItem().toString()), edtCity.getText().toString(),
                     Integer.parseInt(edtBirthYear.getText().toString()));
         else
             showMessage(getString(R.string.inputs_is_not_valid));
@@ -100,6 +112,9 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     private ProfileContract.Presenter mProfilePresenter;
 
     ProgressDialog mProgressDialog;
+
+    @BindView(R.id.txt_score)
+    TypefacedTextView txtScore;
 
     @BindView(R.id.edtGender)
     TypefacedEditText edtGender;

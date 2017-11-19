@@ -28,8 +28,10 @@
     <string name="exit">خروج</string>
     <string name="login_and_register">ورود و عضویت</string>
     <string name="soon">به زودی</string>
-    <string name="male">مرد</string>
-    <string name="female">زن</string>
+    <string name="male_persian">مرد</string>
+    <string name="female_persian">زن</string>
+    <string name="male_english">male</string>
+    <string name="female_english">female</string>
     <string name="skip">بعدأ</string>
     <string name="complete_later">بعدا تکمیل می کنم</string>
     <string name="version">نسخه </string>
@@ -37,4 +39,5 @@
     <string name="news_title">news_title</string>
     <string name="no_internet_connection">برنامه قادر به اتصال به سرور نیست</string>
     <string name="you_should_login_first">ابتدا وارد شوید</string>
+    <string name="your_score">امتیاز شما:</string>
 </resources>

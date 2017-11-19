@@ -6,6 +6,7 @@ import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
 import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
+import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
@@ -37,6 +38,9 @@ public interface ApiInterface {
 
     @PUT("v1/users/auth/")
     Call<ResponseBody> updateProfile(@Header("Authorization") String accessToken, @Body UpdateProfileRequest updateProfileRequest);
+
+    @GET("v1/users/auth/")
+    Call<ProfileResponse> getProfile(@Header("Authorization") String accessToken);
 
     @GET("v1/polls/")
     Call<List<VotingResponse>> getVotings(@Query("poll_type") String pollType);

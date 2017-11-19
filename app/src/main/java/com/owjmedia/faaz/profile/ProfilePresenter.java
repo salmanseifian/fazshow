@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.profile;
 
+import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
 import com.owjmedia.faaz.general.networking.ApiClient;
 import com.owjmedia.faaz.general.networking.ApiInterface;
@@ -39,7 +40,10 @@ public class ProfilePresenter implements ProfileContract.Presenter {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 mProfileView.setLoadingIndicator(false);
-                mProfileView.profileUpdatedSuccessfully();
+                if (response.code() == 200)
+                    mProfileView.profileUpdatedSuccessfully();
+                else
+                    mProfileView.showMessage(response.message());
             }
 
             @Override
@@ -48,5 +52,27 @@ public class ProfilePresenter implements ProfileContract.Presenter {
                 mProfileView.showMessage(t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void getProfile(String accessToken) {
+        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
+        Call<ProfileResponse> call = apiService.getProfile(accessToken);
+        mProfileView.setLoadingIndicator(true);
+
+        call.enqueue(new Callback<ProfileResponse>() {
+            @Override
+            public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
+                mProfileView.setLoadingIndicator(false);
+                mProfileView.showProfile(response.body());
+            }
+
+            @Override
+            public void onFailure(Call<ProfileResponse> call, Throwable t) {
+                mProfileView.setLoadingIndicator(false);
+                mProfileView.showMessage(t.getMessage());
+            }
+        });
+
     }
 }
