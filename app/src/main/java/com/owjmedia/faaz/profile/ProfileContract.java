@@ -20,7 +20,7 @@ public interface ProfileContract {
 
     interface Presenter extends BasePresenter {
 
-        void updateProfile(String token, String gender, String city, int year_of_birth);
+        void updateProfile(String token, int gender, String city, int year_of_birth);
 
         void getProfile(String accessToken);
     }

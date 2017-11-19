@@ -11,7 +11,7 @@ public class UpdateProfileRequest {
 
     @SerializedName("gender")
     @Expose
-    private String gender;
+    private int gender;
     @SerializedName("city")
     @Expose
     private String city;
@@ -19,7 +19,7 @@ public class UpdateProfileRequest {
     @Expose
     private int yearOfBirth;
 
-    public UpdateProfileRequest(String gender, String city, int yearOfBirth) {
+    public UpdateProfileRequest(int gender, String city, int yearOfBirth) {
         this.gender = gender;
         this.city = city;
         this.yearOfBirth = yearOfBirth;

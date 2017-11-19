@@ -11,7 +11,7 @@ public class ProfileResponse {
     private String phone;
     @SerializedName("gender")
     @Expose
-    private String gender;
+    private int gender;
     @SerializedName("city")
     @Expose
     private String city;
@@ -33,11 +33,11 @@ public class ProfileResponse {
         this.phone = phone;
     }
 
-    public String getGender() {
+    public int getGender() {
         return gender;
     }
 
-    public void setGender(String gender) {
+    public void setGender(int gender) {
         this.gender = gender;
     }
 

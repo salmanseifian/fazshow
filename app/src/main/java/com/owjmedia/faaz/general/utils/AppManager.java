@@ -29,6 +29,13 @@ public class AppManager {
         return pref.getString(key, null);
     }
 
+    public static int getGenderNumber(Context context, String persianGender) {
+        if (persianGender.equals(context.getString(R.string.male_persian)))
+            return 1;
+        else
+            return 2;
+    }
+
     public static String getEnglishGender(Context context, String persianGender) {
         if (persianGender.equals(context.getString(R.string.male_persian)))
             return context.getString(R.string.male_english);

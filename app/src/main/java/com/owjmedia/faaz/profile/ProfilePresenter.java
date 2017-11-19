@@ -30,7 +30,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public void updateProfile(String token, String gender, String city, int year_of_birth) {
+    public void updateProfile(String token, int gender, String city, int year_of_birth) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest(gender, city, year_of_birth);
         Call<ResponseBody> call = apiService.updateProfile(token, updateProfileRequest);
@@ -64,7 +64,10 @@ public class ProfilePresenter implements ProfileContract.Presenter {
             @Override
             public void onResponse(Call<ProfileResponse> call, Response<ProfileResponse> response) {
                 mProfileView.setLoadingIndicator(false);
-                mProfileView.showProfile(response.body());
+                if (response.code() == 200)
+                    mProfileView.showProfile(response.body());
+                else
+                    mProfileView.showMessage(response.message());
             }
 
             @Override

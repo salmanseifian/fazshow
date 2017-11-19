@@ -3,7 +3,7 @@ package com.owjmedia.faaz.general;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://82.102.10.148:8002/";
+    public static final String BASE_URL = "http://94.182.227.212/";
     public static final String PREFS_NAME = "prefs_name";
 
     public static final class KEYS {

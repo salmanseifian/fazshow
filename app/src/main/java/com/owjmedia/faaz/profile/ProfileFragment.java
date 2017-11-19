@@ -55,6 +55,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
     private void setUpSpinner() {
         List<String> list = new ArrayList<>();
+        list.add("جنسیت");
         list.add(getString(R.string.male_persian));
         list.add(getString(R.string.female_persian));
         ArrayAdapter<String> dataAdapter = new ArrayAdapter<>(getContext(),
@@ -89,15 +90,15 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @Override
     public void showProfile(ProfileResponse profileResponse) {
         txtScore.setText(String.valueOf(profileResponse.getScore()));
-        edtGender.setText(profileResponse.getGender());
+        edtGender.setText(String.valueOf(profileResponse.getGender()));
         edtCity.setText(profileResponse.getCity());
         edtBirthYear.setText(String.valueOf(profileResponse.getYearOfBirth()));
     }
 
     @OnClick(R.id.btnContinue)
     public void saveProfile() {
-        if (Validator.isStringValid(spinnerGender.getSelectedItem().toString()) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
-            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), AppManager.getEnglishGender(getContext(), spinnerGender.getSelectedItem().toString()), edtCity.getText().toString(),
+        if (Validator.isStringValid(spinnerGender.getSelectedItem().toString()) && !spinnerGender.getSelectedItem().toString().equals(getString(R.string.gender)) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
+            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), AppManager.getGenderNumber(getContext(), spinnerGender.getSelectedItem().toString()), edtCity.getText().toString(),
                     Integer.parseInt(edtBirthYear.getText().toString()));
         else
             showMessage(getString(R.string.inputs_is_not_valid));

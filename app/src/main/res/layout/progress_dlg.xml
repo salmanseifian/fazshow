@@ -9,6 +9,6 @@
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
         android:layout_centerInParent="true"
-        app:lottie_fileName="beacon.json"
+        app:lottie_fileName="wave.json"
         app:lottie_loop="true" />
 </RelativeLayout>
