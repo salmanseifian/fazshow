@@ -1,80 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="96dp"
-    android:layout_marginLeft="10dp"
+    android:layout_height="72dp"
+    android:layout_marginBottom="12dp"
+    android:layout_marginTop="4dp"
+    android:gravity="right"
     android:orientation="horizontal">
-
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txt_time"
-        android:layout_width="wrap_content"
+        android:layout_width="48dp"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="8dp"
         android:gravity="center"
-        android:text="13-14h"
+        android:maxLines="1"
         android:textColor="@color/colorWhite"
-        android:textStyle="bold" />
+        android:textSize="13sp" />
 
-
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_time"
         android:layout_width="64dp"
         android:layout_height="64dp"
+        android:layout_centerVertical="true"
         android:layout_gravity="center"
-        android:layout_marginLeft="8dp"
-        android:background="@drawable/bg_date">
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="8dp"
+        android:layout_toLeftOf="@+id/txt_time"
+        android:background="@drawable/bg_date"
+        android:orientation="vertical">
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:gravity="center"
-            android:text="24"
+            android:id="@+id/txt_day"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center|bottom"
             android:textColor="@color/colorWhite"
-            android:textSize="16sp"
+            android:textSize="13sp"
             android:textStyle="bold" />
 
-    </RelativeLayout>
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            android:id="@+id/txt_month"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:gravity="center|top"
+            android:textColor="@color/colorWhite"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+    </LinearLayout>
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/rl_phase"
-        android:layout_width="256dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
         android:layout_gravity="center_vertical"
-        android:layout_marginBottom="16dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_toLeftOf="@+id/rl_time"
         android:background="@drawable/bg_phase_enable"
-        android:padding="16dp">
+        android:orientation="vertical"
+        android:padding="8dp">
 
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/txt_phase_title"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_marginLeft="32dp"
-            android:gravity="left"
+            android:layout_height="0dp"
+            android:layout_marginRight="32dp"
+            android:layout_weight="0.7"
+            android:ellipsize="end"
+            android:gravity="right|center"
             android:maxLines="1"
             android:textColor="@android:color/white"
             android:textSize="16sp"
-            tools:text="Order Successfully Completed" />
+            tools:text="@string/confirm" />
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/txt_phase_description"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="16dp"
-            android:gravity="left"
+            android:layout_height="0dp"
+            android:layout_marginRight="32dp"
+            android:layout_weight="0.3"
+            android:ellipsize="end"
+            android:gravity="right|center"
+            android:maxLines="1"
             android:textColor="@android:color/white"
             android:textSize="12sp"
-            android:visibility="gone"
-            tools:text="Order Successfully Completed" />
+            tools:text="@string/confirm" />
 
-    </RelativeLayout>
+    </LinearLayout>
 
-</LinearLayout>
+
+</RelativeLayout>

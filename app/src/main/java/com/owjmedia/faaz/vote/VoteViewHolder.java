@@ -33,8 +33,10 @@ class VoteViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.rl_phase)
     ViewGroup rlPhase;
-    @BindView(R.id.txt_date)
-    TextView txtDate;
+    @BindView(R.id.txt_day)
+    TextView txtDay;
+    @BindView(R.id.txt_month)
+    TextView txtMonth;
     @BindView(R.id.txt_phase_title)
     TextView txtPhaseTitle;
     @BindView(R.id.txt_phase_description)

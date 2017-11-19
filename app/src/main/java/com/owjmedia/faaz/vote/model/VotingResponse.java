@@ -27,10 +27,10 @@ public class VotingResponse {
     @SerializedName("enable")
     @Expose
     private boolean enable;
-    @SerializedName("updated")
+    @SerializedName("updated_jalali")
     @Expose
     private String updated;
-    @SerializedName("created")
+    @SerializedName("created_jalali")
     @Expose
     private String created;
 

@@ -2,11 +2,13 @@ package com.owjmedia.faaz.vote;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.vote.model.VotingResponse;
 
 import java.util.List;
@@ -40,8 +42,10 @@ class VoteAdapter extends RecyclerView.Adapter<VoteViewHolder> {
         }
 
         holder.txtPhaseTitle.setText(votingResponse.getTitle());
-        holder.txtPhaseDescription.setText(votingResponse.getDescription());
-        holder.txtDate.setText(votingResponse.getCreated());
+        holder.txtPhaseDescription.setText(Html.fromHtml(votingResponse.getDescription()));
+        holder.txtDay.setText(AppManager.getStringDate(votingResponse.getCreated())[1]);
+        holder.txtMonth.setText(AppManager.getStringDate(votingResponse.getCreated())[2]);
+        holder.txtTime.setText(AppManager.getStringDate(votingResponse.getCreated())[0]);
     }
 
     @Override

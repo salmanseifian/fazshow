@@ -43,4 +43,12 @@ public class AppManager {
             return context.getString(R.string.female_persian);
     }
 
+    public static String[] getStringDate(String date) {
+        return date.split("\\s+");
+    }
+
+    public static String getWeekDay(String date) {
+        return date.substring(0, date.indexOf(" "));
+    }
+
 }
