@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
@@ -14,6 +15,7 @@ import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.ImageHelper;
 import com.owjmedia.faaz.votedetail.model.Item;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.utils.AppManager;
@@ -73,11 +75,12 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     private void initAdapter() {
         mVoteDetailAdapter = new VoteDetailAdapter(mVotingItems, new VoteDetailAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView) {
+            public void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate) {
                 if (!AppManager.isLogin(getContext()))
                     showAuthenticationDialog();
                 else {
                     mVoteDetailPresenter.vote(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
+                    ImageHelper.getInstance(getContext()).imageLoader(voteItem.getVotedImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
                     voteItem.setVoted(true);
                     lottieAnimationView.setVisibility(View.VISIBLE);
                     lottieAnimationView.playAnimation();

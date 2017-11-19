@@ -24,7 +24,7 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(item, lottieCheck);
+                listener.onItemClick(item, lottieCheck, imgCandidate);
             }
         });
     }

@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
@@ -52,7 +53,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     }
 
     interface OnItemClickListener {
-        void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView);
+        void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate);
     }
 
     public void update(List<Item> voteItems) {

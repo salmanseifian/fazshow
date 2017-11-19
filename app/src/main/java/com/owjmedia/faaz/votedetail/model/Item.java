@@ -18,6 +18,9 @@ public class Item {
     @SerializedName("image")
     @Expose
     private String image;
+    @SerializedName("voted_image")
+    @Expose
+    private String votedImage;
     @SerializedName("voted")
     @Expose
     private boolean voted;
@@ -54,4 +57,11 @@ public class Item {
         this.voted = voted;
     }
 
+    public String getVotedImage() {
+        return votedImage;
+    }
+
+    public void setVotedImage(String votedImage) {
+        this.votedImage = votedImage;
+    }
 }
