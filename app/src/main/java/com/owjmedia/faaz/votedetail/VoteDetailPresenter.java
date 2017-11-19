@@ -36,8 +36,11 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
         call.enqueue(new Callback<VoteDetailResponse>() {
             @Override
             public void onResponse(Call<VoteDetailResponse> call, Response<VoteDetailResponse> response) {
-                mVoteDetailView.showCandidates(response.body());
                 mVoteDetailView.setLoadingIndicator(false);
+                if (response.code() == 200)
+                    mVoteDetailView.showCandidates(response.body());
+                else
+                    mVoteDetailView.showMessage(response.message());
 
             }
 
