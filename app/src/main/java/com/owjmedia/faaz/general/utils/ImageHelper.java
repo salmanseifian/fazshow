@@ -1,10 +1,13 @@
 package com.owjmedia.faaz.general.utils;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.widget.ImageView;
 
+import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.owjmedia.faaz.R;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 
 /**
@@ -34,12 +37,23 @@ public class ImageHelper {
             case NEWS:
                 Picasso.with(context)
                         .load(imageUrl)
+                        .fit()
+                        .transform(getTransformation())
                         .placeholder(R.drawable.placeholder_news)
                         .into(imageView);
                 break;
             default:
                 break;
         }
+
+    }
+
+    private Transformation getTransformation() {
+
+        return new RoundedTransformationBuilder()
+                .cornerRadiusDp(16)
+                .oval(false)
+                .build();
 
     }
 

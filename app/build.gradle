@@ -68,6 +68,7 @@ dependencies {
     compile 'com.airbnb.android:lottie:2.2.5'
     compile 'com.github.vipulasri:timelineview:1.0.5'
     compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
+    compile 'com.makeramen:roundedimageview:2.3.0'
 
 
 
