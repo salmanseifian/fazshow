@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:lottie_autoPlay="true"
-        app:lottie_fileName="android_fingerprint.json"
+        app:lottie_fileName="authentication.json"
         app:lottie_loop="true" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView

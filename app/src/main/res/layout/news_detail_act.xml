@@ -69,12 +69,14 @@
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/lottieLike"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_below="@+id/imgNews"
         android:layout_margin="16dp"
+        android:background="@drawable/bg_like"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|right|end"
         app:lottie_fileName="saeed_like.json" />
+
 
 </android.support.design.widget.CoordinatorLayout>
