@@ -46,7 +46,6 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
             @Override
             public void onFailure(Call<AuthenticationResponse> call, Throwable t) {
                 mAuthenticateView.setLoadingIndicator(false);
-                mAuthenticateView.showMessage(t.getMessage());
             }
         });
     }
@@ -68,7 +67,6 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
 
             @Override
             public void onFailure(Call<ConfirmationResponse> call, Throwable t) {
-                mAuthenticateView.showMessage(t.getMessage());
             }
         });
     }

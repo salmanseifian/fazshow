@@ -32,7 +32,12 @@
         style="@style/ClickableTextView"
         android:layout_below="@+id/edtCode"
         android:layout_centerInParent="true"
-        android:layout_marginTop="64dp"
+        android:layout_marginTop="32dp"
         android:text="@string/confirm" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txt_timer"
+        style="@style/DescriptionTextView"
+        android:layout_below="@+id/btnContinue" />
 
 </RelativeLayout>

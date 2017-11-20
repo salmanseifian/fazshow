@@ -68,6 +68,7 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
         CodeFragment codeFragment = new CodeFragment();
         Bundle bundle = new Bundle();
         bundle.putString(Constants.KEYS.TOKEN, token);
+        bundle.putString(Constants.KEYS.PHONE, edtPhone.getText().toString());
         bundle.putInt(Constants.KEYS.EXPIRES_IN, expire_in);
         codeFragment.setArguments(bundle);
         ActivityUtils.addFragmentToActivity(getActivity().getSupportFragmentManager(), codeFragment, R.id.contentFrame);
