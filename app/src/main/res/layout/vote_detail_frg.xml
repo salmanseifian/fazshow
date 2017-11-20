@@ -12,9 +12,15 @@
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txt_phase_title"
         style="@style/BlackDescriptionTextView"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/txt_phase_description"
         android:textSize="18sp"
         android:textStyle="bold" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txt_phase_description"
+        style="@style/BlackDescriptionTextView"
+        android:layout_alignParentBottom="true"
+        android:textSize="13sp" />
 
 
     <include layout="@layout/recycler_view" />

@@ -1,9 +1,11 @@
 package com.owjmedia.faaz.votedetail;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -119,6 +121,11 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     @Override
     public void showCandidates(VoteDetailResponse voteDetailResponse) {
         txtPhaseTitle.setText(voteDetailResponse.getTitle());
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            txtPhaseDescription.setText(Html.fromHtml(voteDetailResponse.getDescription(), Html.FROM_HTML_MODE_COMPACT));
+        }else{
+            txtPhaseDescription.setText(Html.fromHtml(voteDetailResponse.getDescription()));
+        }
         mVoteDetailAdapter.update(voteDetailResponse.getItems());
     }
 
@@ -143,5 +150,8 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
     @BindView(R.id.txt_phase_title)
     TypefacedTextView txtPhaseTitle;
+
+    @BindView(R.id.txt_phase_description)
+    TypefacedTextView txtPhaseDescription;
 
 }

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="192dp"
-    android:layout_height="wrap_content"
-    android:elevation="2dp"
+    android:layout_height="192dp"
+    android:elevation="4dp"
     app:cardBackgroundColor="@color/colorCardItemVote"
-    app:cardCornerRadius="16dp"
-    app:contentPadding="16dp">
+    app:cardCornerRadius="16dp">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.owjmedia.faaz.general.utils.RoundedImageView
+        <ImageView
             android:id="@+id/imgCandidate"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
             android:layout_centerHorizontal="true"
             android:scaleType="centerCrop" />
 
@@ -23,10 +23,7 @@
             android:id="@+id/lottieCheck"
             android:layout_width="32dp"
             android:layout_height="32dp"
-            android:layout_below="@+id/imgCandidate"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="4dp"
-            android:layout_marginTop="4dp"
+            android:layout_margin="8dp"
             app:lottie_autoPlay="true"
             app:lottie_fileName="plus.json" />
 
@@ -34,13 +31,14 @@
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/txtCandidateName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/lottieCheck"
-            android:layout_centerHorizontal="true"
+            android:layout_height="32dp"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_candidate_name"
             android:ellipsize="end"
             android:gravity="center"
             android:textColor="@color/colorWhite"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/app_name" />
 
     </RelativeLayout>
 </android.support.v7.widget.CardView>

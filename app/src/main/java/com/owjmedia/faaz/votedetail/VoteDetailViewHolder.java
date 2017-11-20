@@ -2,6 +2,7 @@ package com.owjmedia.faaz.votedetail;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
@@ -33,7 +34,7 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
     TypefacedTextView txtCandidateName;
 
     @BindView(R.id.imgCandidate)
-    RoundedImageView imgCandidate;
+    ImageView imgCandidate;
 
     @BindView(R.id.lottieCheck)
     LottieAnimationView lottieCheck;

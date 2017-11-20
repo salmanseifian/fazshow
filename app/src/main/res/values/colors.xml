@@ -18,4 +18,5 @@
     <color name="colorVoteDetailBackground">#e4dfda</color>
     <color name="colorButtonBackground">#48a9a6</color>
     <color name="colorRipple">#00E676</color>
+    <color name="colorCandidateNameBackground">#77000000</color>
 </resources>
