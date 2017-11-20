@@ -15,6 +15,6 @@
     <color name="colorSplashBackground">#e4dfda</color>
     <color name="colorNewsListBackground">#e4dfda</color>
     <color name="colorProfileBackground">#e4dfda</color>
-    <color name="colorVoteDetailBackground">#e4dfda</color>
+    <color name="colorVoteDetailBackground">#ffbf00</color>
     <color name="colorButtonBackground">#48a9a6</color>
 </resources>

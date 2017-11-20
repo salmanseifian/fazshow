@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#9B26AF</color>
-    <color name="colorPrimaryDark">#691A99</color>
-    <color name="colorAccent">#68EFAD</color>
-    <color name="colorAccentDark">#00E676</color>
-    <color name="colorEditTextBackground">#449B26AF</color>
-    <color name="phaseItemEnableColor">#9B26AF</color>
-    <color name="phaseItemDisableColor">#449B26AF</color>
+    <color name="colorPrimary">#FF9100</color>
+    <color name="colorPrimaryDark">#d77a00</color>
+    <color name="colorAccent">#1e88e5</color>
+    <color name="colorAccentDark">#1366ea</color>
+    <color name="colorEditTextBackground">#44FF9100</color>
+    <color name="phaseItemEnableColor">#FF9100</color>
+    <color name="phaseItemDisableColor">#44FF9100</color>
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
-    <color name="colorPrimaryTransparent">#66691A99</color>
-    <color name="colorCardItemVote">#cc9B26AF</color>
+    <color name="colorPrimaryTransparent">#66FF9100</color>
+    <color name="colorCardItemVote">#ccFF9100</color>
     <color name="colorEditTextHint">#bbb</color>
-    <color name="colorSplashBackground">#e4dfda</color>
+    <color name="colorSplashBackground">@color/colorBlack</color>
     <color name="colorNewsListBackground">#e4dfda</color>
     <color name="colorProfileBackground">#e4dfda</color>
     <color name="colorVoteDetailBackground">#e4dfda</color>
-    <color name="colorButtonBackground">#48a9a6</color>
+    <color name="colorButtonBackground">#1e88e5</color>
 </resources>

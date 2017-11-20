@@ -3,10 +3,11 @@ package com.owjmedia.faaz.general;
 
 public class Constants {
 
-    public static final String BASE_URL = "http://82.102.10.148:8002/";
+    public static final String BASE_URL = "http://94.182.227.212/";
     public static final String PREFS_NAME = "prefs_name";
 
     public static final class KEYS {
+        public static final String PHONE = "phone";
         public static final String TOKEN = "token";
         public static final String EXPIRES_IN = "expires_in";
         public static final String POLL_ID = "pollId";
