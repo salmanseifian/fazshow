@@ -82,10 +82,17 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
                     showAuthenticationDialog();
                 else {
                     mVoteDetailPresenter.vote(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
-                    ImageHelper.getInstance(getContext()).imageLoader(voteItem.getVotedImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
-                    voteItem.setVoted(true);
-                    lottieAnimationView.setVisibility(View.VISIBLE);
-                    lottieAnimationView.playAnimation();
+                    if (voteItem.isVoted()) {
+                        ImageHelper.getInstance(getContext()).imageLoader(voteItem.getImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
+                        voteItem.setVoted(false);
+                        lottieAnimationView.setVisibility(View.GONE);
+                    } else {
+                        ImageHelper.getInstance(getContext()).imageLoader(voteItem.getVotedImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
+                        voteItem.setVoted(true);
+                        lottieAnimationView.setVisibility(View.VISIBLE);
+                        lottieAnimationView.playAnimation();
+                    }
+
                 }
             }
         });
@@ -123,7 +130,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         txtPhaseTitle.setText(voteDetailResponse.getTitle());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             txtPhaseDescription.setText(Html.fromHtml(voteDetailResponse.getDescription(), Html.FROM_HTML_MODE_COMPACT));
-        }else{
+        } else {
             txtPhaseDescription.setText(Html.fromHtml(voteDetailResponse.getDescription()));
         }
         mVoteDetailAdapter.update(voteDetailResponse.getItems());

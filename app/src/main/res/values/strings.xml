@@ -43,4 +43,5 @@
     <string name="resend_code">ارسال مجدد</string>
     <string name="remaining_time">زمان باقیمانده</string>
     <string name="seconds">ثانیه</string>
+    <string name="unfortunately_phase_is_enable">متاسفانه فاز غیرفعال است</string>
 </resources>

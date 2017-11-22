@@ -51,11 +51,16 @@ public class GirlsFragment extends Fragment implements VoteContract.View {
         mVotingAdapter = new VoteAdapter(mVotingResponse, new VoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VotingResponse votingResponse) {
-                Fragment fragment = new VoteDetailFragment();
-                Bundle bundle = new Bundle();
-                bundle.putString(Constants.KEYS.POLL_ID, String.valueOf(votingResponse.getId()));
-                fragment.setArguments(bundle);
-                ActivityUtils.addFragmentToActivity(getActivity().getSupportFragmentManager(), fragment, R.id.contentFrame);
+                if (votingResponse.isEnable()) {
+                    Fragment fragment = new VoteDetailFragment();
+                    Bundle bundle = new Bundle();
+                    bundle.putString(Constants.KEYS.POLL_ID, String.valueOf(votingResponse.getId()));
+                    fragment.setArguments(bundle);
+                    ActivityUtils.addFragmentToActivity(getActivity().getSupportFragmentManager(), fragment, R.id.contentFrame);
+                } else {
+                    ActivityUtils.showToast(getContext(), getString(R.string.unfortunately_phase_is_enable), "emoji_shock.json");
+                }
+
             }
         });
         mRecyclerView.setAdapter(mVotingAdapter);
