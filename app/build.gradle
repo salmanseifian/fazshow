@@ -32,18 +32,23 @@ android {
         }
     }
 
+    flavorDimensions "tier"
     productFlavors {
 
         Faaz {
+            dimension "tier"
             applicationId "com.owjmedia.faaz"
             versionCode 1
             versionName "0.1.4"
+            buildConfigField "boolean", "HOME_SCREEN", "false"
         }
 
         Fehrest {
+            dimension "tier"
             applicationId "com.owjmedia.fehrest"
             versionCode 1
             versionName "1.0"
+            buildConfigField "boolean", "HOME_SCREEN", "true"
         }
     }
 }

@@ -36,6 +36,9 @@
         <activity
             android:name=".about.AboutActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".home.HomeActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
