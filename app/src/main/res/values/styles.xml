@@ -25,6 +25,7 @@
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:layout_marginLeft">16dp</item>
     </style>
+
     <style name="ClickableTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?actionBarSize</item>
@@ -106,6 +107,25 @@
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_centerVertical">true</item>
         <item name="android:layout_alignParentRight">true</item>
+    </style>
+
+    <style name="HomeCardView" parent="CardView">
+        <item name="android:layout_width">160dp</item>
+        <item name="android:layout_height">160dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginLeft">16dp</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:elevation">4dp</item>
+        <item name="cardCornerRadius">4dp</item>
+        <item name="contentPadding">8dp</item>
+    </style>
+
+    <style name="HomeCardTextView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginBottom">4dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_alignParentBottom">true</item>
     </style>
 
 

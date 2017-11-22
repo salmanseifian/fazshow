@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -16,6 +17,7 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.news.NewsActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
 
 import butterknife.BindView;
@@ -29,8 +31,23 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.home_act);
         ButterKnife.bind(this);
+
+        // Set up the toolbar.
+        setSupportActionBar(toolbar);
+        toolbar.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
+        ActionBar ab = getSupportActionBar();
+        if (ab != null) {
+            ab.setDisplayShowTitleEnabled(false);
+            ab.setHomeAsUpIndicator(R.drawable.ic_menu);
+            ab.setDisplayHomeAsUpEnabled(true);
+        }
     }
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setupDrawer();
+    }
 
     @OnClick(R.id.rl_profile)
     public void goToProfile() {
@@ -67,6 +84,12 @@ public class HomeActivity extends AppCompatActivity {
         setupDrawer();
     }
 
+    @OnClick(R.id.card_news)
+    public void goToNews() {
+        Intent newsActivity = new Intent(HomeActivity.this, NewsActivity.class);
+        startActivity(newsActivity);
+    }
+
     private void setupDrawer() {
         if (!AppManager.isLogin(this)) {
             mRlExit.setVisibility(View.INVISIBLE);
@@ -89,4 +112,5 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;
+
 }

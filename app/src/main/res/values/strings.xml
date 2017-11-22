@@ -43,4 +43,9 @@
     <string name="resend_code">ارسال مجدد</string>
     <string name="remaining_time">زمان باقیمانده</string>
     <string name="seconds">ثانیه</string>
+    <string name="augmented_reality">واقعیت افزورده</string>
+    <string name="news">اخبار</string>
+    <string name="movie_page">صفحه فیلم</string>
+    <string name="image_gallery">گالری عکس</string>
+    <string name="movie_gallery">گالری فیلم</string>
 </resources>
