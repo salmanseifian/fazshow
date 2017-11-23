@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
+import com.owjmedia.faaz.ar.ArActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
@@ -88,6 +89,12 @@ public class HomeActivity extends AppCompatActivity {
     public void goToNews() {
         Intent newsActivity = new Intent(HomeActivity.this, NewsActivity.class);
         startActivity(newsActivity);
+    }
+
+    @OnClick(R.id.card_ar)
+    public void goToAr() {
+        Intent mainActivity = new Intent(HomeActivity.this, ArActivity.class);
+        startActivity(mainActivity);
     }
 
     private void setupDrawer() {
