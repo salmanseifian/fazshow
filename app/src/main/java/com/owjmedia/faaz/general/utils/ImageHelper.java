@@ -43,6 +43,13 @@ public class ImageHelper {
                         .placeholder(R.drawable.placeholder_news)
                         .into(imageView);
                 break;
+
+            case GALLERY:
+                Picasso.with(context)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.placeholder_news)
+                        .into(imageView);
+                break;
             default:
                 break;
         }
@@ -59,7 +66,7 @@ public class ImageHelper {
     }
 
     public enum ImageType {
-        NEWS, AVATAR, POLL
+        NEWS, AVATAR, GALLERY
     }
 
     private static ImageHelper instance;

@@ -4,6 +4,8 @@ import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
 import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
 import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
 import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
+import com.owjmedia.faaz.galleries.model.GalleriesResponse;
+import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
@@ -59,4 +61,17 @@ public interface ApiInterface {
 
     @POST("v1/news/{news_id}/like/")
     Call<ResponseBody> like(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
+
+    @GET("v1/image_galleries/")
+    Call<List<GalleriesResponse>> getImageGalleries();
+
+    @GET("v1/video_galleries/")
+    Call<List<GalleriesResponse>> getVideoGalleries();
+
+    @GET("v1/image_galleries/{gallery_id}/")
+    Call<GalleryDetailResponse> getImageGalleryDetail(@Path("gallery_id") String galleryId);
+
+    @GET("v1/video_galleries/{gallery_id}/")
+    Call<GalleryDetailResponse> getVideoGalleryDetail(@Path("gallery_id") String galleryId);
+
 }

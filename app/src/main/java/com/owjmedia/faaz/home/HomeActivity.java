@@ -14,6 +14,7 @@ import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.ar.ArActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
+import com.owjmedia.faaz.galleries.GalleryActivity;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
@@ -93,8 +94,22 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.card_ar)
     public void goToAr() {
-        Intent mainActivity = new Intent(HomeActivity.this, ArActivity.class);
-        startActivity(mainActivity);
+        Intent ar = new Intent(HomeActivity.this, ArActivity.class);
+        startActivity(ar);
+    }
+
+    @OnClick(R.id.card_gallery_image)
+    public void goToImageGallery() {
+        Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
+        gallery.putExtra(Constants.KEYS.GALLEY_TYPE, Constants.KEYS.IMAGE_GALLERY);
+        startActivity(gallery);
+    }
+
+    @OnClick(R.id.card_gallery_videos)
+    public void goToVideoGallery() {
+        Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
+        gallery.putExtra(Constants.KEYS.GALLEY_TYPE, Constants.KEYS.VIDEO_GALLERY);
+        startActivity(gallery);
     }
 
     private void setupDrawer() {

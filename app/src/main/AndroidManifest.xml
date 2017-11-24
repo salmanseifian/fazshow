@@ -44,6 +44,9 @@
         <activity
             android:name=".ar.ArActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".galleries.GalleryActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="io.fabric.ApiKey"
