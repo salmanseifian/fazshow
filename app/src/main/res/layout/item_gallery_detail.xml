@@ -8,6 +8,7 @@
         android:id="@+id/img_gallery_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:scaleType="fitXY" />
+        android:scaleType="fitXY"
+        android:transitionName="@string/image_transition"/>
 
 </LinearLayout>

@@ -27,7 +27,7 @@ class GalleryDetailViewHolder extends RecyclerView.ViewHolder {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(galleryItem);
+                listener.onItemClick(galleryItem, imgGalleryItem);
             }
         });
     }

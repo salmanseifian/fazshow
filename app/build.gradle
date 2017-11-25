@@ -13,7 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        manifestPlaceholders = [onesignal_app_id: "f775336f-ac87-4498-86f2-af645f59ff73",
+        manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
                                 // Project number pulled from dashboard, local value is ignored.
                                 onesignal_google_project_number: "REMOTE"]
 
@@ -41,6 +41,7 @@ android {
             versionCode 1
             versionName "0.1.4"
             buildConfigField "boolean", "HOME_SCREEN", "false"
+            buildConfigField "boolean", "VOTE", "true"
         }
 
         Fehrest {
@@ -49,6 +50,7 @@ android {
             versionCode 1
             versionName "1.0"
             buildConfigField "boolean", "HOME_SCREEN", "true"
+            buildConfigField "boolean", "VOTE", "false"
         }
     }
 }
@@ -65,6 +67,7 @@ dependencies {
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
     compile "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
     compile 'com.onesignal:OneSignal:[3.6.5, 3.99.99]'
+    compile 'com.google.android.exoplayer:exoplayer:r2.4.0'
 
     compile('com.crashlytics.sdk.android:crashlytics:2.7.1@aar') {
         transitive = true;

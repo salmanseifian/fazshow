@@ -49,4 +49,5 @@
     <string name="movie_page">صفحه فیلم</string>
     <string name="image_gallery">گالری عکس</string>
     <string name="movie_gallery">گالری فیلم</string>
+    <string name="image_transition">imageTransition</string>
 </resources>

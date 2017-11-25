@@ -6,18 +6,21 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.BottomSheetBehavior;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Pair;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.crashlytics.android.Crashlytics;
+import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
@@ -49,6 +52,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
         // Set up the toolbar.
         setSupportActionBar(toolbar);
+        toolbar.setLayoutDirection(View.LAYOUT_DIRECTION_RTL);
         ActionBar ab = getSupportActionBar();
         if (ab != null) {
             ab.setDisplayShowTitleEnabled(false);
@@ -59,9 +63,6 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mNewsPresenter = new NewsPresenter(this);
         mProgressDialog = new ProgressDialog(this);
 
-        // init the bottom sheet behavior
-        mBottomSheetBahavior = BottomSheetBehavior.from(mBottomSheet);
-        setupBottomSheet();
 
         // Set up recycler view
         initView();
@@ -71,11 +72,10 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @Override
     protected void onResume() {
         super.onResume();
-        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        setupBottomSheet();
+        setupDrawerLayout();
     }
 
-    private void setupBottomSheet() {
+    private void setupDrawerLayout() {
         if (!AppManager.isLogin(this)) {
             mRlExit.setVisibility(View.INVISIBLE);
             mTxtProfile.setText(getString(R.string.login_and_register));
@@ -83,6 +83,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
             mRlExit.setVisibility(View.VISIBLE);
             mTxtProfile.setText(getString(R.string.profile));
         }
+
+        if (BuildConfig.VOTE)
+            mRlVote.setVisibility(View.VISIBLE);
+        else
+            mRlVote.setVisibility(View.GONE);
     }
 
     private void initView() {
@@ -135,21 +140,16 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (mBottomSheetBahavior.getState() != BottomSheetBehavior.STATE_COLLAPSED)
-                    mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_COLLAPSED);
-                else
-                    mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-                return true;
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT))
+                mDrawerLayout.closeDrawer(Gravity.RIGHT, true);
+            else
+                mDrawerLayout.openDrawer(Gravity.RIGHT, true);
+            return true;
         }
         return super.onOptionsItemSelected(item);
     }
 
-    @OnClick(R.id.rl_header)
-    public void hideBottomSheet() {
-        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-    }
 
     @OnClick(R.id.rl_profile)
     public void goToProfile() {
@@ -182,8 +182,8 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @OnClick(R.id.rl_exit)
     public void logout() {
         AppManager.setString(this, Constants.KEYS.TOKEN, null);
-        mBottomSheetBahavior.setState(BottomSheetBehavior.STATE_HIDDEN);
-        setupBottomSheet();
+        mDrawerLayout.closeDrawer(Gravity.RIGHT, true);
+        setupDrawerLayout();
     }
 
 
@@ -192,19 +192,23 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     private List<Result> mNews;
 
     ProgressDialog mProgressDialog;
-    BottomSheetBehavior mBottomSheetBahavior;
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
 
+    @BindView(R.id.drawer_layout)
+    DrawerLayout mDrawerLayout;
+
+
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
 
-    @BindView(R.id.bottom_sheet)
-    View mBottomSheet;
 
     @BindView(R.id.txt_profile)
     TypefacedTextView mTxtProfile;
+
+    @BindView(R.id.rl_vote)
+    ViewGroup mRlVote;
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;

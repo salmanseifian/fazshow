@@ -30,6 +30,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            style="@style/HomeCardImageView"
+                            android:src="@drawable/ic_movie" />
+
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/augmented_reality" />
@@ -46,6 +50,10 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            style="@style/HomeCardImageView"
+                            android:src="@drawable/ic_movie" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
@@ -64,6 +72,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            style="@style/HomeCardImageView"
+                            android:src="@drawable/ic_local_movies" />
+
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/movie_page" />
@@ -81,6 +93,10 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
+                        <ImageView
+                            style="@style/HomeCardImageView"
+                            android:src="@drawable/ic_image" />
+
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/image_gallery" />
@@ -97,6 +113,10 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent">
+
+                        <ImageView
+                            style="@style/HomeCardImageView"
+                            android:src="@drawable/ic_movie" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"

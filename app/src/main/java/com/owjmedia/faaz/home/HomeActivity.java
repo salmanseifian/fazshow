@@ -7,9 +7,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.ar.ArActivity;
@@ -43,6 +46,18 @@ public class HomeActivity extends AppCompatActivity {
             ab.setHomeAsUpIndicator(R.drawable.ic_menu);
             ab.setDisplayHomeAsUpEnabled(true);
         }
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            if (mDrawerLayout.isDrawerOpen(Gravity.RIGHT))
+                mDrawerLayout.closeDrawer(Gravity.RIGHT, true);
+            else
+                mDrawerLayout.openDrawer(Gravity.RIGHT, true);
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -120,6 +135,10 @@ public class HomeActivity extends AppCompatActivity {
             mRlExit.setVisibility(View.VISIBLE);
             mTxtProfile.setText(getString(R.string.profile));
         }
+        if (BuildConfig.VOTE)
+            mRlVote.setVisibility(View.VISIBLE);
+        else
+            mRlVote.setVisibility(View.GONE);
     }
 
 
@@ -131,6 +150,9 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.txt_profile)
     TypefacedTextView mTxtProfile;
+
+    @BindView(R.id.rl_vote)
+    ViewGroup mRlVote;
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;

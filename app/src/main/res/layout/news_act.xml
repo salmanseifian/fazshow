@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <include layout="@layout/app_bar" />
+    <include layout="@layout/news_content" />
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/colorNewsListBackground"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+    <include layout="@layout/home_menu" />
 
-        <include layout="@layout/recycler_view" />
-    </FrameLayout>
-
-
-    <include layout="@layout/bottom_sheet" />
-
-</android.support.design.widget.CoordinatorLayout>
+</android.support.v4.widget.DrawerLayout>
 
 
 

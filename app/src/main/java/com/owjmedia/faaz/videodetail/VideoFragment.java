@@ -1,23 +1,25 @@
 package com.owjmedia.faaz.videodetail;
 
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.SurfaceHolder;
-import android.view.SurfaceView;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.exoplayer2.DefaultLoadControl;
+import com.google.android.exoplayer2.DefaultRenderersFactory;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
-
-import java.io.IOException;
-import java.net.URI;
-import java.net.URL;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -26,7 +28,7 @@ import butterknife.ButterKnife;
  * Created by salman on 11/24/17.
  */
 
-public class VideoFragment extends Fragment implements SurfaceHolder.Callback, MediaPlayer.OnPreparedListener {
+public class VideoFragment extends Fragment {
 
     @Nullable
     @Override
@@ -38,62 +40,50 @@ public class VideoFragment extends Fragment implements SurfaceHolder.Callback, M
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-
-        mSurfaceHolder = mSurfaceView.getHolder();
-        mSurfaceHolder.addCallback(this);
+        initializePlayer();
     }
 
-    @Override
-    public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        mMediaPlayer = new MediaPlayer();
-        mMediaPlayer.setDisplay(mSurfaceHolder);
-        try {
-            mMediaPlayer.setDataSource(getActivity(), Uri.parse(getArguments().getString(Constants.KEYS.VIDEO_PATH)));
-            mMediaPlayer.prepareAsync();
-            mMediaPlayer.setOnPreparedListener(this);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    private void initializePlayer() {
+        player = ExoPlayerFactory.newSimpleInstance
+                (new DefaultRenderersFactory(getContext()),
+                        new DefaultTrackSelector(), new DefaultLoadControl());
 
+        playerView.setPlayer(player);
+        player.setPlayWhenReady(true);
 
-    @Override
-    public void surfaceChanged(SurfaceHolder surfaceHolder, int i, int i1, int i2) {
-
-    }
-
-    @Override
-    public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-
-    }
-
-    @Override
-    public void onPrepared(MediaPlayer mediaPlayer) {
-        mMediaPlayer.start();
+        Uri uri = Uri.parse(getArguments().getString(Constants.KEYS.VIDEO_PATH));
+        MediaSource mediaSource = buildMediaSource(uri);
+        player.prepare(mediaSource);
     }
 
     @Override
     public void onPause() {
         super.onPause();
-        releaseMediaPlayer();
+        releasePlayer();
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        releaseMediaPlayer();
+    public void onStop() {
+        super.onStop();
+        releasePlayer();
     }
 
-    private void releaseMediaPlayer() {
-        if (mMediaPlayer != null) {
-            mMediaPlayer.release();
-            mMediaPlayer = null;
+    private MediaSource buildMediaSource(Uri uri) {
+        return new ExtractorMediaSource(uri,
+                new DefaultHttpDataSourceFactory("ua"),
+                new DefaultExtractorsFactory(), null, null);
+    }
+
+    private void releasePlayer() {
+        if (player != null) {
+            player.release();
+            player = null;
         }
     }
 
-    private MediaPlayer mMediaPlayer;
-    private SurfaceHolder mSurfaceHolder;
 
-    @BindView(R.id.surface_view)
-    SurfaceView mSurfaceView;
+    SimpleExoPlayer player;
+
+    @BindView(R.id.video_view)
+    SimpleExoPlayerView playerView;
 }

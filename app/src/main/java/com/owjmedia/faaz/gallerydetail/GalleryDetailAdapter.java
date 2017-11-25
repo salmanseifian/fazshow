@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
@@ -46,7 +47,7 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
     }
 
     interface OnItemClickListener {
-        void onItemClick(GalleryItem galleryItem);
+        void onItemClick(GalleryItem galleryItem, ImageView imageView);
     }
 
     public void update(List<GalleryItem> galleriesResponse) {

@@ -12,6 +12,12 @@ public class Constants {
         public static final String EXPIRES_IN = "expires_in";
         public static final String POLL_ID = "pollId";
         public static final String NEWS_ID = "newsId";
+        public static final String GALLEY_ID = "galleryId";
+        public static final String GALLEY_TYPE = "galleryType";
+        public static final String IMAGE_GALLERY = "imageGallery";
+        public static final String VIDEO_GALLERY = "videoGallery";
+        public static final String VIDEO_PATH = "videoPath";
+        public static final String IMAGE_PATH = "imagePath";
     }
 
     public static final class FONTS {

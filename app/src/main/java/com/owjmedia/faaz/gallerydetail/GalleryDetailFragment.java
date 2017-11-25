@@ -8,9 +8,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
 import com.owjmedia.faaz.general.Constants;
@@ -50,9 +50,10 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         mRecyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(16));
+
         mGalleryDetailAdapter = new GalleryDetailAdapter(mGalleryItems, new GalleryDetailAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(GalleryItem galleryItem) {
+            public void onItemClick(GalleryItem galleryItem, ImageView imageView) {
                 Fragment fragment;
                 if (getArguments().getString(Constants.KEYS.GALLEY_TYPE).equals(Constants.KEYS.IMAGE_GALLERY)) {
                     fragment = new ImageFragment();
@@ -66,7 +67,7 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
                     fragment.setArguments(bundle);
                 }
 
-                ActivityUtils.addFragmentToActivity(getFragmentManager(), fragment, R.id.contentFrame);
+                ActivityUtils.addFragmentToActivity(getFragmentManager(), fragment, R.id.contentFrame, imageView, getString(R.string.image_transition));
 
             }
         });
