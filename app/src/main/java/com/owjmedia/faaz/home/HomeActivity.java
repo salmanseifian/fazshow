@@ -22,6 +22,7 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.movie.MovieActivity;
 import com.owjmedia.faaz.news.NewsActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
 
@@ -125,6 +126,12 @@ public class HomeActivity extends AppCompatActivity {
         Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
         gallery.putExtra(Constants.KEYS.GALLEY_TYPE, Constants.KEYS.VIDEO_GALLERY);
         startActivity(gallery);
+    }
+
+    @OnClick(R.id.card_movie)
+    public void goToMoviePage() {
+        Intent movie = new Intent(HomeActivity.this, MovieActivity.class);
+        startActivity(movie);
     }
 
     private void setupDrawer() {

@@ -6,6 +6,7 @@ import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
 import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
+import com.owjmedia.faaz.movie.model.MovieResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
@@ -73,5 +74,8 @@ public interface ApiInterface {
 
     @GET("v1/video_galleries/{gallery_id}/")
     Call<GalleryDetailResponse> getVideoGalleryDetail(@Path("gallery_id") String galleryId);
+
+    @GET("v1/movie_info/")
+    Call<List<MovieResponse>> getMovie();
 
 }
