@@ -53,7 +53,7 @@
 
                         <ImageView
                             style="@style/HomeCardImageView"
-                            android:src="@drawable/ic_movie" />
+                            android:src="@drawable/ic_newspaper" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
@@ -95,7 +95,7 @@
 
                         <ImageView
                             style="@style/HomeCardImageView"
-                            android:src="@drawable/ic_image" />
+                            android:src="@drawable/ic_picture" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
