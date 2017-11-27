@@ -32,7 +32,7 @@
 
                         <ImageView
                             style="@style/HomeCardImageView"
-                            android:src="@drawable/ic_movie" />
+                            android:src="@drawable/ic_augmented_reality" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
@@ -74,7 +74,7 @@
 
                         <ImageView
                             style="@style/HomeCardImageView"
-                            android:src="@drawable/ic_local_movies" />
+                            android:src="@drawable/ic_film" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"
@@ -116,7 +116,7 @@
 
                         <ImageView
                             style="@style/HomeCardImageView"
-                            android:src="@drawable/ic_movie" />
+                            android:src="@drawable/ic_video_player" />
 
                         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                             style="@style/HomeCardTextView"

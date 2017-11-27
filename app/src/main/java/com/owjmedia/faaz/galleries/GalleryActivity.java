@@ -34,7 +34,7 @@ public class GalleryActivity extends AppCompatActivity {
 
         GalleriesFragment galleriesFragment = new GalleriesFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.KEYS.GALLEY_TYPE, getIntent().getStringExtra(Constants.KEYS.GALLEY_TYPE));
+        bundle.putBoolean(Constants.KEYS.IMAGE_GALLERY, getIntent().getBooleanExtra(Constants.KEYS.IMAGE_GALLERY, true));
         galleriesFragment.setArguments(bundle);
         ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), galleriesFragment, R.id.contentFrame);
     }

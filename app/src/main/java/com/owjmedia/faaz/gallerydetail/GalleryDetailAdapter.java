@@ -20,8 +20,9 @@ import java.util.List;
 
 public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailViewHolder> {
 
-    public GalleryDetailAdapter(List<GalleryItem> galleryItems, OnItemClickListener listener) {
+    public GalleryDetailAdapter(List<GalleryItem> galleryItems, boolean isImageGallery, OnItemClickListener listener) {
         this.mGalleryItems = galleryItems;
+        this.isImageGallery = isImageGallery;
         this.listener = listener;
     }
 
@@ -37,6 +38,11 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
     public void onBindViewHolder(GalleryDetailViewHolder holder, int position) {
         GalleryItem galleryItem = mGalleryItems.get(position);
         holder.bind(galleryItem, listener);
+
+        if (isImageGallery)
+            holder.imgPlay.setVisibility(View.GONE);
+        else
+            holder.imgPlay.setVisibility(View.VISIBLE);
 
         ImageHelper.getInstance(mContext).imageLoader(galleryItem.getImage(), holder.imgGalleryItem, ImageHelper.ImageType.GALLERY);
     }
@@ -57,6 +63,7 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
 
     private List<GalleryItem> mGalleryItems;
     private GalleryDetailAdapter.OnItemClickListener listener;
+    private boolean isImageGallery;
 
     Context mContext;
 

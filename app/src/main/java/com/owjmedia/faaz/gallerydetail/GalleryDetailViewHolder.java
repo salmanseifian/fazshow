@@ -34,4 +34,6 @@ class GalleryDetailViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.img_gallery_item)
     ImageView imgGalleryItem;
+    @BindView(R.id.imgPlay)
+    ImageView imgPlay;
 }

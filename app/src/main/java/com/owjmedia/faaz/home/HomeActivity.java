@@ -117,14 +117,14 @@ public class HomeActivity extends AppCompatActivity {
     @OnClick(R.id.card_gallery_image)
     public void goToImageGallery() {
         Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
-        gallery.putExtra(Constants.KEYS.GALLEY_TYPE, Constants.KEYS.IMAGE_GALLERY);
+        gallery.putExtra(Constants.KEYS.IMAGE_GALLERY, true);
         startActivity(gallery);
     }
 
     @OnClick(R.id.card_gallery_videos)
     public void goToVideoGallery() {
         Intent gallery = new Intent(HomeActivity.this, GalleryActivity.class);
-        gallery.putExtra(Constants.KEYS.GALLEY_TYPE, Constants.KEYS.VIDEO_GALLERY);
+        gallery.putExtra(Constants.KEYS.IMAGE_GALLERY, false);
         startActivity(gallery);
     }
 

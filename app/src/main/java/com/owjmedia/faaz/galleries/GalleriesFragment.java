@@ -52,7 +52,7 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
             public void onItemClick(GalleriesResponse galleriesResponse) {
                 Fragment galleryDetail = new GalleryDetailFragment();
                 Bundle bundle = new Bundle();
-                bundle.putString(Constants.KEYS.GALLEY_TYPE, getArguments().getString(Constants.KEYS.GALLEY_TYPE));
+                bundle.putBoolean(Constants.KEYS.IMAGE_GALLERY, getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY));
                 bundle.putString(Constants.KEYS.GALLEY_ID, String.valueOf(galleriesResponse.getId()));
                 galleryDetail.setArguments(bundle);
                 ActivityUtils.addFragmentToActivity(getFragmentManager(), galleryDetail, R.id.contentFrame);
@@ -61,7 +61,7 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
         mRecyclerView.setAdapter(mGalleriesAdapter);
 
 
-        if (getArguments().getString(Constants.KEYS.GALLEY_TYPE).equals(Constants.KEYS.IMAGE_GALLERY))
+        if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
             mGalleryPresenter.getImageGalleries();
         else
             mGalleryPresenter.getVideoGalleries();

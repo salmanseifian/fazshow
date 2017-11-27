@@ -51,11 +51,11 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(16));
 
-        mGalleryDetailAdapter = new GalleryDetailAdapter(mGalleryItems, new GalleryDetailAdapter.OnItemClickListener() {
+        mGalleryDetailAdapter = new GalleryDetailAdapter(mGalleryItems, getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY) ,new GalleryDetailAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(GalleryItem galleryItem, ImageView imageView) {
                 Fragment fragment;
-                if (getArguments().getString(Constants.KEYS.GALLEY_TYPE).equals(Constants.KEYS.IMAGE_GALLERY)) {
+                if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY)) {
                     fragment = new ImageFragment();
                     Bundle bundle = new Bundle();
                     bundle.putString(Constants.KEYS.IMAGE_PATH, galleryItem.getImage());
@@ -73,7 +73,7 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         });
         mRecyclerView.setAdapter(mGalleryDetailAdapter);
 
-        if (getArguments().getString(Constants.KEYS.GALLEY_TYPE).equals(Constants.KEYS.IMAGE_GALLERY))
+        if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
             mGalleryDetailPresenter.getImageGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));
         else
             mGalleryDetailPresenter.getVideoGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));

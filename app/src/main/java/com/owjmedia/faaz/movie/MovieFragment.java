@@ -77,7 +77,7 @@ public class MovieFragment extends SlideFragment {
     }
 
     private void updateViewWithValues() {
-        ImageHelper.getInstance(getContext()).imageLoader(image, imageSlide, ImageHelper.ImageType.NEWS);
+        ImageHelper.getInstance(getContext()).imageLoader(image, imageSlide, ImageHelper.ImageType.GALLERY);
         txtTitle.setText(title);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             txtContent.setText(Html.fromHtml(content, Html.FROM_HTML_MODE_COMPACT));
