@@ -24,7 +24,7 @@
         android:layout_marginRight="48dp"
         android:layout_marginTop="48dp"
         android:layout_weight="1"
-        android:scaleType="fitXY"
+        android:scaleType="fitCenter"
         android:adjustViewBounds="true"
         android:gravity="center"
         app:layout_parallaxFactor="0.6"
