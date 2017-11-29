@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.vote.model.VotingResponse;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
@@ -47,7 +48,7 @@ public class BoysFragment extends Fragment implements VoteContract.View {
     }
 
     private void initViews() {
-        mVotingPresenter.getVotings("boys");
+        mVotingPresenter.getVotings(AppManager.getToken(getContext()), "boys");
         mVotingAdapter = new VoteAdapter(mVotingResponse, new VoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VotingResponse votingResponse) {

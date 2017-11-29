@@ -1,5 +1,7 @@
 package com.owjmedia.faaz.general.networking;
 
+import android.content.Context;
+
 import com.owjmedia.faaz.general.Constants;
 
 import retrofit2.Retrofit;

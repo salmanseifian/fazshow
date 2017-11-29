@@ -25,6 +25,13 @@ public class AppManager {
         return getString(context, Constants.KEYS.TOKEN) != null && !getString(context, Constants.KEYS.TOKEN).isEmpty();
     }
 
+    public static String getToken(Context context) {
+        if (getString(context, Constants.KEYS.TOKEN) != null)
+            return getString(context, Constants.KEYS.TOKEN);
+        else
+            return "";
+    }
+
 
     public static void setString(Context context, String key, String value) {
         SharedPreferences pref = context.getSharedPreferences(Constants.PREFS_NAME, 0);

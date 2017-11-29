@@ -27,10 +27,10 @@ public class VotePresenter implements VoteContract.Presenter {
     }
 
     @Override
-    public void getVotings(String pollType) {
+    public void getVotings(String token, String pollType) {
 
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<VotingResponse>> call = apiService.getVotings(pollType);
+        Call<List<VotingResponse>> call = apiService.getVotings(token, pollType);
 
         mVotingView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<VotingResponse>>() {

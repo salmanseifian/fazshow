@@ -26,9 +26,9 @@ public class MoviePresenter implements MovieContract.Presenter {
     }
 
     @Override
-    public void getMovie() {
+    public void getMovie(String token) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<MovieResponse>> call = apiService.getMovie();
+        Call<List<MovieResponse>> call = apiService.getMovie(token);
 
         call.enqueue(new Callback<List<MovieResponse>>() {
             @Override

@@ -20,9 +20,9 @@ public interface GalleriesContract {
 
     interface Presenter extends BasePresenter {
 
-        void getImageGalleries();
+        void getImageGalleries(String token);
 
-        void getVideoGalleries();
+        void getVideoGalleries(String token);
 
     }
 }

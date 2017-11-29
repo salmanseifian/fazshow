@@ -18,6 +18,6 @@ public interface MovieContract {
 
     interface Presenter extends BasePresenter {
 
-        void getMovie();
+        void getMovie(String token);
     }
 }

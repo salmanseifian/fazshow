@@ -14,6 +14,7 @@ import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.GalleryDetailFragment;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.SpaceItemDecoration;
 
 import java.util.List;
@@ -62,9 +63,9 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
 
 
         if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
-            mGalleryPresenter.getImageGalleries();
+            mGalleryPresenter.getImageGalleries(AppManager.getToken(getContext()));
         else
-            mGalleryPresenter.getVideoGalleries();
+            mGalleryPresenter.getVideoGalleries(AppManager.getToken(getContext()));
     }
 
     @Override

@@ -47,6 +47,14 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
         startTimer();
     }
 
+    @Override
+    public void onDestroy() {
+        if (mCountDownTimer != null) {
+            mCountDownTimer.cancel();
+        }
+        super.onDestroy();
+    }
+
     private void startTimer() {
         mCountDownTimer = new CountDownTimer(60000, 1000) {
 

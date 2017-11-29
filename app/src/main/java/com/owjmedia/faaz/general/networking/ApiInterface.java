@@ -46,7 +46,7 @@ public interface ApiInterface {
     Call<ProfileResponse> getProfile(@Header("Authorization") String accessToken);
 
     @GET("v1/polls/")
-    Call<List<VotingResponse>> getVotings(@Query("poll_type") String pollType);
+    Call<List<VotingResponse>> getVotings(@Header("Authorization") String accessToken, @Query("poll_type") String pollType);
 
     @GET("v1/polls/{poll_id}")
     Call<VoteDetailResponse> getCandidates(@Header("Authorization") String accessToken, @Path("poll_id") String pollId);
@@ -55,7 +55,7 @@ public interface ApiInterface {
     Call<ResponseBody> vote(@Header("Authorization") String accessToken, @Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);
 
     @GET("v1/news/")
-    Call<NewsResponse> getNews();
+    Call<NewsResponse> getNews(@Header("Authorization") String accessToken);
 
     @GET("v1/news/{news_id}/")
     Call<NewsDetailResponse> getNewsDetail(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
@@ -64,18 +64,18 @@ public interface ApiInterface {
     Call<ResponseBody> like(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
 
     @GET("v1/image_galleries/")
-    Call<List<GalleriesResponse>> getImageGalleries();
+    Call<List<GalleriesResponse>> getImageGalleries(@Header("Authorization") String accessToken);
 
     @GET("v1/video_galleries/")
-    Call<List<GalleriesResponse>> getVideoGalleries();
+    Call<List<GalleriesResponse>> getVideoGalleries(@Header("Authorization") String accessToken);
 
     @GET("v1/image_galleries/{gallery_id}/")
-    Call<GalleryDetailResponse> getImageGalleryDetail(@Path("gallery_id") String galleryId);
+    Call<GalleryDetailResponse> getImageGalleryDetail(@Header("Authorization") String accessToken,  @Path("gallery_id") String galleryId);
 
     @GET("v1/video_galleries/{gallery_id}/")
-    Call<GalleryDetailResponse> getVideoGalleryDetail(@Path("gallery_id") String galleryId);
+    Call<GalleryDetailResponse> getVideoGalleryDetail(@Header("Authorization") String accessToken, @Path("gallery_id") String galleryId);
 
     @GET("v1/movie_info/")
-    Call<List<MovieResponse>> getMovie();
+    Call<List<MovieResponse>> getMovie(@Header("Authorization") String accessToken);
 
 }

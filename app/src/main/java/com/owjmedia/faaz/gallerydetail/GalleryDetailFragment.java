@@ -15,6 +15,7 @@ import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.SpaceItemDecoration;
 import com.owjmedia.faaz.imagedetail.ImageFragment;
 import com.owjmedia.faaz.videodetail.VideoFragment;
@@ -74,9 +75,9 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         mRecyclerView.setAdapter(mGalleryDetailAdapter);
 
         if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
-            mGalleryDetailPresenter.getImageGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));
+            mGalleryDetailPresenter.getImageGalleryDetail(AppManager.getToken(getContext()), getArguments().getString(Constants.KEYS.GALLEY_ID));
         else
-            mGalleryDetailPresenter.getVideoGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));
+            mGalleryDetailPresenter.getVideoGalleryDetail(AppManager.getToken(getContext()), getArguments().getString(Constants.KEYS.GALLEY_ID));
     }
 
     @Override

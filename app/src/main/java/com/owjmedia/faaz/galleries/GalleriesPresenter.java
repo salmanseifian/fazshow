@@ -28,9 +28,9 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
     }
 
     @Override
-    public void getImageGalleries() {
+    public void getImageGalleries(String token) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<GalleriesResponse>> call = apiService.getImageGalleries();
+        Call<List<GalleriesResponse>> call = apiService.getImageGalleries(token);
 
         call.enqueue(new Callback<List<GalleriesResponse>>() {
             @Override
@@ -49,9 +49,9 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
     }
 
     @Override
-    public void getVideoGalleries() {
+    public void getVideoGalleries(String token) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<GalleriesResponse>> call = apiService.getVideoGalleries();
+        Call<List<GalleriesResponse>> call = apiService.getVideoGalleries(token);
 
         call.enqueue(new Callback<List<GalleriesResponse>>() {
             @Override

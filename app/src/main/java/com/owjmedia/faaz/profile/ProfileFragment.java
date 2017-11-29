@@ -92,7 +92,8 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
         txtScore.setText(String.valueOf(profileResponse.getScore()));
         edtGender.setText(String.valueOf(profileResponse.getGender()));
         edtCity.setText(profileResponse.getCity());
-        edtBirthYear.setText(String.valueOf(profileResponse.getYearOfBirth()));
+        if (profileResponse.getYearOfBirth() != 0)
+            edtBirthYear.setText(String.valueOf(profileResponse.getYearOfBirth()));
     }
 
     @OnClick(R.id.btnContinue)

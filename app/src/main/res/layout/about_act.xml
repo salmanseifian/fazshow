@@ -6,23 +6,36 @@
 
     <include layout="@layout/app_bar" />
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/img_logo"
-            android:layout_width="128dp"
-            android:layout_height="128dp"
-            android:layout_centerHorizontal="true"
-            android:src="@drawable/ic_logo_transparent" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp">
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_version"
-            style="@style/NewsTitleTextView"
-            android:layout_below="@+id/img_logo"
-            android:text="@string/version" />
-    </RelativeLayout>
+            <ImageView
+                android:id="@+id/img_logo"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_logo_transparent" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                android:id="@+id/txt_version"
+                style="@style/NewsTitleTextView"
+                android:layout_below="@+id/img_logo"
+                android:text="@string/version" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                style="@style/NewsContentTextView"
+                android:layout_below="@id/txt_version"
+                android:text="@string/about"
+                android:layout_marginBottom="16dp"
+                android:textColor="@color/colorBlack" />
+        </RelativeLayout>
+
+    </ScrollView>
 
 </LinearLayout>

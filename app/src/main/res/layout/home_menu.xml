@@ -14,7 +14,7 @@
         <RelativeLayout
             android:id="@+id/rl_header"
             style="@style/MenuItem"
-            android:background="@color/colorPrimary">
+            android:background="@color/colorBlack">
 
             <ImageView
                 android:id="@+id/img_logo"
@@ -23,10 +23,6 @@
                 android:layout_centerInParent="true"
                 android:src="@drawable/ic_logo_transparent" />
 
-            <ImageView
-                android:id="@+id/ic_hide_sheet"
-                style="@style/MenuItemIcon"
-                android:src="@drawable/ic_expand_more" />
         </RelativeLayout>
 
         <RelativeLayout

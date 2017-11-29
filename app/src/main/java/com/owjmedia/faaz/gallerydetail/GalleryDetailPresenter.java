@@ -30,9 +30,9 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
     }
 
     @Override
-    public void getImageGalleryDetail(String galleryId) {
+    public void getImageGalleryDetail(String token, String galleryId) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GalleryDetailResponse> call = apiService.getImageGalleryDetail(galleryId);
+        Call<GalleryDetailResponse> call = apiService.getImageGalleryDetail(token, galleryId);
 
         call.enqueue(new Callback<GalleryDetailResponse>() {
             @Override
@@ -52,9 +52,9 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
     }
 
     @Override
-    public void getVideoGalleryDetail(String galleryId) {
+    public void getVideoGalleryDetail(String token, String galleryId) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GalleryDetailResponse> call = apiService.getVideoGalleryDetail(galleryId);
+        Call<GalleryDetailResponse> call = apiService.getVideoGalleryDetail(token, galleryId);
 
         call.enqueue(new Callback<GalleryDetailResponse>() {
             @Override

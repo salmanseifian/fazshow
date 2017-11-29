@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.owjmedia.faaz.BuildConfig;
+import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.home.HomeActivity;
 import com.owjmedia.faaz.news.NewsActivity;
 import com.crashlytics.android.Crashlytics;

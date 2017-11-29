@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.movie.model.MovieResponse;
 
 import java.util.ArrayList;
@@ -24,7 +25,7 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
         setContentView(R.layout.movie_act);
 
         mMoviePresenter = new MoviePresenter(this);
-        mMoviePresenter.getMovie();
+        mMoviePresenter.getMovie(AppManager.getToken(this));
 
     }
 

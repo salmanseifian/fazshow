@@ -24,9 +24,9 @@ public class NewsPresenter implements NewsContract.Presenter {
     }
 
     @Override
-    public void getNews() {
+    public void getNews(String token) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<NewsResponse> call = apiService.getNews();
+        Call<NewsResponse> call = apiService.getNews(token);
 
         mNewsView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsResponse>() {
