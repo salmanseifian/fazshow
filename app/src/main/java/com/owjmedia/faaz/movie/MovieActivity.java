@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.movie.model.MovieResponse;
 
 import java.util.ArrayList;
@@ -25,6 +26,7 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
         setContentView(R.layout.movie_act);
 
         mMoviePresenter = new MoviePresenter(this);
+        mProgressDialog = new ProgressDialog(this);
         mMoviePresenter.getMovie(AppManager.getToken(this));
 
     }
@@ -36,7 +38,10 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
@@ -64,4 +69,5 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
 
     private MovieContract.Presenter mMoviePresenter;
+    private ProgressDialog mProgressDialog;
 }

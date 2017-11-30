@@ -30,9 +30,11 @@ public class MoviePresenter implements MovieContract.Presenter {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<MovieResponse>> call = apiService.getMovie(token);
 
+        mMovieView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<MovieResponse>>() {
             @Override
             public void onResponse(Call<List<MovieResponse>> call, Response<List<MovieResponse>> response) {
+                mMovieView.setLoadingIndicator(false);
                 if (response.code() == 200)
                     mMovieView.showMovie(response.body());
                 else
@@ -41,7 +43,7 @@ public class MoviePresenter implements MovieContract.Presenter {
 
             @Override
             public void onFailure(Call<List<MovieResponse>> call, Throwable t) {
-
+                mMovieView.setLoadingIndicator(false);
             }
         });
     }

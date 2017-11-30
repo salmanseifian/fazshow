@@ -34,9 +34,11 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<GalleryDetailResponse> call = apiService.getImageGalleryDetail(token, galleryId);
 
+        mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {
             @Override
             public void onResponse(Call<GalleryDetailResponse> call, Response<GalleryDetailResponse> response) {
+                mGalleryDetailView.setLoadingIndicator(false);
                 if (response.code() == 200)
                     mGalleryDetailView.showGalleryDetailResponse(response.body());
                 else
@@ -45,7 +47,7 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
             @Override
             public void onFailure(Call<GalleryDetailResponse> call, Throwable t) {
-
+                mGalleryDetailView.setLoadingIndicator(false);
             }
         });
 
@@ -56,9 +58,11 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<GalleryDetailResponse> call = apiService.getVideoGalleryDetail(token, galleryId);
 
+        mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {
             @Override
             public void onResponse(Call<GalleryDetailResponse> call, Response<GalleryDetailResponse> response) {
+                mGalleryDetailView.setLoadingIndicator(false);
                 if (response.code() == 200)
                     mGalleryDetailView.showGalleryDetailResponse(response.body());
                 else
@@ -67,7 +71,7 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
             @Override
             public void onFailure(Call<GalleryDetailResponse> call, Throwable t) {
-
+                mGalleryDetailView.setLoadingIndicator(false);
             }
         });
     }

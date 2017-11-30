@@ -50,6 +50,6 @@ public class GalleryActivity extends AppCompatActivity {
     }
 
     @BindView(R.id.toolbar)
-    Toolbar toolbar;
+    public Toolbar toolbar;
 
 }

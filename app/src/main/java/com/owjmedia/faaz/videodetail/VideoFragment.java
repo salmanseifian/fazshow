@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.res.ResourcesCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +22,7 @@ import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.galleries.GalleryActivity;
 import com.owjmedia.faaz.general.Constants;
 
 import butterknife.BindView;
@@ -42,6 +44,7 @@ public class VideoFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+        ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlack, null));
     }
 
     private void initializePlayer() {
@@ -78,6 +81,7 @@ public class VideoFragment extends Fragment {
     public void onPause() {
         if (Util.SDK_INT <= 23) {
             releasePlayer();
+            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
         }
         super.onPause();
     }
@@ -86,6 +90,7 @@ public class VideoFragment extends Fragment {
     public void onStop() {
         if (Util.SDK_INT > 23) {
             releasePlayer();
+            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
         }
         super.onStop();
     }
@@ -114,7 +119,6 @@ public class VideoFragment extends Fragment {
             player = null;
         }
     }
-
 
 
     SimpleExoPlayer player;

@@ -16,6 +16,7 @@ import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.SpaceItemDecoration;
 import com.owjmedia.faaz.imagedetail.ImageFragment;
 import com.owjmedia.faaz.videodetail.VideoFragment;
@@ -43,6 +44,7 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         ButterKnife.bind(this, view);
 
         mGalleryDetailPresenter = new GalleryDetailPresenter(this);
+        mProgressDialog = new ProgressDialog(getActivity());
 
         initRecyclerView();
     }
@@ -87,7 +89,10 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
@@ -103,6 +108,7 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
     GalleryDetailContract.Presenter mGalleryDetailPresenter;
     GalleryDetailAdapter mGalleryDetailAdapter;
     List<GalleryItem> mGalleryItems;
+    private ProgressDialog mProgressDialog;
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;

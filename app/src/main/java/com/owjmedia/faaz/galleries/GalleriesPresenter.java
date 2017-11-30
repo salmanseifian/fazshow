@@ -32,9 +32,11 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<GalleriesResponse>> call = apiService.getImageGalleries(token);
 
+        mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {
             @Override
             public void onResponse(Call<List<GalleriesResponse>> call, Response<List<GalleriesResponse>> response) {
+                mGalleryView.setLoadingIndicator(false);
                 if (response.code() == 200)
                     mGalleryView.showGalleries(response.body());
                 else
@@ -43,6 +45,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
 
             @Override
             public void onFailure(Call<List<GalleriesResponse>> call, Throwable t) {
+                mGalleryView.setLoadingIndicator(false);
                 Log.d("LOG", "onFailure: " + t.getLocalizedMessage());
             }
         });
@@ -53,9 +56,11 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<List<GalleriesResponse>> call = apiService.getVideoGalleries(token);
 
+        mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {
             @Override
             public void onResponse(Call<List<GalleriesResponse>> call, Response<List<GalleriesResponse>> response) {
+                mGalleryView.setLoadingIndicator(false);
                 if (response.code() == 200)
                     mGalleryView.showGalleries(response.body());
                 else
@@ -64,6 +69,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
 
             @Override
             public void onFailure(Call<List<GalleriesResponse>> call, Throwable t) {
+                mGalleryView.setLoadingIndicator(false);
 
             }
         });

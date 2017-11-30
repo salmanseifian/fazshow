@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.galleries;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -15,6 +16,7 @@ import com.owjmedia.faaz.gallerydetail.GalleryDetailFragment;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.SpaceItemDecoration;
 
 import java.util.List;
@@ -28,6 +30,7 @@ import butterknife.ButterKnife;
 
 public class GalleriesFragment extends Fragment implements GalleriesContract.View {
 
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -40,6 +43,7 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
         ButterKnife.bind(this, view);
 
         mGalleryPresenter = new GalleriesPresenter(this);
+        mProgressDialog = new ProgressDialog(getActivity());
 
         initRecyclerView();
     }
@@ -75,7 +79,10 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
@@ -91,6 +98,8 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
     GalleriesContract.Presenter mGalleryPresenter;
     GalleriesAdapter mGalleriesAdapter;
     List<GalleriesResponse> mGalleriesResponse;
+    private ProgressDialog mProgressDialog;
+
 
     @BindView(R.id.recyclerView)
     RecyclerView mRecyclerView;
