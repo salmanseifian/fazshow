@@ -71,11 +71,6 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     }
 
     @Override
-    public void setPresenter(AuthenticateContract.Presenter presenter) {
-        mPresenter = presenter;
-    }
-
-    @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
             mProgressDialog.show();
@@ -98,6 +93,11 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     @Override
     public void showMessage(String message) {
         ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
+    }
+
+    @Override
+    public void showConnectionError() {
+
     }
 
 

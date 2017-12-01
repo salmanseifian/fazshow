@@ -25,11 +25,6 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
 
     @Override
-    public void start() {
-
-    }
-
-    @Override
     public void getImageGalleryDetail(String token, String galleryId) {
         ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         Call<GalleryDetailResponse> call = apiService.getImageGalleryDetail(token, galleryId);

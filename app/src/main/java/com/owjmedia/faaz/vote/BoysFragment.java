@@ -67,11 +67,6 @@ public class BoysFragment extends Fragment implements VoteContract.View {
     }
 
     @Override
-    public void setPresenter(VoteContract.Presenter presenter) {
-        mVotingPresenter = presenter;
-    }
-
-    @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
             mProgressDialog.show();
@@ -81,6 +76,11 @@ public class BoysFragment extends Fragment implements VoteContract.View {
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

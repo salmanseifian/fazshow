@@ -67,10 +67,6 @@ public class GirlsFragment extends Fragment implements VoteContract.View {
         mRecyclerView.setAdapter(mVotingAdapter);
     }
 
-    @Override
-    public void setPresenter(VoteContract.Presenter presenter) {
-        mVotingPresenter = presenter;
-    }
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -82,6 +78,11 @@ public class GirlsFragment extends Fragment implements VoteContract.View {
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

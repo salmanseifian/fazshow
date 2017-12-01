@@ -31,10 +31,6 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
     }
 
-    @Override
-    public void setPresenter(MovieContract.Presenter presenter) {
-
-    }
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -46,6 +42,11 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

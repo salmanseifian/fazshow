@@ -5,5 +5,4 @@ package com.owjmedia.faaz.general;
  */
 
 public interface BasePresenter {
-    void start();
 }

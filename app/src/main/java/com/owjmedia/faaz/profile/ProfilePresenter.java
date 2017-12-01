@@ -20,14 +20,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     public ProfilePresenter(ProfileContract.View profileView) {
         mProfileView = profileView;
-
-        mProfileView.setPresenter(this);
     }
 
-    @Override
-    public void start() {
-
-    }
 
     @Override
     public void updateProfile(String token, int gender, String city, int year_of_birth) {

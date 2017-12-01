@@ -20,10 +20,6 @@ public class MoviePresenter implements MovieContract.Presenter {
         mMovieView = movieView;
     }
 
-    @Override
-    public void start() {
-
-    }
 
     @Override
     public void getMovie(String token) {

@@ -19,12 +19,6 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
     public AuthenticatePresenter(AuthenticateContract.View authenticateView) {
         mAuthenticateView = authenticateView;
 
-        mAuthenticateView.setPresenter(this);
-    }
-
-    @Override
-    public void start() {
-
     }
 
     @Override

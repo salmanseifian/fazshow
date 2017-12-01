@@ -105,12 +105,6 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
             mVoteDetailPresenter.getCandidates("", getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
-
-    @Override
-    public void setPresenter(VoteDetailContract.Presenter presenter) {
-
-    }
-
     @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
@@ -121,6 +115,11 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

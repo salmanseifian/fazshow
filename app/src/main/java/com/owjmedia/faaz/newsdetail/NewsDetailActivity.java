@@ -60,17 +60,17 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
     }
 
     @Override
-    public void setPresenter(NewsDetailContract.Presenter presenter) {
-
-    }
-
-    @Override
     public void setLoadingIndicator(boolean active) {
 
     }
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

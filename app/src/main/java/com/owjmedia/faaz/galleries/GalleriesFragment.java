@@ -73,11 +73,6 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
     }
 
     @Override
-    public void setPresenter(GalleriesContract.Presenter presenter) {
-
-    }
-
-    @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
             mProgressDialog.show();
@@ -87,6 +82,11 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

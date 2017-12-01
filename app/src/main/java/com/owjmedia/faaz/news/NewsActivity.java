@@ -114,10 +114,6 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mNewsPresenter.getNews(AppManager.getToken(this));
     }
 
-    @Override
-    public void setPresenter(NewsContract.Presenter presenter) {
-
-    }
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -130,6 +126,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @Override
     public void showMessage(String message) {
         ActivityUtils.showToast(this, getString(R.string.no_internet_connection), "emoji_shock.json");
+    }
+
+    @Override
+    public void showConnectionError() {
+
     }
 
     @Override

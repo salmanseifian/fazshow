@@ -65,11 +65,6 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     }
 
     @Override
-    public void setPresenter(ProfileContract.Presenter presenter) {
-        mProfilePresenter = presenter;
-    }
-
-    @Override
     public void setLoadingIndicator(boolean active) {
         if (active)
             mProgressDialog.show();
@@ -80,6 +75,11 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @Override
     public void showMessage(String message) {
         ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
+    }
+
+    @Override
+    public void showConnectionError() {
+
     }
 
     @Override

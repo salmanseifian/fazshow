@@ -18,10 +18,6 @@ public class NewsPresenter implements NewsContract.Presenter {
         this.mNewsView = newsView;
     }
 
-    @Override
-    public void start() {
-
-    }
 
     @Override
     public void getNews(String token) {

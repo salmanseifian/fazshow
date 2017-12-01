@@ -19,10 +19,6 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
         this.mNewsDetailView = newsDetailView;
     }
 
-    @Override
-    public void start() {
-
-    }
 
     @Override
     public void getNewsDetail(String accessToken, String newsId) {

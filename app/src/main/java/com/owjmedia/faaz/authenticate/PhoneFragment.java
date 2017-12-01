@@ -48,11 +48,6 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
             ActivityUtils.showToast(getContext(), getString(R.string.input_is_not_valid), "emoji_shock.json");
     }
 
-    @Override
-    public void setPresenter(AuthenticateContract.Presenter presenter) {
-        mPresenter = presenter;
-    }
-
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -82,6 +77,11 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     @Override
     public void showMessage(String message) {
         ActivityUtils.showToast(getContext(), message, "emoji_shock.json");
+    }
+
+    @Override
+    public void showConnectionError() {
+
     }
 
     private AuthenticateContract.Presenter mPresenter;

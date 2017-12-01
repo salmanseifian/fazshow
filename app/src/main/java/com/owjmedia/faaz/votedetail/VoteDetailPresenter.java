@@ -18,13 +18,6 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
 
     public VoteDetailPresenter(VoteDetailContract.View voteDetailView) {
         this.mVoteDetailView = voteDetailView;
-
-        mVoteDetailView.setPresenter(this);
-    }
-
-    @Override
-    public void start() {
-
     }
 
     @Override

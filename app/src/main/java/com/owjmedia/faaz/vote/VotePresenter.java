@@ -18,13 +18,8 @@ public class VotePresenter implements VoteContract.Presenter {
 
     public VotePresenter(VoteContract.View mVotingContract) {
         this.mVotingView = mVotingContract;
-
-        mVotingView.setPresenter(this);
     }
 
-    @Override
-    public void start() {
-    }
 
     @Override
     public void getVotings(String token, String pollType) {

@@ -82,10 +82,6 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
             mGalleryDetailPresenter.getVideoGalleryDetail(AppManager.getToken(getContext()), getArguments().getString(Constants.KEYS.GALLEY_ID));
     }
 
-    @Override
-    public void setPresenter(GalleryDetailContract.Presenter presenter) {
-
-    }
 
     @Override
     public void setLoadingIndicator(boolean active) {
@@ -97,6 +93,11 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
 
     @Override
     public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
 
     }
 

@@ -22,10 +22,6 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
         mGalleryView = galleryView;
     }
 
-    @Override
-    public void start() {
-
-    }
 
     @Override
     public void getImageGalleries(String token) {
