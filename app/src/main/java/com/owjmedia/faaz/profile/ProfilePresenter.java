@@ -2,8 +2,8 @@ package com.owjmedia.faaz.profile;
 
 import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -25,9 +25,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void updateProfile(String token, int gender, String city, int year_of_birth) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest(gender, city, year_of_birth);
-        Call<ResponseBody> call = apiService.updateProfile(token, updateProfileRequest);
+        Call<ResponseBody> call = Injector.provideApiService().updateProfile(token, updateProfileRequest);
         mProfileView.setLoadingIndicator(true);
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -50,8 +49,7 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
     @Override
     public void getProfile(String accessToken) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ProfileResponse> call = apiService.getProfile(accessToken);
+        Call<ProfileResponse> call = Injector.provideApiService().getProfile(accessToken);
         mProfileView.setLoadingIndicator(true);
 
         call.enqueue(new Callback<ProfileResponse>() {

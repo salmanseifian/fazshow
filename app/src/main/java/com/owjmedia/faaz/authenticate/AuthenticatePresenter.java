@@ -5,8 +5,8 @@ import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
 import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
 import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
 import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -23,9 +23,8 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
 
     @Override
     public void sendPhoneNumber(String phoneNumber) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         AuthenticationRequest authenticationRequest = new AuthenticationRequest(phoneNumber);
-        Call<AuthenticationResponse> call = apiService.sendPhoneNumber(authenticationRequest);
+        Call<AuthenticationResponse> call = Injector.provideApiService().sendPhoneNumber(authenticationRequest);
         mAuthenticateView.setLoadingIndicator(true);
         call.enqueue(new Callback<AuthenticationResponse>() {
             @Override
@@ -46,9 +45,8 @@ public class AuthenticatePresenter implements AuthenticateContract.Presenter {
 
     @Override
     public void confirmPhoneNumber(String token, int code) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         ConfirmationRequest confirmationRequest = new ConfirmationRequest(token, code);
-        Call<ConfirmationResponse> call = apiService.confirmPhoneNumber(confirmationRequest);
+        Call<ConfirmationResponse> call = Injector.provideApiService().confirmPhoneNumber(confirmationRequest);
 
         call.enqueue(new Callback<ConfirmationResponse>() {
             @Override

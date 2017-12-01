@@ -1,8 +1,8 @@
 package com.owjmedia.faaz.vote;
 
 import com.owjmedia.faaz.vote.model.VotingResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import java.util.List;
 
@@ -23,9 +23,7 @@ public class VotePresenter implements VoteContract.Presenter {
 
     @Override
     public void getVotings(String token, String pollType) {
-
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<VotingResponse>> call = apiService.getVotings(token, pollType);
+        Call<List<VotingResponse>> call = Injector.provideApiService().getVotings(token, pollType);
 
         mVotingView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<VotingResponse>>() {

@@ -1,8 +1,8 @@
 package com.owjmedia.faaz.news;
 
 import com.owjmedia.faaz.news.model.NewsResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -21,8 +21,7 @@ public class NewsPresenter implements NewsContract.Presenter {
 
     @Override
     public void getNews(String token) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<NewsResponse> call = apiService.getNews(token);
+        Call<NewsResponse> call = Injector.provideApiService().getNews(token);
 
         mNewsView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsResponse>() {

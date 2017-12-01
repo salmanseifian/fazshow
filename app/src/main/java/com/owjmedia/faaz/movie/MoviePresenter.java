@@ -1,7 +1,7 @@
 package com.owjmedia.faaz.movie;
 
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 import com.owjmedia.faaz.movie.model.MovieResponse;
 
 import java.util.List;
@@ -23,8 +23,7 @@ public class MoviePresenter implements MovieContract.Presenter {
 
     @Override
     public void getMovie(String token) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<MovieResponse>> call = apiService.getMovie(token);
+        Call<List<MovieResponse>> call = Injector.provideApiService().getMovie(token);
 
         mMovieView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<MovieResponse>>() {

@@ -31,7 +31,7 @@ import retrofit2.http.Query;
  * Created by salman on 11/7/17.
  */
 
-public interface ApiInterface {
+public interface ApiService {
 
     @POST("v1/users/auth/")
     Call<AuthenticationResponse> sendPhoneNumber(@Body AuthenticationRequest authenticationRequest);

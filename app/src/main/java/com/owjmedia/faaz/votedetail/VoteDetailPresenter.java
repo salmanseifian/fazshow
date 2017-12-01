@@ -2,8 +2,8 @@ package com.owjmedia.faaz.votedetail;
 
 import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -22,8 +22,7 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
 
     @Override
     public void getCandidates(String accessToken, String pollId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<VoteDetailResponse> call = apiService.getCandidates(accessToken, pollId);
+        Call<VoteDetailResponse> call = Injector.provideApiService().getCandidates(accessToken, pollId);
 
         mVoteDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<VoteDetailResponse>() {
@@ -46,9 +45,8 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
 
     @Override
     public void vote(String accessToken, String pollId, int itemId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
         VoteDetailRequest voteDetailRequest = new VoteDetailRequest(itemId);
-        Call<ResponseBody> call = apiService.vote(accessToken, pollId, voteDetailRequest);
+        Call<ResponseBody> call = Injector.provideApiService().vote(accessToken, pollId, voteDetailRequest);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

@@ -3,8 +3,8 @@ package com.owjmedia.faaz.galleries;
 import android.util.Log;
 
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import java.util.List;
 
@@ -25,8 +25,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
 
     @Override
     public void getImageGalleries(String token) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<GalleriesResponse>> call = apiService.getImageGalleries(token);
+        Call<List<GalleriesResponse>> call = Injector.provideApiService().getImageGalleries(token);
 
         mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {
@@ -49,8 +48,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
 
     @Override
     public void getVideoGalleries(String token) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<List<GalleriesResponse>> call = apiService.getVideoGalleries(token);
+        Call<List<GalleriesResponse>> call = Injector.provideApiService().getVideoGalleries(token);
 
         mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {

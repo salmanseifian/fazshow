@@ -1,8 +1,8 @@
 package com.owjmedia.faaz.newsdetail;
 
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -22,8 +22,7 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
 
     @Override
     public void getNewsDetail(String accessToken, String newsId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<NewsDetailResponse> call = apiService.getNewsDetail(accessToken, newsId);
+        Call<NewsDetailResponse> call = Injector.provideApiService().getNewsDetail(accessToken, newsId);
 
         mNewsDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsDetailResponse>() {
@@ -43,8 +42,7 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
 
     @Override
     public void like(String accessToken, String newsId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<ResponseBody> call = apiService.like(accessToken, newsId);
+        Call<ResponseBody> call = Injector.provideApiService().like(accessToken, newsId);
 
         mNewsDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<ResponseBody>() {

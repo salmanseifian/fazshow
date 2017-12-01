@@ -6,6 +6,8 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
@@ -52,19 +54,6 @@ public class AppManager {
             return 2;
     }
 
-    public static String getEnglishGender(Context context, String persianGender) {
-        if (persianGender.equals(context.getString(R.string.male_persian)))
-            return context.getString(R.string.male_english);
-        else
-            return context.getString(R.string.female_english);
-    }
-
-    public static String getPersianGender(Context context, String englishGender) {
-        if (englishGender.equals(context.getString(R.string.male_english)))
-            return context.getString(R.string.male_persian);
-        else
-            return context.getString(R.string.female_persian);
-    }
 
     public static String[] getStringDate(String date) {
         return date.split("\\s+");
@@ -74,15 +63,5 @@ public class AppManager {
         return date.substring(0, date.indexOf(" "));
     }
 
-    public static Drawable drawableFromUrl(String url) throws IOException {
-        Bitmap x;
-
-        HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-        connection.connect();
-        InputStream input = connection.getInputStream();
-
-        x = BitmapFactory.decodeStream(input);
-        return new BitmapDrawable(x);
-    }
 
 }

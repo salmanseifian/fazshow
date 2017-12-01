@@ -1,13 +1,8 @@
 package com.owjmedia.faaz.gallerydetail;
 
-import android.util.Log;
-
-import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
-import com.owjmedia.faaz.general.networking.ApiClient;
-import com.owjmedia.faaz.general.networking.ApiInterface;
-
-import java.util.List;
+import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.general.networking.ApiService;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -26,8 +21,7 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
     @Override
     public void getImageGalleryDetail(String token, String galleryId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GalleryDetailResponse> call = apiService.getImageGalleryDetail(token, galleryId);
+        Call<GalleryDetailResponse> call = Injector.provideApiService().getImageGalleryDetail(token, galleryId);
 
         mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {
@@ -50,8 +44,7 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
     @Override
     public void getVideoGalleryDetail(String token, String galleryId) {
-        ApiInterface apiService = ApiClient.getClient().create(ApiInterface.class);
-        Call<GalleryDetailResponse> call = apiService.getVideoGalleryDetail(token, galleryId);
+        Call<GalleryDetailResponse> call = Injector.provideApiService().getVideoGalleryDetail(token, galleryId);
 
         mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {
