@@ -24,6 +24,7 @@ import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.about.AboutActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
+import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
@@ -125,12 +126,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @Override
     public void showMessage(String message) {
-        ActivityUtils.showToast(this, getString(R.string.no_internet_connection), "emoji_shock.json");
     }
 
     @Override
     public void showConnectionError() {
-
+        new ConnectionErrorDialog().show(getSupportFragmentManager(), null);
     }
 
     @Override

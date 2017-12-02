@@ -39,6 +39,7 @@ public class MoviePresenter implements MovieContract.Presenter {
             @Override
             public void onFailure(Call<List<MovieResponse>> call, Throwable t) {
                 mMovieView.setLoadingIndicator(false);
+                mMovieView.showConnectionError();
             }
         });
     }

@@ -41,7 +41,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
             @Override
             public void onFailure(Call<List<GalleriesResponse>> call, Throwable t) {
                 mGalleryView.setLoadingIndicator(false);
-                Log.d("LOG", "onFailure: " + t.getLocalizedMessage());
+                mGalleryView.showConnectionError();
             }
         });
     }
@@ -64,7 +64,7 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
             @Override
             public void onFailure(Call<List<GalleriesResponse>> call, Throwable t) {
                 mGalleryView.setLoadingIndicator(false);
-
+                mGalleryView.showConnectionError();
             }
         });
 

@@ -49,7 +49,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".movie.MovieActivity"
-            android:theme="@style/Theme.Intro"
             android:screenOrientation="portrait" />
         <activity
             android:name=".movie.IntroActivity"

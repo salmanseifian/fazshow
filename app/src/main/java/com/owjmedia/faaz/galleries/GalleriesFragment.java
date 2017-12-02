@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.GalleryDetailFragment;
+import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
@@ -87,7 +88,7 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
 
     @Override
     public void showConnectionError() {
-
+        new ConnectionErrorDialog().show(getFragmentManager(), null);
     }
 
     @Override

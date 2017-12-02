@@ -34,7 +34,7 @@ public class NewsPresenter implements NewsContract.Presenter {
             @Override
             public void onFailure(Call<NewsResponse> call, Throwable t) {
                 mNewsView.setLoadingIndicator(false);
-                mNewsView.showMessage(t.getLocalizedMessage());
+                mNewsView.showConnectionError();
             }
         });
 

@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
@@ -47,7 +48,7 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
     @Override
     public void showConnectionError() {
-
+        new ConnectionErrorDialog().show(getSupportFragmentManager(), null);
     }
 
     @Override
