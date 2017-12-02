@@ -1,7 +1,6 @@
 package com.owjmedia.faaz.general.utils;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.widget.ImageView;
 
 import com.makeramen.roundedimageview.RoundedTransformationBuilder;
@@ -40,14 +39,20 @@ public class ImageHelper {
                         .load(imageUrl)
                         .fit()
                         .transform(getTransformation())
-                        .placeholder(R.drawable.placeholder_news)
+                        .placeholder(R.drawable.placeholder)
                         .into(imageView);
                 break;
-
-            case GALLERY:
+            case NEWS_DETAIL:
                 Picasso.with(context)
                         .load(imageUrl)
-                        .placeholder(R.drawable.placeholder_news)
+                        .fit()
+                        .placeholder(R.drawable.placeholder)
+                        .into(imageView);
+                break;
+            case SIMPLE:
+                Picasso.with(context)
+                        .load(imageUrl)
+                        .placeholder(R.drawable.placeholder)
                         .into(imageView);
                 break;
             default:
@@ -66,7 +71,7 @@ public class ImageHelper {
     }
 
     public enum ImageType {
-        NEWS, AVATAR, GALLERY
+        NEWS, NEWS_DETAIL, AVATAR, SIMPLE
     }
 
     private static ImageHelper instance;

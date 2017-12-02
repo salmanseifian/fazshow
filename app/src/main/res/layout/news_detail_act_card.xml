@@ -36,7 +36,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="256dp"
                     android:scaleType="centerCrop"
-                    android:src="@drawable/placeholder_news"
                     android:transitionName="@string/news_image" />
 
                 <com.airbnb.lottie.LottieAnimationView

@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
@@ -44,7 +43,7 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
         else
             holder.imgPlay.setVisibility(View.VISIBLE);
 
-        ImageHelper.getInstance(mContext).imageLoader(galleryItem.getImage(), holder.imgGalleryItem, ImageHelper.ImageType.GALLERY);
+        ImageHelper.getInstance(mContext).imageLoader(galleryItem.getImage(), holder.imgGalleryItem, ImageHelper.ImageType.SIMPLE);
     }
 
     @Override
@@ -65,6 +64,6 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
     private GalleryDetailAdapter.OnItemClickListener listener;
     private boolean isImageGallery;
 
-    Context mContext;
+    private Context mContext;
 
 }

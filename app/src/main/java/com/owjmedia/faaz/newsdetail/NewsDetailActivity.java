@@ -34,6 +34,8 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         setContentView(R.layout.news_detail_act);
         ButterKnife.bind(this);
 
+        supportPostponeEnterTransition();
+
         // Set up the toolbar.
         setSupportActionBar(toolbar);
         ActionBar ab = getSupportActionBar();
@@ -76,6 +78,9 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
 
     @Override
     public void showNewsDetail(NewsDetailResponse newsDetailResponse) {
+
+        supportStartPostponedEnterTransition();
+
         txtNewsTitle.setText(newsDetailResponse.getTitle());
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
             txtNewsContent.setText(Html.fromHtml(newsDetailResponse.getContent(), Html.FROM_HTML_MODE_COMPACT));
@@ -86,7 +91,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         if (newsDetailResponse.isLiked()) {
             lottieLike.playAnimation();
         }
-        ImageHelper.getInstance(this).imageLoader(newsDetailResponse.getImage(), imgNews, ImageHelper.ImageType.NEWS);
+        ImageHelper.getInstance(this).imageLoader(newsDetailResponse.getImage(), imgNews, ImageHelper.ImageType.NEWS_DETAIL);
     }
 
     @Override

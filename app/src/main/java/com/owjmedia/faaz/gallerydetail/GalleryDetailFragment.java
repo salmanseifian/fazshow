@@ -1,10 +1,12 @@
 package com.owjmedia.faaz.gallerydetail;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.transition.Fade;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,7 @@ import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.DetailsTransition;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
@@ -54,12 +57,17 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.addItemDecoration(new SpaceItemDecoration(16));
 
-        mGalleryDetailAdapter = new GalleryDetailAdapter(mGalleryItems, getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY) ,new GalleryDetailAdapter.OnItemClickListener() {
+        mGalleryDetailAdapter = new GalleryDetailAdapter(mGalleryItems, getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY), new GalleryDetailAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(GalleryItem galleryItem, ImageView imageView) {
                 Fragment fragment;
                 if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY)) {
                     fragment = new ImageFragment();
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+                        fragment.setSharedElementEnterTransition(new DetailsTransition());
+                        fragment.setEnterTransition(new Fade());
+                        fragment.setSharedElementReturnTransition(new DetailsTransition());
+                    }
                     Bundle bundle = new Bundle();
                     bundle.putString(Constants.KEYS.IMAGE_PATH, galleryItem.getImage());
                     fragment.setArguments(bundle);

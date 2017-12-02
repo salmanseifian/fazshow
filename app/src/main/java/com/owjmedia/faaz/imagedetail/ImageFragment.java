@@ -30,7 +30,7 @@ public class ImageFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        ImageHelper.getInstance(getContext()).imageLoader(getArguments().getString(Constants.KEYS.IMAGE_PATH), image, ImageHelper.ImageType.GALLERY);
+        ImageHelper.getInstance(getContext()).imageLoader(getArguments().getString(Constants.KEYS.IMAGE_PATH), image, ImageHelper.ImageType.SIMPLE);
     }
 
     @BindView(R.id.image)
