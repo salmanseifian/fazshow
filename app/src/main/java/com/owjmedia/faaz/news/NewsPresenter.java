@@ -20,8 +20,8 @@ public class NewsPresenter implements NewsContract.Presenter {
 
 
     @Override
-    public void getNews(String token) {
-        Call<NewsResponse> call = Injector.provideApiService().getNews(token);
+    public void getNews() {
+        Call<NewsResponse> call = Injector.provideApiService().getNews();
 
         mNewsView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsResponse>() {

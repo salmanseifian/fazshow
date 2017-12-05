@@ -21,8 +21,8 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
 
 
     @Override
-    public void getNewsDetail(String accessToken, String newsId) {
-        Call<NewsDetailResponse> call = Injector.provideApiService().getNewsDetail(accessToken, newsId);
+    public void getNewsDetail(String newsId) {
+        Call<NewsDetailResponse> call = Injector.provideApiService().getNewsDetail(newsId);
 
         mNewsDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<NewsDetailResponse>() {
@@ -41,8 +41,8 @@ public class NewsDetailPresenter implements NewsDetailContract.Presenter {
     }
 
     @Override
-    public void like(String accessToken, String newsId) {
-        Call<ResponseBody> call = Injector.provideApiService().like(accessToken, newsId);
+    public void like(String newsId) {
+        Call<ResponseBody> call = Injector.provideApiService().like(newsId);
 
         mNewsDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<ResponseBody>() {

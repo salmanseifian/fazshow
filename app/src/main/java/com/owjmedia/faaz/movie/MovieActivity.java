@@ -28,7 +28,7 @@ public class MovieActivity extends AppCompatActivity implements MovieContract.Vi
 
         mMoviePresenter = new MoviePresenter(this);
         mProgressDialog = new ProgressDialog(this);
-        mMoviePresenter.getMovie(AppManager.getToken(this));
+        mMoviePresenter.getMovie();
 
     }
 

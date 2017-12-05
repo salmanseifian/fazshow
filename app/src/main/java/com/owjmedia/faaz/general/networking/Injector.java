@@ -35,6 +35,7 @@ public class Injector {
     private static OkHttpClient provideOkHttpClient() {
         return new OkHttpClient.Builder()
                 .addInterceptor(provideOfflineCacheInterceptor())
+                .addInterceptor(provideHeaderInterceptor())
                 .cache(provideCache())
                 .build();
     }
@@ -49,6 +50,20 @@ public class Injector {
         }
 
         return cache;
+    }
+
+    private static Interceptor provideHeaderInterceptor() {
+        return new Interceptor() {
+            @Override
+            public Response intercept(Chain chain) throws IOException {
+                Request request = chain.request();
+                Request.Builder builder = request.newBuilder();
+                if (Global.isLogin()) {
+                    builder.addHeader("Authorization", Global.getToken());
+                }
+                return chain.proceed(builder.build());
+            }
+        };
     }
 
     private static Interceptor provideOfflineCacheInterceptor() {

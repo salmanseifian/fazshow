@@ -47,7 +47,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
 
         mProgressDialog = new ProgressDialog(getContext());
 
-        mProfilePresenter.getProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN));
+        mProfilePresenter.getProfile();
 
         // Set up spinner
         setUpSpinner();
@@ -99,7 +99,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @OnClick(R.id.btnContinue)
     public void saveProfile() {
         if (Validator.isStringValid(spinnerGender.getSelectedItem().toString()) && !spinnerGender.getSelectedItem().toString().equals(getString(R.string.gender)) && Validator.isStringValid(edtCity.getText().toString()) && Validator.isStringValid(edtBirthYear.getText().toString()))
-            mProfilePresenter.updateProfile(AppManager.getString(getContext(), Constants.KEYS.TOKEN), AppManager.getGenderNumber(getContext(), spinnerGender.getSelectedItem().toString()), edtCity.getText().toString(),
+            mProfilePresenter.updateProfile(AppManager.getGenderNumber(getContext(), spinnerGender.getSelectedItem().toString()), edtCity.getText().toString(),
                     Integer.parseInt(edtBirthYear.getText().toString()));
         else
             showMessage(getString(R.string.inputs_is_not_valid));

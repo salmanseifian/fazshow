@@ -68,9 +68,9 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
 
 
         if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
-            mGalleryPresenter.getImageGalleries(AppManager.getToken(getContext()));
+            mGalleryPresenter.getImageGalleries();
         else
-            mGalleryPresenter.getVideoGalleries(AppManager.getToken(getContext()));
+            mGalleryPresenter.getVideoGalleries();
     }
 
     @Override

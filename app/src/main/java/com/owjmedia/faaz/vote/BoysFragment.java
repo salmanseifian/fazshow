@@ -48,7 +48,7 @@ public class BoysFragment extends Fragment implements VoteContract.View {
     }
 
     private void initViews() {
-        mVotingPresenter.getVotings(AppManager.getToken(getContext()), "boys");
+        mVotingPresenter.getVotings("boys");
         mVotingAdapter = new VoteAdapter(mVotingResponse, new VoteAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(VotingResponse votingResponse) {

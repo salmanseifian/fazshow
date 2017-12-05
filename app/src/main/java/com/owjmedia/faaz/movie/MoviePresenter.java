@@ -22,8 +22,8 @@ public class MoviePresenter implements MovieContract.Presenter {
 
 
     @Override
-    public void getMovie(String token) {
-        Call<List<MovieResponse>> call = Injector.provideApiService().getMovie(token);
+    public void getMovie() {
+        Call<List<MovieResponse>> call = Injector.provideApiService().getMovie();
 
         mMovieView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<MovieResponse>>() {

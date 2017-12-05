@@ -24,8 +24,8 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
 
 
     @Override
-    public void getImageGalleries(String token) {
-        Call<List<GalleriesResponse>> call = Injector.provideApiService().getImageGalleries(token);
+    public void getImageGalleries() {
+        Call<List<GalleriesResponse>> call = Injector.provideApiService().getImageGalleries();
 
         mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {
@@ -47,8 +47,8 @@ public class GalleriesPresenter implements GalleriesContract.Presenter {
     }
 
     @Override
-    public void getVideoGalleries(String token) {
-        Call<List<GalleriesResponse>> call = Injector.provideApiService().getVideoGalleries(token);
+    public void getVideoGalleries() {
+        Call<List<GalleriesResponse>> call = Injector.provideApiService().getVideoGalleries();
 
         mGalleryView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<GalleriesResponse>>() {

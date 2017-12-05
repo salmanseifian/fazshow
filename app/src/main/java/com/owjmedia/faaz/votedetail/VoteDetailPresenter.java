@@ -21,8 +21,8 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
     }
 
     @Override
-    public void getCandidates(String accessToken, String pollId) {
-        Call<VoteDetailResponse> call = Injector.provideApiService().getCandidates(accessToken, pollId);
+    public void getCandidates(String pollId) {
+        Call<VoteDetailResponse> call = Injector.provideApiService().getCandidates(pollId);
 
         mVoteDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<VoteDetailResponse>() {
@@ -44,9 +44,9 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
     }
 
     @Override
-    public void vote(String accessToken, String pollId, int itemId) {
+    public void vote(String pollId, int itemId) {
         VoteDetailRequest voteDetailRequest = new VoteDetailRequest(itemId);
-        Call<ResponseBody> call = Injector.provideApiService().vote(accessToken, pollId, voteDetailRequest);
+        Call<ResponseBody> call = Injector.provideApiService().vote(pollId, voteDetailRequest);
 
         call.enqueue(new Callback<ResponseBody>() {
             @Override

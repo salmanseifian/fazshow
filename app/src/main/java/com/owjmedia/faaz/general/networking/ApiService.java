@@ -40,42 +40,42 @@ public interface ApiService {
     Call<ConfirmationResponse> confirmPhoneNumber(@Body ConfirmationRequest confirmationRequest);
 
     @PUT("v1/users/auth/")
-    Call<ResponseBody> updateProfile(@Header("Authorization") String accessToken, @Body UpdateProfileRequest updateProfileRequest);
+    Call<ResponseBody> updateProfile(@Body UpdateProfileRequest updateProfileRequest);
 
     @GET("v1/users/auth/")
-    Call<ProfileResponse> getProfile(@Header("Authorization") String accessToken);
+    Call<ProfileResponse> getProfile();
 
     @GET("v1/polls/")
-    Call<List<VotingResponse>> getVotings(@Header("Authorization") String accessToken, @Query("poll_type") String pollType);
+    Call<List<VotingResponse>> getVotings(@Query("poll_type") String pollType);
 
     @GET("v1/polls/{poll_id}")
-    Call<VoteDetailResponse> getCandidates(@Header("Authorization") String accessToken, @Path("poll_id") String pollId);
+    Call<VoteDetailResponse> getCandidates(@Path("poll_id") String pollId);
 
     @POST("v1/polls/{poll_id}/voting/")
-    Call<ResponseBody> vote(@Header("Authorization") String accessToken, @Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);
+    Call<ResponseBody> vote(@Path("poll_id") String pollId, @Body VoteDetailRequest voteDetailRequest);
 
     @GET("v1/news/")
-    Call<NewsResponse> getNews(@Header("Authorization") String accessToken);
+    Call<NewsResponse> getNews();
 
     @GET("v1/news/{news_id}/")
-    Call<NewsDetailResponse> getNewsDetail(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
+    Call<NewsDetailResponse> getNewsDetail(@Path("news_id") String newsId);
 
     @POST("v1/news/{news_id}/like/")
-    Call<ResponseBody> like(@Header("Authorization") String accessToken, @Path("news_id") String newsId);
+    Call<ResponseBody> like(@Path("news_id") String newsId);
 
     @GET("v1/image_galleries/")
-    Call<List<GalleriesResponse>> getImageGalleries(@Header("Authorization") String accessToken);
+    Call<List<GalleriesResponse>> getImageGalleries();
 
     @GET("v1/video_galleries/")
-    Call<List<GalleriesResponse>> getVideoGalleries(@Header("Authorization") String accessToken);
+    Call<List<GalleriesResponse>> getVideoGalleries();
 
     @GET("v1/image_galleries/{gallery_id}/")
-    Call<GalleryDetailResponse> getImageGalleryDetail(@Header("Authorization") String accessToken,  @Path("gallery_id") String galleryId);
+    Call<GalleryDetailResponse> getImageGalleryDetail(@Path("gallery_id") String galleryId);
 
     @GET("v1/video_galleries/{gallery_id}/")
-    Call<GalleryDetailResponse> getVideoGalleryDetail(@Header("Authorization") String accessToken, @Path("gallery_id") String galleryId);
+    Call<GalleryDetailResponse> getVideoGalleryDetail(@Path("gallery_id") String galleryId);
 
     @GET("v1/movie_info/")
-    Call<List<MovieResponse>> getMovie(@Header("Authorization") String accessToken);
+    Call<List<MovieResponse>> getMovie();
 
 }

@@ -45,10 +45,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         }
 
         mNewsDetailPresenter = new NewsDetailPresenter(this);
-        if (AppManager.getString(this, Constants.KEYS.TOKEN) != null && mNewsDetailPresenter != null)
-            mNewsDetailPresenter.getNewsDetail(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
-        else
-            mNewsDetailPresenter.getNewsDetail("", getNewsId());
+        mNewsDetailPresenter.getNewsDetail(getNewsId());
     }
 
     @Override
@@ -107,7 +104,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
     public void like() {
         if (AppManager.isLogin(this)) {
             lottieLike.playAnimation();
-            mNewsDetailPresenter.like(AppManager.getString(this, Constants.KEYS.TOKEN), getNewsId());
+            mNewsDetailPresenter.like(getNewsId());
         } else {
             new AuthenticationDialog(this).show();
         }

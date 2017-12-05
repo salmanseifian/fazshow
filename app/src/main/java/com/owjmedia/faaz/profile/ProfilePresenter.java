@@ -24,9 +24,9 @@ public class ProfilePresenter implements ProfileContract.Presenter {
 
 
     @Override
-    public void updateProfile(String token, int gender, String city, int year_of_birth) {
+    public void updateProfile(int gender, String city, int year_of_birth) {
         UpdateProfileRequest updateProfileRequest = new UpdateProfileRequest(gender, city, year_of_birth);
-        Call<ResponseBody> call = Injector.provideApiService().updateProfile(token, updateProfileRequest);
+        Call<ResponseBody> call = Injector.provideApiService().updateProfile(updateProfileRequest);
         mProfileView.setLoadingIndicator(true);
 
         call.enqueue(new Callback<ResponseBody>() {
@@ -48,8 +48,8 @@ public class ProfilePresenter implements ProfileContract.Presenter {
     }
 
     @Override
-    public void getProfile(String accessToken) {
-        Call<ProfileResponse> call = Injector.provideApiService().getProfile(accessToken);
+    public void getProfile() {
+        Call<ProfileResponse> call = Injector.provideApiService().getProfile();
         mProfileView.setLoadingIndicator(true);
 
         call.enqueue(new Callback<ProfileResponse>() {

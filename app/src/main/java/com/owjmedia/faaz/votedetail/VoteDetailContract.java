@@ -16,9 +16,9 @@ interface VoteDetailContract {
 
     interface Presenter extends BasePresenter {
 
-        void getCandidates(String accessToken, String pollId);
+        void getCandidates(String pollId);
 
-        void vote(String accessToken, String pollId, int itemId);
+        void vote(String pollId, int itemId);
 
     }
 }

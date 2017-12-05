@@ -19,6 +19,6 @@ public interface NewsContract {
 
     interface Presenter extends BasePresenter {
 
-        void getNews(String token);
+        void getNews();
     }
 }

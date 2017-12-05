@@ -58,11 +58,8 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     @Override
     public void onResume() {
         super.onResume();
-        if (AppManager.getString(getContext(), Constants.KEYS.TOKEN) != null && mVoteDetailPresenter != null)
-            mVoteDetailPresenter.getCandidates(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID));
-        else
-            mVoteDetailPresenter.getCandidates("", getArguments().getString(Constants.KEYS.POLL_ID));
-
+        if (mVoteDetailPresenter != null)
+            mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
     private void initCarouselLayoutManager() {
@@ -81,7 +78,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
                 if (!AppManager.isLogin(getContext()))
                     showAuthenticationDialog();
                 else {
-                    mVoteDetailPresenter.vote(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
+                    mVoteDetailPresenter.vote(getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
                     if (voteItem.isVoted()) {
                         ImageHelper.getInstance(getContext()).imageLoader(voteItem.getImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
                         voteItem.setVoted(false);
@@ -98,11 +95,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
         });
 
         mRecyclerView.setAdapter(mVoteDetailAdapter);
-
-        if (AppManager.getString(getContext(), Constants.KEYS.TOKEN) != null)
-            mVoteDetailPresenter.getCandidates(AppManager.getString(getContext(), Constants.KEYS.TOKEN), getArguments().getString(Constants.KEYS.POLL_ID));
-        else
-            mVoteDetailPresenter.getCandidates("", getArguments().getString(Constants.KEYS.POLL_ID));
+        mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
     @Override

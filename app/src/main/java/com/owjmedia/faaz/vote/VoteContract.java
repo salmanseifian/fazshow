@@ -19,7 +19,7 @@ public interface VoteContract {
 
     interface Presenter extends BasePresenter {
 
-        void getVotings(String token, String pollType);
+        void getVotings(String pollType);
 
     }
 }

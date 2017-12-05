@@ -19,8 +19,8 @@ public interface NewsDetailContract {
 
     interface Presenter extends BasePresenter {
 
-        void getNewsDetail(String accessToken, String newsId);
+        void getNewsDetail(String newsId);
 
-        void like(String accessToken, String newsId);
+        void like(String newsId);
     }
 }

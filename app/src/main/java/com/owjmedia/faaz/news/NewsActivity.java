@@ -112,7 +112,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
         });
         mRecyclerView.setAdapter(mNewsAdapter);
-        mNewsPresenter.getNews(AppManager.getToken(this));
+        mNewsPresenter.getNews();
     }
 
 

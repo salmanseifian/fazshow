@@ -20,8 +20,8 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
 
 
     @Override
-    public void getImageGalleryDetail(String token, String galleryId) {
-        Call<GalleryDetailResponse> call = Injector.provideApiService().getImageGalleryDetail(token, galleryId);
+    public void getImageGalleryDetail(String galleryId) {
+        Call<GalleryDetailResponse> call = Injector.provideApiService().getImageGalleryDetail(galleryId);
 
         mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {
@@ -43,8 +43,8 @@ public class GalleryDetailPresenter implements GalleryDetailContract.Presenter {
     }
 
     @Override
-    public void getVideoGalleryDetail(String token, String galleryId) {
-        Call<GalleryDetailResponse> call = Injector.provideApiService().getVideoGalleryDetail(token, galleryId);
+    public void getVideoGalleryDetail(String galleryId) {
+        Call<GalleryDetailResponse> call = Injector.provideApiService().getVideoGalleryDetail(galleryId);
 
         mGalleryDetailView.setLoadingIndicator(true);
         call.enqueue(new Callback<GalleryDetailResponse>() {

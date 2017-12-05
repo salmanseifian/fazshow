@@ -21,9 +21,9 @@ public interface GalleryDetailContract {
 
     interface Presenter extends BasePresenter {
 
-        void getImageGalleryDetail(String token, String galleryId);
+        void getImageGalleryDetail(String galleryId);
 
-        void getVideoGalleryDetail(String token, String galleryId);
+        void getVideoGalleryDetail(String galleryId);
 
     }
 }

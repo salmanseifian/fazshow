@@ -22,8 +22,8 @@ public class VotePresenter implements VoteContract.Presenter {
 
 
     @Override
-    public void getVotings(String token, String pollType) {
-        Call<List<VotingResponse>> call = Injector.provideApiService().getVotings(token, pollType);
+    public void getVotings(String pollType) {
+        Call<List<VotingResponse>> call = Injector.provideApiService().getVotings(pollType);
 
         mVotingView.setLoadingIndicator(true);
         call.enqueue(new Callback<List<VotingResponse>>() {

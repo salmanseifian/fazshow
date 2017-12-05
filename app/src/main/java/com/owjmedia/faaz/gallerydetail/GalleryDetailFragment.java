@@ -85,9 +85,9 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
         mRecyclerView.setAdapter(mGalleryDetailAdapter);
 
         if (getArguments().getBoolean(Constants.KEYS.IMAGE_GALLERY))
-            mGalleryDetailPresenter.getImageGalleryDetail(AppManager.getToken(getContext()), getArguments().getString(Constants.KEYS.GALLEY_ID));
+            mGalleryDetailPresenter.getImageGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));
         else
-            mGalleryDetailPresenter.getVideoGalleryDetail(AppManager.getToken(getContext()), getArguments().getString(Constants.KEYS.GALLEY_ID));
+            mGalleryDetailPresenter.getVideoGalleryDetail(getArguments().getString(Constants.KEYS.GALLEY_ID));
     }
 
 
