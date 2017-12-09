@@ -8,7 +8,7 @@
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
             android:id="@+id/txt_galley_title"
-            style="@style/HomeCardTextView"
+            style="@style/GalleryCardTextView"
             android:layout_height="match_parent" />
     </android.support.v7.widget.CardView>
 

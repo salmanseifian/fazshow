@@ -94,6 +94,7 @@ public class GalleriesFragment extends Fragment implements GalleriesContract.Vie
     @Override
     public void showGalleries(List<GalleriesResponse> galleriesResponses) {
         mGalleriesAdapter.update(galleriesResponses);
+        mRecyclerView.scheduleLayoutAnimation();
     }
 
     GalleriesContract.Presenter mGalleryPresenter;

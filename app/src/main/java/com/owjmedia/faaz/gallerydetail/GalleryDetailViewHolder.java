@@ -2,6 +2,7 @@ package com.owjmedia.faaz.gallerydetail;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
@@ -36,4 +37,6 @@ class GalleryDetailViewHolder extends RecyclerView.ViewHolder {
     ImageView imgGalleryItem;
     @BindView(R.id.imgPlay)
     ImageView imgPlay;
+    @BindView(R.id.rl_play)
+    ViewGroup rlPlay;
 }

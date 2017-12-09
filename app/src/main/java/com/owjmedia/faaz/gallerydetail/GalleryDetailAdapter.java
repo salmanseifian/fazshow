@@ -39,9 +39,9 @@ public class GalleryDetailAdapter extends RecyclerView.Adapter<GalleryDetailView
         holder.bind(galleryItem, listener);
 
         if (isImageGallery)
-            holder.imgPlay.setVisibility(View.GONE);
+            holder.rlPlay.setVisibility(View.GONE);
         else
-            holder.imgPlay.setVisibility(View.VISIBLE);
+            holder.rlPlay.setVisibility(View.VISIBLE);
 
         ImageHelper.getInstance(mContext).imageLoader(galleryItem.getImage(), holder.imgGalleryItem, ImageHelper.ImageType.SIMPLE);
     }

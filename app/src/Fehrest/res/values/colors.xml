@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#FF9100</color>
-    <color name="colorPrimaryDark">#d77a00</color>
+    <color name="colorPrimary">#FF6700</color>
+    <color name="colorPrimaryDark">#FB5607</color>
     <color name="colorAccent">#1e88e5</color>
     <color name="colorAccentDark">#1366ea</color>
-    <color name="colorEditTextBackground">#44FF9100</color>
+    <color name="colorEditTextBackground">@color/colorArCardBackground</color>
     <color name="phaseItemEnableColor">#FF9100</color>
     <color name="phaseItemDisableColor">#44FF9100</color>
     <color name="colorWhite">@android:color/white</color>
@@ -16,6 +16,11 @@
     <color name="colorNewsListBackground">#e4dfda</color>
     <color name="colorProfileBackground">#e4dfda</color>
     <color name="colorVoteDetailBackground">#e4dfda</color>
-    <color name="colorButtonBackground">#1e88e5</color>
+    <color name="colorButtonBackground">#FF6700</color>
+    <color name="colorRipple">#1e88e5</color>
     <color name="colorIcon">#FF9100</color>
+    <color name="colorHomeToolbar">@android:color/transparent</color>
+    <color name="colorCardBackground">#66FFFFFF</color>
+    <color name="colorArCardBackground">#33FFFFFF</color>
+    <color name="colorVideoForeground">#99000000</color>
 </resources>

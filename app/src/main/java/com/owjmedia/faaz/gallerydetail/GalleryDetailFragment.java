@@ -112,6 +112,7 @@ public class GalleryDetailFragment extends Fragment implements GalleryDetailCont
     @Override
     public void showGalleryDetailResponse(GalleryDetailResponse galleryDetailResponse) {
         mGalleryDetailAdapter.update(galleryDetailResponse.getItems());
+        mRecyclerView.scheduleLayoutAnimation();
     }
 
     GalleryDetailContract.Presenter mGalleryDetailPresenter;
