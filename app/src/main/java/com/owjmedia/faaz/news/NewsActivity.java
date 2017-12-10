@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.BottomSheetBehavior;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -22,7 +21,7 @@ import android.widget.ImageView;
 import com.crashlytics.android.Crashlytics;
 import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.about.AboutActivity;
+import com.owjmedia.faaz.appinfo.AppInfoActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
@@ -176,7 +175,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @OnClick(R.id.rl_info)
     public void goToInfo() {
-        Intent infoActivity = new Intent(NewsActivity.this, AboutActivity.class);
+        Intent infoActivity = new Intent(NewsActivity.this, AppInfoActivity.class);
         startActivity(infoActivity);
     }
 

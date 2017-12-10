@@ -22,9 +22,11 @@ public class IntroActivity extends MaterialIntroActivity {
         List<String> contents = getIntent().getStringArrayListExtra(Constants.KEYS.SLIDE_CONTENT);
         List<String> images = getIntent().getStringArrayListExtra(Constants.KEYS.SLIDE_IMAGE);
         int[] backgroundColors = {R.color.first_slide_background, R.color.second_slide_background,
-                R.color.third_slide_background, R.color.fourth_slide_background};
+                R.color.third_slide_background, R.color.fourth_slide_background, R.color.first_slide_background,
+                R.color.second_slide_background,  R.color.third_slide_background, R.color.fourth_slide_background};
         int[] buttonColors = {R.color.first_slide_buttons, R.color.second_slide_buttons,
-                R.color.third_slide_buttons, R.color.fourth_slide_buttons};
+                R.color.third_slide_buttons, R.color.fourth_slide_buttons, R.color.first_slide_buttons, R.color.second_slide_buttons,
+                R.color.third_slide_buttons,R.color.fourth_slide_buttons };
 
         for (int i = 0; i < titles.size(); i++) {
             addSlide(new MovieSlideBuilder()

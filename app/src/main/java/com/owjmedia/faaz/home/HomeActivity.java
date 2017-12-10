@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 
 import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.about.AboutActivity;
+import com.owjmedia.faaz.appinfo.AppInfoActivity;
 import com.owjmedia.faaz.ar.ArActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.galleries.GalleryActivity;
@@ -98,7 +98,7 @@ public class HomeActivity extends AppCompatActivity {
 
     @OnClick(R.id.rl_info)
     public void goToInfo() {
-        Intent infoActivity = new Intent(HomeActivity.this, AboutActivity.class);
+        Intent infoActivity = new Intent(HomeActivity.this, AppInfoActivity.class);
         startActivity(infoActivity);
     }
 

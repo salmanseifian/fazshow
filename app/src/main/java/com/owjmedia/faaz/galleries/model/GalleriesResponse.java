@@ -18,6 +18,9 @@ public class GalleriesResponse {
     @SerializedName("subtitle")
     @Expose
     private String subtitle;
+    @SerializedName("image")
+    @Expose
+    private String image;
     @SerializedName("updated_jalali")
     @Expose
     private String updatedJalali;
@@ -65,4 +68,11 @@ public class GalleriesResponse {
         this.createdJalali = createdJalali;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }

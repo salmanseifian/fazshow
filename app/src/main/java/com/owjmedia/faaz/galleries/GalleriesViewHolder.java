@@ -2,6 +2,7 @@ package com.owjmedia.faaz.galleries;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.galleries.GalleriesAdapter;
@@ -33,4 +34,7 @@ class GalleriesViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.txt_galley_title)
     TypefacedTextView txtGalleyTitle;
+    @BindView(R.id.img_gallery)
+    ImageView imgGallery;
+
 }

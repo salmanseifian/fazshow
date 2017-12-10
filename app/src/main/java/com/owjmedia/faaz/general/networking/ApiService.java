@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.general.networking;
 
+import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
 import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
 import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
 import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
@@ -21,7 +22,6 @@ import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
-import retrofit2.http.Header;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Path;
@@ -77,5 +77,8 @@ public interface ApiService {
 
     @GET("v1/movie_info/")
     Call<List<MovieResponse>> getMovie();
+
+    @GET("v1/app_info/")
+    Call<AppInfoResponse> getAppInfo();
 
 }

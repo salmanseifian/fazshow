@@ -29,9 +29,9 @@
                 android:text="@string/version" />
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                android:id="@+id/txt_about_us"
                 style="@style/NewsContentTextView"
                 android:layout_below="@id/txt_version"
-                android:text="@string/about"
                 android:layout_marginBottom="16dp"
                 android:textColor="@color/colorBlack" />
         </RelativeLayout>

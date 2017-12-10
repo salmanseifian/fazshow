@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
+import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class GalleriesAdapter extends RecyclerView.Adapter<GalleriesViewHolder> 
 
     @Override
     public GalleriesViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Context mContext = parent.getContext();
+        mContext = parent.getContext();
         LayoutInflater layoutInflater = LayoutInflater.from(mContext);
         View view = layoutInflater.inflate(R.layout.item_gallery, parent, false);
         return new GalleriesViewHolder(view);
@@ -34,6 +35,7 @@ public class GalleriesAdapter extends RecyclerView.Adapter<GalleriesViewHolder> 
     public void onBindViewHolder(GalleriesViewHolder holder, int position) {
         GalleriesResponse galleriesResponse = mGalleriesResponse.get(position);
         holder.bind(galleriesResponse, listener);
+        ImageHelper.getInstance(mContext).imageLoader(galleriesResponse.getImage(), holder.imgGallery, ImageHelper.ImageType.SIMPLE);
     }
 
     @Override
@@ -52,5 +54,7 @@ public class GalleriesAdapter extends RecyclerView.Adapter<GalleriesViewHolder> 
 
     private List<GalleriesResponse> mGalleriesResponse;
     private GalleriesAdapter.OnItemClickListener listener;
+
+    private Context mContext;
 
 }

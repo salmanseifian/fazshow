@@ -36,7 +36,7 @@
             android:name=".newsdetail.NewsDetailActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".about.AboutActivity"
+            android:name=".appinfo.AppInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".home.HomeActivity"
