@@ -15,7 +15,7 @@
     android:orientation="vertical"
     android:paddingBottom="96dp">
 
-    <ImageView
+    <com.owjmedia.faaz.general.utils.SquareImageView
         android:id="@+id/image_slide"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -24,7 +24,7 @@
         android:layout_marginRight="48dp"
         android:layout_marginTop="48dp"
         android:layout_weight="1"
-        android:scaleType="fitCenter"
+        android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:gravity="center"
         app:layout_parallaxFactor="0.6"

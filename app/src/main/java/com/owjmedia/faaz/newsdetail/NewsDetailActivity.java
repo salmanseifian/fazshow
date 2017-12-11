@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
@@ -84,6 +85,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         } else {
             txtNewsContent.setText(Html.fromHtml(newsDetailResponse.getContent()));
         }
+        txtNewsContent.setMovementMethod(LinkMovementMethod.getInstance());
 
         if (newsDetailResponse.isLiked()) {
             lottieLike.playAnimation();

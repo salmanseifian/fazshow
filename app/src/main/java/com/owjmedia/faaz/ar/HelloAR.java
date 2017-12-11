@@ -254,7 +254,7 @@ public class HelloAR
                             String target_name = target.name();
                             if (target_name.equals("argame") && video_renderers.get(0).texId() != 0) {
                                 video = new ARVideo();
-                                video.openVideoFile("video.mp4", video_renderers.get(0).texId());
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/2017-11-29_00.46.11.mp4", video_renderers.get(0).texId());
                                 current_video_renderer = video_renderers.get(0);
                             } else if (target_name.equals("namecard") && video_renderers.get(1).texId() != 0) {
                                 video = new ARVideo();
