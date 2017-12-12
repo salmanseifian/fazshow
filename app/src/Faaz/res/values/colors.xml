@@ -17,4 +17,8 @@
     <color name="colorProfileBackground">#e4dfda</color>
     <color name="colorVoteDetailBackground">#ffbf00</color>
     <color name="colorButtonBackground">#48a9a6</color>
+    <color name="colorHomeToolbar">#9c27b0</color>
+    <color name="colorCardBackground">#66FFFFFF</color>
+    <color name="colorArCardBackground">#33FFFFFF</color>
+    <color name="colorVideoForeground">#99000000</color>
 </resources>
