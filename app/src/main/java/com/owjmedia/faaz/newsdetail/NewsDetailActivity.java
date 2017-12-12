@@ -77,6 +77,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
     @Override
     public void showNewsDetail(NewsDetailResponse newsDetailResponse) {
 
+        mNewsDetailResponse = newsDetailResponse;
         supportStartPostponedEnterTransition();
 
         txtNewsTitle.setText(newsDetailResponse.getTitle());
@@ -104,8 +105,14 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
 
     @OnClick(R.id.lottieLike)
     public void like() {
-        if (AppManager.isLogin(this)) {
-            lottieLike.playAnimation();
+        if (AppManager.isLogin(this) && mNewsDetailResponse != null) {
+            if (mNewsDetailResponse.isLiked()) {
+                lottieLike.reverseAnimation();
+                mNewsDetailResponse.setLiked(false);
+            } else {
+                lottieLike.playAnimation();
+                mNewsDetailResponse.setLiked(true);
+            }
             mNewsDetailPresenter.like(getNewsId());
         } else {
             new AuthenticationDialog(this).show();
@@ -130,4 +137,6 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
 
     @BindView(R.id.lottieLike)
     LottieAnimationView lottieLike;
+
+    private NewsDetailResponse mNewsDetailResponse;
 }
