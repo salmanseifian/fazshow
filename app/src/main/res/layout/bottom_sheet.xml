@@ -60,7 +60,7 @@
     </RelativeLayout>
 
     <RelativeLayout
-        android:id="@+id/rl_competition"
+        android:id="@+id/rl_lottery"
         style="@style/MenuItem">
 
         <ImageView

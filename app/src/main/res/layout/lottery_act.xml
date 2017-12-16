@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/blure_bg">
+
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="match_parent"
+        android:layout_height="256dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_logo_transparent" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/txtHint"
+        style="@style/DescriptionTextView"
+        android:layout_below="@+id/imgLogo"
+        android:text="@string/please_enter_lottery_code" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+        android:id="@+id/edtCode"
+        style="@style/CustomEditText"
+        android:layout_below="@+id/txtHint"
+        android:layout_marginTop="8dp"
+        android:hint="@string/hint_lottery_code"
+        android:inputType="text" />
+
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        android:id="@+id/btnContinue"
+        style="@style/ClickableTextView"
+        android:layout_below="@+id/edtCode"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="32dp"
+        android:text="@string/send" />
+
+
+</RelativeLayout>

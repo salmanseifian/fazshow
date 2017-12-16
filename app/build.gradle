@@ -13,9 +13,7 @@ android {
         versionCode 1
         versionName "1.0"
 
-        manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
-                                // Project number pulled from dashboard, local value is ignored.
-                                onesignal_google_project_number: "REMOTE"]
+
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -42,6 +40,9 @@ android {
             versionName "0.1.4"
             buildConfigField "boolean", "HOME_SCREEN", "false"
             buildConfigField "boolean", "VOTE", "true"
+            manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
+                                    // Project number pulled from dashboard, local value is ignored.
+                                    onesignal_google_project_number: "REMOTE"]
         }
 
         Fehrest {
@@ -51,6 +52,9 @@ android {
             versionName "1.0"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
+            manifestPlaceholders = [onesignal_app_id               : "67a639bc-82c7-4ab2-a35e-7203945afc1b",
+                                    // Project number pulled from dashboard, local value is ignored.
+                                    onesignal_google_project_number: "REMOTE"]
         }
     }
 }

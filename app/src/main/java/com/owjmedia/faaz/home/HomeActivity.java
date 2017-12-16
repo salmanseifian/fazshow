@@ -21,9 +21,12 @@ import com.owjmedia.faaz.ar.ArActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.galleries.GalleryActivity;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.Global;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.movie.MovieActivity;
 import com.owjmedia.faaz.news.NewsActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
@@ -42,7 +45,7 @@ public class HomeActivity extends AppCompatActivity {
 
         // Change status bar color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            getWindow().setStatusBarColor(ContextCompat.getColor(this,R.color.colorBlack));
+            getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.colorBlack));
         }
 
         // Set up the toolbar.
@@ -86,9 +89,13 @@ public class HomeActivity extends AppCompatActivity {
         startActivity(votingIntent);
     }
 
-    @OnClick(R.id.rl_competition)
+    @OnClick(R.id.rl_lottery)
     public void goToCompetition() {
-        ActivityUtils.showToast(this, getString(R.string.soon), "emoji_wink.json");
+        if (Global.isLogin()) {
+            startActivity(new Intent(HomeActivity.this, LotteryActivity.class));
+        } else {
+            new AuthenticationDialog(this).show();
+        }
     }
 
     @OnClick(R.id.rl_club)

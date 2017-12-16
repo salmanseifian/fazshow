@@ -7,6 +7,8 @@ import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
 import com.owjmedia.faaz.authenticate.model.ConfirmationResponse;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
+import com.owjmedia.faaz.lottery.model.LotteryRequest;
+import com.owjmedia.faaz.lottery.model.LotteryResponse;
 import com.owjmedia.faaz.movie.model.MovieResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
@@ -80,5 +82,8 @@ public interface ApiService {
 
     @GET("v1/app_info/")
     Call<AppInfoResponse> getAppInfo();
+
+    @POST("v1/lottery/consume_code/")
+    Call<LotteryResponse> consumeLotteryCode(@Body LotteryRequest lotteryRequest);
 
 }

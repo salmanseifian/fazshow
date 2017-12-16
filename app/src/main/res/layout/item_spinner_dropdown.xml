@@ -4,4 +4,4 @@
     android:layout_height="?actionBarSize"
     android:background="@color/colorEditTextBackground"
     android:gravity="center"
-    android:textColor="@color/colorWhite" />
+    android:textColor="@color/colorBlack" />

@@ -51,4 +51,7 @@
     <string name="movie_gallery">گالری فیلم</string>
     <string name="image_transition">imageTransition</string>
     <string name="lottery">قرعه کشی</string>
+    <string name="please_enter_lottery_code">لطفا کد قرعه کشی را وارد نمایید</string>
+    <string name="hint_lottery_code">کد قرعه کشی</string>
+    <string name="send">ارسال</string>
 </resources>

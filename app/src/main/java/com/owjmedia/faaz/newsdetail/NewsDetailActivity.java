@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -36,6 +37,12 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         ButterKnife.bind(this);
 
         supportPostponeEnterTransition();
+        lottieLike.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
 
         // Set up the toolbar.
         setSupportActionBar(toolbar);

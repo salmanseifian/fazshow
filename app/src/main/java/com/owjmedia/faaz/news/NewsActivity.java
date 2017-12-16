@@ -25,6 +25,9 @@ import com.owjmedia.faaz.appinfo.AppInfoActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
 import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.Global;
+import com.owjmedia.faaz.general.utils.AuthenticationDialog;
+import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
@@ -163,9 +166,13 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         startActivity(votingIntent);
     }
 
-    @OnClick(R.id.rl_competition)
+    @OnClick(R.id.rl_lottery)
     public void goToCompetition() {
-        ActivityUtils.showToast(this, getString(R.string.soon), "emoji_wink.json");
+        if (Global.isLogin()) {
+            startActivity(new Intent(NewsActivity.this, LotteryActivity.class));
+        } else {
+            new AuthenticationDialog(this).show();
+        }
     }
 
     @OnClick(R.id.rl_club)

@@ -5,8 +5,6 @@ import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.transition.Slide;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,7 +52,7 @@ public class ActivityUtils {
         TypefacedTextView txtToast = view.findViewById(R.id.txt_toast);
         txtToast.setText(message);
 
-        LottieAnimationView lottieToast = view.findViewById(R.id.lottie_toat);
+        LottieAnimationView lottieToast = view.findViewById(R.id.lottie_toast);
         lottieToast.setAnimation(animationName);
 
         Toast toast = new Toast(context);
@@ -62,5 +60,7 @@ public class ActivityUtils {
         toast.setView(view);
         toast.show();
     }
+
+
 
 }
