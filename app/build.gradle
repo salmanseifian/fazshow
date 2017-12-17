@@ -24,34 +24,34 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-    flavorDimensions "tier"
+
     productFlavors {
 
         Faaz {
-            dimension "tier"
             applicationId "com.owjmedia.faaz"
             versionCode 1
             versionName "0.1.4"
             buildConfigField "boolean", "HOME_SCREEN", "false"
             buildConfigField "boolean", "VOTE", "true"
+            buildConfigField "boolean", "LOTTERY", "false"
             manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]
         }
 
         Fehrest {
-            dimension "tier"
             applicationId "com.owjmedia.fehrest"
             versionCode 1
             versionName "1.0"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
+            buildConfigField "boolean", "LOTTERY", "true"
             manifestPlaceholders = [onesignal_app_id               : "67a639bc-82c7-4ab2-a35e-7203945afc1b",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]

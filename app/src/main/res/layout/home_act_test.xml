@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorHomeBackground"
+    android:orientation="vertical"
+    android:weightSum="10">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4" />
+
+    <RelativeLayout
+        android:id="@+id/card_ar"
+        style="@style/ArRelativeView">
+
+        <ImageView
+            style="@style/HomeImageView"
+            android:src="@drawable/ic_augmented_reality" />
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            style="@style/HomeCardTextView"
+            android:text="@string/augmented_reality" />
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorHomeBorder" />
+
+    <LinearLayout style="@style/HomeLinearView">
+
+        <RelativeLayout
+            android:id="@+id/card_news"
+            style="@style/HomeRelativeView">
+
+            <ImageView
+                style="@style/HomeImageView"
+                android:src="@drawable/ic_newspaper" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                style="@style/HomeCardTextView"
+                android:text="@string/news" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorHomeBorder" />
+
+        <RelativeLayout
+            android:id="@+id/card_movie"
+            style="@style/HomeRelativeView">
+
+            <ImageView
+                style="@style/HomeImageView"
+                android:src="@drawable/ic_film" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                style="@style/HomeCardTextView"
+                android:text="@string/movie_page" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@color/colorHomeBorder" />
+
+    <LinearLayout style="@style/HomeLinearView">
+
+        <RelativeLayout
+            android:id="@+id/card_gallery_image"
+            style="@style/HomeRelativeView">
+
+            <ImageView
+                style="@style/HomeImageView"
+                android:src="@drawable/ic_picture" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                style="@style/HomeCardTextView"
+                android:text="@string/image_gallery" />
+        </RelativeLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginTop="16dp"
+            android:background="@color/colorHomeBorder" />
+
+        <RelativeLayout
+            android:id="@+id/card_gallery_videos"
+            style="@style/HomeRelativeView">
+
+            <ImageView
+                style="@style/HomeImageView"
+                android:src="@drawable/ic_video_player" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                style="@style/HomeCardTextView"
+                android:text="@string/movie_gallery" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

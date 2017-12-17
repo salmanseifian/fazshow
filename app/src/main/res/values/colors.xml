@@ -32,4 +32,6 @@
     <color name="fourth_slide_background">#795548</color>
     <color name="fourth_slide_buttons">#3E2723</color>
     <color name="colorPlaceholder">#aaa</color>
+    <color name="colorHomeBackground">#000000</color>
+    <color name="colorHomeBorder">#ffffff</color>
 </resources>

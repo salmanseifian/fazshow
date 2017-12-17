@@ -14,10 +14,4 @@
         android:transitionName="@string/image_transition" />
 
 
-    <android.support.v7.widget.AppCompatImageView
-        android:layout_width="wrap_content"
-        app:srcCompat="@drawable/ic_poll"
-        android:layout_height="wrap_content"
-        android:background="@drawable/ss"/>
-
 </LinearLayout>

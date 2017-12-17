@@ -160,6 +160,12 @@ public class HomeActivity extends AppCompatActivity {
             mRlVote.setVisibility(View.VISIBLE);
         else
             mRlVote.setVisibility(View.GONE);
+
+        if (BuildConfig.LOTTERY)
+            mRlLottery.setVisibility(View.VISIBLE);
+        else
+            mRlLottery.setVisibility(View.GONE);
+
     }
 
 
@@ -174,6 +180,9 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.rl_vote)
     ViewGroup mRlVote;
+
+    @BindView(R.id.rl_lottery)
+    ViewGroup mRlLottery;
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;
