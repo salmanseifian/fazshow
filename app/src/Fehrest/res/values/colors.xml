@@ -8,6 +8,7 @@
     <color name="phaseItemEnableColor">#FF9100</color>
     <color name="phaseItemDisableColor">#44FF9100</color>
     <color name="colorWhite">@android:color/white</color>
+    <color name="colorGrey">@android:color/darker_gray</color>
     <color name="colorBlack">@android:color/black</color>
     <color name="colorPrimaryTransparent">#66FF9100</color>
     <color name="colorCardItemVote">#ccFF9100</color>
@@ -19,7 +20,7 @@
     <color name="colorButtonBackground">#FF6700</color>
     <color name="colorRipple">#1e88e5</color>
     <color name="colorIcon">#FF9100</color>
-    <color name="colorHomeToolbar">@android:color/transparent</color>
+    <color name="colorHomeToolbar">@android:color/black</color>
     <color name="colorCardBackground">#66FFFFFF</color>
     <color name="colorArCardBackground">#33FFFFFF</color>
     <color name="colorVideoForeground">#99000000</color>

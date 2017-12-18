@@ -45,7 +45,7 @@
     <string name="seconds">ثانیه</string>
     <string name="unfortunately_phase_is_enable">متاسفانه فاز غیرفعال است</string>
     <string name="augmented_reality">واقعیت افزوده</string>
-    <string name="news">اخبار</string>
+    <string name="news">خبرها</string>
     <string name="movie_page">صفحه فیلم</string>
     <string name="image_gallery">گالری عکس</string>
     <string name="movie_gallery">گالری فیلم</string>
@@ -54,4 +54,9 @@
     <string name="please_enter_lottery_code">لطفا کد قرعه کشی را وارد نمایید</string>
     <string name="hint_lottery_code">کد قرعه کشی</string>
     <string name="send">ارسال</string>
+    <string name="augmented_reality_hint">برای نمایش محتوای واقعیت افزوده،\n دوربین تلفن همراه خود را در مقابل محصولی که از AR پشتیبانی میکند بگیرید
+    </string>
+    <string name="production">تولید</string>
+    <string name="videos">ویدیوها</string>
+    <string name="images">عکس ها</string>
 </resources>

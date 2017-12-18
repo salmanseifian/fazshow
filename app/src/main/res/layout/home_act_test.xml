@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorHomeBackground"
     android:orientation="vertical"
-    android:weightSum="10">
+    android:weightSum="10"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="4" />
+        android:layout_weight="4"
+        android:adjustViewBounds="false"
+        android:scaleType="fitXY"
+        android:src="@drawable/banner" />
 
-    <RelativeLayout
+    <LinearLayout
         android:id="@+id/card_ar"
-        style="@style/ArRelativeView">
+        style="@style/ArParent">
 
         <ImageView
-            style="@style/HomeImageView"
+            style="@style/ArImageView"
             android:src="@drawable/ic_augmented_reality" />
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            style="@style/HomeCardTextView"
+            style="@style/ArTextView"
             android:text="@string/augmented_reality" />
-    </RelativeLayout>
+
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            style="@style/ArHint"
+            android:text="@string/augmented_reality_hint" />
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
@@ -63,7 +72,7 @@
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 style="@style/HomeCardTextView"
-                android:text="@string/movie_page" />
+                android:text="@string/production" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -86,7 +95,7 @@
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 style="@style/HomeCardTextView"
-                android:text="@string/image_gallery" />
+                android:text="@string/images" />
         </RelativeLayout>
 
         <View
@@ -106,7 +115,7 @@
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 style="@style/HomeCardTextView"
-                android:text="@string/movie_gallery" />
+                android:text="@string/videos" />
         </RelativeLayout>
     </LinearLayout>
 
