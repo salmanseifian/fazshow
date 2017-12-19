@@ -40,7 +40,6 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
 
-        edtCode.setVisibility(View.INVISIBLE);
         mPresenter = new AuthenticatePresenter(this);
 
         mProgressDialog = new ProgressDialog(getContext());

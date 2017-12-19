@@ -37,12 +37,6 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
         ButterKnife.bind(this);
 
         supportPostponeEnterTransition();
-        lottieLike.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
 
         // Set up the toolbar.
         setSupportActionBar(toolbar);
