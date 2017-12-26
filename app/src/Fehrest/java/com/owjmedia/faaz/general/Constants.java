@@ -14,7 +14,6 @@ public class Constants {
         public static final String NEWS_ID = "newsId";
         public static final String GALLEY_ID = "galleryId";
         public static final String IMAGE_GALLERY = "imageGallery";
-        public static final String VIDEO_GALLERY = "videoGallery";
         public static final String VIDEO_PATH = "videoPath";
         public static final String IMAGE_PATH = "imagePath";
         public static final String SLIDE_TITLE = "slideTitle";
@@ -22,6 +21,7 @@ public class Constants {
         public static final String SLIDE_CONTENT = "slideContent";
         public static final String SLIDE_BACKGROUND_COLOR = "slideBackgroundColor";
         public static final String SLIDE_BUTTONS_COLOR = "slideButtonsColor";
+        public static final String AR_VIDEO_PATH = "arVideoPath";
     }
 
     public static final class FONTS {

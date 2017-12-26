@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "800626826879",
+    "firebase_url": "https://fehrest-9579d.firebaseio.com",
+    "project_id": "fehrest-9579d",
+    "storage_bucket": "fehrest-9579d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800626826879:android:6e75895e7343b8ca",
+        "android_client_info": {
+          "package_name": "com.owjmedia.fehrest"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800626826879-93ln86k90pfn3jd12rbvfqcmbr0mlmib.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAcwOoNyjG0N8gip0wmlZT8d-_GjlAikr8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

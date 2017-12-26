@@ -34,4 +34,6 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     ImageView imgNews;
     @BindView(R.id.txtNewsTitle)
     TypefacedTextView txtNewsTitle;
+    @BindView(R.id.txtNewsTime)
+    TypefacedTextView txtNewsTime;
 }

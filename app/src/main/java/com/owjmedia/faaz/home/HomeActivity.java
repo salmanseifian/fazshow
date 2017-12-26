@@ -94,7 +94,7 @@ public class HomeActivity extends AppCompatActivity {
         if (Global.isLogin()) {
             startActivity(new Intent(HomeActivity.this, LotteryActivity.class));
         } else {
-            new AuthenticationDialog(this).show();
+            new AuthenticationDialog().show(getSupportFragmentManager(), null);
         }
     }
 

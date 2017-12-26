@@ -4,11 +4,12 @@
     <color name="colorPrimaryDark">#6a0080</color>
     <color name="colorAccent">#68EFAD</color>
     <color name="colorAccentDark">#00E676</color>
-    <color name="colorEditTextBackground">#449B26AF</color>
-    <color name="phaseItemEnableColor">#9B26AF</color>
+    <color name="colorEditTextBackground">@android:color/transparent</color>
+    <color name="phaseItemEnableColor">#999B26AF</color>
     <color name="phaseItemDisableColor">#449B26AF</color>
     <color name="colorWhite">@android:color/white</color>
     <color name="colorBlack">@android:color/black</color>
+    <color name="colorGrey">@android:color/darker_gray</color>
     <color name="colorPrimaryTransparent">#66691A99</color>
     <color name="colorCardItemVote">#cc9B26AF</color>
     <color name="colorEditTextHint">#ddd</color>
@@ -16,7 +17,7 @@
     <color name="colorNewsListBackground">#e4dfda</color>
     <color name="colorProfileBackground">#e4dfda</color>
     <color name="colorVoteDetailBackground">#ffbf00</color>
-    <color name="colorButtonBackground">#48a9a6</color>
+    <color name="colorButtonBackground">@android:color/white</color>
     <color name="colorHomeToolbar">#9c27b0</color>
     <color name="colorCardBackground">#66FFFFFF</color>
     <color name="colorArCardBackground">#33FFFFFF</color>

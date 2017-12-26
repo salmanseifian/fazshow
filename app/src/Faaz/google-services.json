@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "138206630210",
+    "firebase_url": "https://faaz-b7599.firebaseio.com",
+    "project_id": "faaz-b7599",
+    "storage_bucket": "faaz-b7599.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:138206630210:android:ade3897818bed2aa",
+        "android_client_info": {
+          "package_name": "com.owjmedia.faaz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "138206630210-hdmfic7o67u650ufnmggo7a31n4o9itk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD2_ITpqpudEYe-qC6QtOEEhDWxxkuHjxI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

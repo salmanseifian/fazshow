@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,10 +24,13 @@ import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.appinfo.AppInfoActivity;
 import com.owjmedia.faaz.authenticate.AuthenticateActivity;
+import com.owjmedia.faaz.galleries.GalleryActivity;
 import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.Global;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
+import com.owjmedia.faaz.general.utils.ImageHelper;
+import com.owjmedia.faaz.home.HomeActivity;
 import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
@@ -34,6 +38,8 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
+import com.owjmedia.faaz.videodetail.VideoActivity;
+import com.owjmedia.faaz.videodetail.VideoFragment;
 import com.owjmedia.faaz.vote.VoteActivity;
 
 import java.util.List;
@@ -49,7 +55,6 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
         setContentView(R.layout.news_act);
         ButterKnife.bind(this);
 
@@ -65,6 +70,9 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
         mNewsPresenter = new NewsPresenter(this);
         mProgressDialog = new ProgressDialog(this);
+
+        ImageHelper.getInstance(this).imageLoader("http://94.182.227.211/media/CACHE/images/video_gallery/images/9S3B7995465465465465465465465465465465463/bc74ab5905dde5c981e1319f7d6d6465.jpg"
+                , imgVideo);
 
 
         // Set up recycler view
@@ -96,6 +104,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
             mRlLottery.setVisibility(View.VISIBLE);
         else
             mRlLottery.setVisibility(View.GONE);
+
+        if (BuildConfig.NEWS_MENU)
+            findViewById(R.id.llMenu).setVisibility(View.VISIBLE);
+        else
+            findViewById(R.id.llMenu).setVisibility(View.GONE);
     }
 
     private void initView() {
@@ -159,6 +172,30 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     }
 
 
+    @OnClick(R.id.img_video)
+    public void goVideoPlayer() {
+        startActivity(new Intent(NewsActivity.this, VideoActivity.class));
+    }
+
+    @OnClick(R.id.ll_vote)
+    public void goToPoll() {
+        startActivity(new Intent(NewsActivity.this, VoteActivity.class));
+    }
+
+    @OnClick(R.id.ll_image_gallery)
+    public void goToImageGallery() {
+        Intent gallery = new Intent(NewsActivity.this, GalleryActivity.class);
+        gallery.putExtra(Constants.KEYS.IMAGE_GALLERY, true);
+        startActivity(gallery);
+    }
+
+    @OnClick(R.id.ll_video_gallery)
+    public void goToVideoGallery() {
+        Intent gallery = new Intent(NewsActivity.this, GalleryActivity.class);
+        gallery.putExtra(Constants.KEYS.IMAGE_GALLERY, false);
+        startActivity(gallery);
+    }
+
     @OnClick(R.id.rl_profile)
     public void goToProfile() {
         Intent profileIntent = new Intent(NewsActivity.this, AuthenticateActivity.class);
@@ -176,7 +213,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         if (Global.isLogin()) {
             startActivity(new Intent(NewsActivity.this, LotteryActivity.class));
         } else {
-            new AuthenticationDialog(this).show();
+            new AuthenticationDialog().show(getSupportFragmentManager(), null);
         }
     }
 
@@ -227,5 +264,8 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;
+
+    @BindView(R.id.img_video)
+    ImageView imgVideo;
 
 }

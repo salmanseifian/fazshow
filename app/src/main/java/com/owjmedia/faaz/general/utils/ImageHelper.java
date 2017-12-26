@@ -3,7 +3,6 @@ package com.owjmedia.faaz.general.utils;
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.makeramen.roundedimageview.RoundedTransformationBuilder;
 import com.owjmedia.faaz.R;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Transformation;
@@ -25,12 +24,19 @@ public class ImageHelper {
         return instance;
     }
 
+    public void imageLoader(String imageUrl, ImageView imageView) {
+        Picasso.with(context)
+                .load(imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .into(imageView);
+
+    }
+
     public void imageLoader(String imageUrl, ImageView imageView, ImageType imageType) {
         switch (imageType) {
             case AVATAR:
                 Picasso.with(context)
                         .load(imageUrl)
-                        .transform(getTransformation())
                         .placeholder(R.drawable.avatar)
                         .into(imageView);
                 break;
@@ -38,7 +44,6 @@ public class ImageHelper {
                 Picasso.with(context)
                         .load(imageUrl)
                         .fit()
-                        .transform(getTransformation())
                         .placeholder(R.drawable.placeholder)
                         .into(imageView);
                 break;
@@ -61,14 +66,6 @@ public class ImageHelper {
 
     }
 
-    private Transformation getTransformation() {
-
-        return new RoundedTransformationBuilder()
-                .cornerRadiusDp(16)
-                .oval(false)
-                .build();
-
-    }
 
     public enum ImageType {
         NEWS, NEWS_DETAIL, AVATAR, SIMPLE

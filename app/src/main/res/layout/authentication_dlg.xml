@@ -14,9 +14,9 @@
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtVote"
-        android:text="@string/you_should_login_first"
+        style="@style/CenteredTextView"
         android:layout_below="@+id/lottieRegisterToVote"
-        style="@style/NewsTitleTextView" />
+        android:text="@string/you_should_login_first" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
         android:id="@+id/txtGoToAuthentication"

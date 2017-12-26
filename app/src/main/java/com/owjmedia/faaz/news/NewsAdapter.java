@@ -39,7 +39,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsViewHolder> {
         Result news = mNews.get(position);
         holder.bind(news, listener);
         holder.txtNewsTitle.setText(news.getTitle());
-        ImageHelper.getInstance(mContext).imageLoader(news.getImage(), holder.imgNews, ImageHelper.ImageType.NEWS);
+        holder.txtNewsTime.setText(news.getCreatedJalali());
+        ImageHelper.getInstance(mContext).imageLoader(news.getImage(), holder.imgNews, ImageHelper.ImageType.SIMPLE);
     }
 
 

@@ -24,7 +24,7 @@
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
                 android:id="@+id/txt_version"
-                style="@style/NewsTitleTextView"
+                style="@style/CenteredTextView"
                 android:layout_below="@+id/img_logo"
                 android:text="@string/version" />
 

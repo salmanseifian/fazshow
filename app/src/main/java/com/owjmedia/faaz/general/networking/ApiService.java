@@ -1,6 +1,7 @@
 package com.owjmedia.faaz.general.networking;
 
 import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
+import com.owjmedia.faaz.ar.model.ArItem;
 import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
 import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
 import com.owjmedia.faaz.authenticate.model.ConfirmationRequest;
@@ -85,5 +86,8 @@ public interface ApiService {
 
     @POST("v1/lottery/consume_code/")
     Call<LotteryResponse> consumeLotteryCode(@Body LotteryRequest lotteryRequest);
+
+    @GET("v1/ar_items/")
+    Call<List<ArItem>> getArItems();
 
 }

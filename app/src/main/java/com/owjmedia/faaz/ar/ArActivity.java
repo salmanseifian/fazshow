@@ -20,23 +20,31 @@ import android.view.ViewGroup;
 import android.view.WindowManager;
 
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.ar.model.ArItem;
+import com.owjmedia.faaz.general.Constants;
+import com.owjmedia.faaz.general.utils.AppManager;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 
 import java.util.HashMap;
 
 import cn.easyar.Engine;
 
 
-public class ArActivity extends AppCompatActivity {
+public class ArActivity extends AppCompatActivity implements ArContract.View {
 
     private static String key = "DnF6YKxtwEqTUHBuRYshEeHoypjqOyDEY8nc7aUnMfKa3PGOhkw13VlgLZopBApKD7jQkJCfhUhtAjSLdmd7EKIBbb6Gr9FpZZEj9WKMG8WeLbLprIWjBSykcwGhKxPswXbC1hrzw8mItHOwD4fCN5BnRGicIQ5kwq7kvIlq0wf1JdPc51736lLThcu8ah6jrBm6KHBT";
     private GLView glView;
+    ProgressDialog mProgressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ar_act);
+        mProgressDialog = new ProgressDialog(this);
+        ArContract.Presenter mArPresenter = new ArPresenter(this);
+        mArPresenter.getArItems();
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON, WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-
+        mProgressDialog = new ProgressDialog(this);
         if (!Engine.initialize(this, key)) {
             Log.e("HelloAR", "Initialization Failed.");
         }
@@ -53,6 +61,25 @@ public class ArActivity extends AppCompatActivity {
             public void onFailure() {
             }
         });
+    }
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
+
+    }
+
+    @Override
+    public void setArItem(ArItem arItem) {
+        AppManager.setString(this, Constants.KEYS.AR_VIDEO_PATH, arItem.getVideo());
     }
 
     private interface PermissionCallback {

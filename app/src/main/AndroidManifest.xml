@@ -57,6 +57,9 @@
         <activity
             android:name=".lottery.LotteryActivity"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".videodetail.VideoActivity"
+            android:screenOrientation="portrait" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

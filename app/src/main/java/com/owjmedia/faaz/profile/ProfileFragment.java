@@ -90,7 +90,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     @Override
     public void showProfile(ProfileResponse profileResponse) {
         txtScore.setText(String.valueOf(profileResponse.getScore()));
-        edtGender.setText(String.valueOf(profileResponse.getGender()));
+        spinnerGender.setSelection(profileResponse.getGender(), true);
         edtCity.setText(profileResponse.getCity());
         if (profileResponse.getYearOfBirth() != 0)
             edtBirthYear.setText(String.valueOf(profileResponse.getYearOfBirth()));

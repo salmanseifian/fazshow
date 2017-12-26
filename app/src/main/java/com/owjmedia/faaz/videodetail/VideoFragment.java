@@ -44,7 +44,7 @@ public class VideoFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
-        ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlack, null));
+//        ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorBlack, null));
     }
 
     private void initializePlayer() {
@@ -90,7 +90,7 @@ public class VideoFragment extends Fragment {
     public void onStop() {
         if (Util.SDK_INT > 23) {
             releasePlayer();
-            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
+//            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
         }
         super.onStop();
     }

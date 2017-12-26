@@ -116,7 +116,7 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
             }
             mNewsDetailPresenter.like(getNewsId());
         } else {
-            new AuthenticationDialog(this).show();
+            new AuthenticationDialog().show(getSupportFragmentManager(), null);
         }
 
     }

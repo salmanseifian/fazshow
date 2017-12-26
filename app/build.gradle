@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 apply plugin: 'io.fabric'
 
+
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
@@ -32,11 +33,12 @@ android {
 
         Faaz {
             applicationId "com.owjmedia.faaz"
-            versionCode 1
-            versionName "0.1.4"
+            versionCode 2
+            versionName "1.0.0"
             buildConfigField "boolean", "HOME_SCREEN", "false"
             buildConfigField "boolean", "VOTE", "true"
             buildConfigField "boolean", "LOTTERY", "false"
+            buildConfigField "boolean", "NEWS_MENU", "true"
             manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]
@@ -44,11 +46,12 @@ android {
 
         Fehrest {
             applicationId "com.owjmedia.fehrest"
-            versionCode 2
-            versionName "1.1"
+            versionCode 4
+            versionName "1.1.1"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
             buildConfigField "boolean", "LOTTERY", "true"
+            buildConfigField "boolean", "NEWS_MENU", "false"
             manifestPlaceholders = [onesignal_app_id               : "67a639bc-82c7-4ab2-a35e-7203945afc1b",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]
@@ -67,6 +70,8 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterKnifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterKnifeVersion"
     compile "com.squareup.picasso:picasso:$rootProject.ext.picassoVersion"
+    compile 'com.google.android.gms:play-services-auth:11.8.0'
+    compile 'com.google.firebase:firebase-core:11.8.0'
     compile 'com.onesignal:OneSignal:[3.6.5, 3.99.99]'
     compile 'com.google.android.exoplayer:exoplayer:r2.4.0'
 
@@ -76,7 +81,6 @@ dependencies {
 
     compile 'com.airbnb.android:lottie:2.2.5'
     compile 'com.azoft.carousellayoutmanager:carousel:1.2.1'
-    compile 'com.makeramen:roundedimageview:2.3.0'
     compile 'agency.tango.android:material-intro-screen:0.0.5'
 
 
@@ -88,3 +92,4 @@ dependencies {
 
     testCompile 'junit:junit:4.12'
 }
+apply plugin: 'com.google.gms.google-services'

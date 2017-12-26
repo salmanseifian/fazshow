@@ -9,6 +9,7 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.3.3'
         classpath 'io.fabric.tools:gradle:1.+'
+        classpath 'com.google.gms:google-services:3.1.0'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -31,12 +32,12 @@ task clean(type: Delete) {
 ext {
     // Sdk and tools
     minSdkVersion = 17
-    targetSdkVersion = 26
-    compileSdkVersion = 26
-    buildToolsVersion = '26.0.1'
+    targetSdkVersion = 27
+    compileSdkVersion = 27
+    buildToolsVersion = '27.0.0'
 
     // App dependencies
-    supportLibraryVersion = '26+'
+    supportLibraryVersion = '27+'
     gsonVersion = '2.8.2'
     retrofitVersion = '2.3.0'
     converterGsonVersion = '2.3.0'

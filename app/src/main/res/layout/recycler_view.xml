@@ -9,6 +9,7 @@
         android:layout_height="match_parent"
         android:paddingTop="12dp"
         android:clipToPadding="false"
+        android:nestedScrollingEnabled="false"
         android:layoutAnimation="@anim/layout_animation_slide_right"
         />
 </RelativeLayout>

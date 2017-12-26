@@ -58,8 +58,8 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     @Override
     public void onResume() {
         super.onResume();
-        if (mVoteDetailPresenter != null)
-            mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
+//        if (mVoteDetailPresenter != null)
+//            mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
     }
 
     private void initCarouselLayoutManager() {
@@ -76,7 +76,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
             @Override
             public void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate) {
                 if (!AppManager.isLogin(getContext()))
-                    showAuthenticationDialog();
+                    new AuthenticationDialog().show(getFragmentManager(), null);
                 else {
                     mVoteDetailPresenter.vote(getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
                     if (voteItem.isVoted()) {
@@ -131,11 +131,6 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     @Override
     public void votedSuccessfully() {
     }
-
-    private void showAuthenticationDialog() {
-        new AuthenticationDialog(getActivity()).show();
-    }
-
 
     VoteDetailContract.Presenter mVoteDetailPresenter;
 
