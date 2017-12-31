@@ -1,6 +1,5 @@
 package com.owjmedia.faaz.general.networking;
 
-import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
 import com.owjmedia.faaz.ar.model.ArItem;
 import com.owjmedia.faaz.authenticate.model.AuthenticationRequest;
 import com.owjmedia.faaz.authenticate.model.AuthenticationResponse;
@@ -11,13 +10,13 @@ import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.lottery.model.LotteryRequest;
 import com.owjmedia.faaz.lottery.model.LotteryResponse;
 import com.owjmedia.faaz.movie.model.MovieResponse;
-import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
+import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
+import com.owjmedia.faaz.vote.model.VotingResponse;
 import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
-import com.owjmedia.faaz.vote.model.VotingResponse;
 
 import java.util.List;
 
@@ -82,7 +81,7 @@ public interface ApiService {
     Call<List<MovieResponse>> getMovie();
 
     @GET("v1/app_info/")
-    Call<AppInfoResponse> getAppInfo();
+    Call<com.owjmedia.faaz.splash.model.AppInfoResponse> getAppInfo();
 
     @POST("v1/lottery/consume_code/")
     Call<LotteryResponse> consumeLotteryCode(@Body LotteryRequest lotteryRequest);

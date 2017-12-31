@@ -1,8 +1,7 @@
-package com.owjmedia.faaz.appinfo;
+package com.owjmedia.faaz.splash;
 
-import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
-import com.owjmedia.faaz.gallerydetail.model.GalleryDetailResponse;
 import com.owjmedia.faaz.general.networking.Injector;
+import com.owjmedia.faaz.splash.model.AppInfoResponse;
 
 import retrofit2.Call;
 import retrofit2.Callback;

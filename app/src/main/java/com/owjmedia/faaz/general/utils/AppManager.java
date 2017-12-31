@@ -8,6 +8,10 @@ import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.TypedValue;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
@@ -62,6 +66,9 @@ public class AppManager {
     public static String getWeekDay(String date) {
         return date.substring(0, date.indexOf(" "));
     }
+
+
+
 
 
 }

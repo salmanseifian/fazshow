@@ -15,7 +15,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".general.SplashActivity"
+            android:name=".splash.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -52,7 +52,6 @@
             android:screenOrientation="portrait" />
         <activity
             android:name=".movie.IntroActivity"
-            android:screenOrientation="portrait"
             android:theme="@style/Theme.Intro" />
         <activity
             android:name=".lottery.LotteryActivity"

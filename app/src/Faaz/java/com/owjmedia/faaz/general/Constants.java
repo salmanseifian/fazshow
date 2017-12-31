@@ -22,6 +22,8 @@ public class Constants {
         public static final String SLIDE_BACKGROUND_COLOR = "slideBackgroundColor";
         public static final String SLIDE_BUTTONS_COLOR = "slideButtonsColor";
         public static final String AR_VIDEO_PATH = "arVideoPath";
+        public static final String ABOUT_US = "aboutUs";
+        public static final String HOMEPAGE_VIDEO = "homePageVideo";
     }
 
     public static final class FONTS {

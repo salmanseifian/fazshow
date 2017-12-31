@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
+import com.owjmedia.faaz.general.utils.AppManager;
 
 /**
  * Created by salman on 12/26/17.
@@ -21,7 +22,7 @@ public class VideoActivity extends AppCompatActivity {
         setContentView(R.layout.video_act);
         Fragment fragment = new VideoFragment();
         Bundle bundle = new Bundle();
-        bundle.putString(Constants.KEYS.VIDEO_PATH, "http://94.182.227.211/media/video_gallery/videos/KidsFest_s4He0Xt.mp4");
+        bundle.putString(Constants.KEYS.VIDEO_PATH, AppManager.getString(this, Constants.KEYS.HOMEPAGE_VIDEO));
         fragment.setArguments(bundle);
         ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.contentFrame);
     }

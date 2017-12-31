@@ -1,8 +1,8 @@
-package com.owjmedia.faaz.appinfo;
+package com.owjmedia.faaz.splash;
 
-import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
 import com.owjmedia.faaz.general.BasePresenter;
 import com.owjmedia.faaz.general.BaseView;
+import com.owjmedia.faaz.splash.model.AppInfoResponse;
 
 /**
  * Created by salman on 12/10/17.

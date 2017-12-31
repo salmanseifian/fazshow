@@ -1,6 +1,5 @@
 package com.owjmedia.faaz.lottery;
 
-import com.owjmedia.faaz.appinfo.model.AppInfoResponse;
 import com.owjmedia.faaz.general.networking.Injector;
 import com.owjmedia.faaz.lottery.model.LotteryRequest;
 import com.owjmedia.faaz.lottery.model.LotteryResponse;

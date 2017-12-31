@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.appinfo.model;
+package com.owjmedia.faaz.splash.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -36,6 +36,9 @@ public class AppInfoResponse {
     @SerializedName("address")
     @Expose
     private String address;
+    @SerializedName("homepage_video")
+    @Expose
+    private String homepageVideo;
     @SerializedName("updated_jalali")
     @Expose
     private String updatedJalali;
@@ -131,4 +134,11 @@ public class AppInfoResponse {
         this.createdJalali = createdJalali;
     }
 
+    public String getHomepageVideo() {
+        return homepageVideo;
+    }
+
+    public void setHomepageVideo(String homepageVideo) {
+        this.homepageVideo = homepageVideo;
+    }
 }
