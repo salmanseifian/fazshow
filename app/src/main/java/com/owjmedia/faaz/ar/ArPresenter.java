@@ -29,7 +29,7 @@ public class ArPresenter implements ArContract.Presenter {
             public void onResponse(Call<List<ArItem>> call, Response<List<ArItem>> response) {
                 mArView.setLoadingIndicator(false);
                 if (response.code() == 200)
-                    mArView.setArItem(response.body().get(0));
+                    mArView.setArItems(response.body());
                 else
                     mArView.showMessage(response.message());
             }

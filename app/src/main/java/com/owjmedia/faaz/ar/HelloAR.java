@@ -168,7 +168,7 @@ public class HelloAR {
         }
         videobg_renderer = new Renderer();
         video_renderers = new ArrayList<VideoRenderer>();
-        for (int k = 0; k < 3; k += 1) {
+        for (int k = 0; k < 20; k += 1) {
             VideoRenderer video_renderer = new VideoRenderer();
             video_renderer.init();
             video_renderers.add(video_renderer);
@@ -248,9 +248,88 @@ public class HelloAR {
                             String target_name = target.name();
                             if (target_name.equals("argame") && video_renderers.get(0).texId() != 0) {
                                 video = new ARVideo();
-                                video.openStreamingVideo(Global.getArVideo(), video_renderers.get(0).texId());
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/2017-12-25_14.09.23_c38ldrE.mp4", video_renderers.get(0).texId());
                                 current_video_renderer = video_renderers.get(0);
-                            } else if (target_name.equals("namecard") && video_renderers.get(1).texId() != 0) {
+                            } else if (target_name.equals("01") && video_renderers.get(1).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P01_pcwoU2x.mp4", video_renderers.get(1).texId());
+                                current_video_renderer = video_renderers.get(0);
+                            } else if (target_name.equals("02") && video_renderers.get(2).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P02.mp4", video_renderers.get(2).texId());
+                                current_video_renderer = video_renderers.get(2);
+                            }
+                            else if (target_name.equals("03") && video_renderers.get(3).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P03.mp4", video_renderers.get(3).texId());
+                                current_video_renderer = video_renderers.get(3);
+                            }
+                            else if (target_name.equals("04") && video_renderers.get(4).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P04.mp4", video_renderers.get(4).texId());
+                                current_video_renderer = video_renderers.get(4);
+                            }
+                            else if (target_name.equals("05") && video_renderers.get(5).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P05.mp4", video_renderers.get(5).texId());
+                                current_video_renderer = video_renderers.get(5);
+                            }
+                            else if (target_name.equals("06") && video_renderers.get(6).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P06.mp4", video_renderers.get(6).texId());
+                                current_video_renderer = video_renderers.get(6);
+                            }
+                            else if (target_name.equals("07") && video_renderers.get(7).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P07.mp4", video_renderers.get(7).texId());
+                                current_video_renderer = video_renderers.get(7);
+                            }
+                            else if (target_name.equals("08") && video_renderers.get(8).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P08.mp4", video_renderers.get(8).texId());
+                                current_video_renderer = video_renderers.get(8);
+                            }
+                            else if (target_name.equals("09") && video_renderers.get(9).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P09.mp4", video_renderers.get(9).texId());
+                                current_video_renderer = video_renderers.get(9);
+                            }
+                            else if (target_name.equals("10") && video_renderers.get(10).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P10.mp4", video_renderers.get(10).texId());
+                                current_video_renderer = video_renderers.get(10);
+                            }
+                            else if (target_name.equals("11") && video_renderers.get(11).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P11.mp4", video_renderers.get(11).texId());
+                                current_video_renderer = video_renderers.get(11);
+                            }
+                            else if (target_name.equals("12") && video_renderers.get(12).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P12.mp4", video_renderers.get(12).texId());
+                                current_video_renderer = video_renderers.get(12);
+                            }
+                            else if (target_name.equals("13") && video_renderers.get(13).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P13.mp4", video_renderers.get(13).texId());
+                                current_video_renderer = video_renderers.get(13);
+                            }
+                            else if (target_name.equals("14") && video_renderers.get(14).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P14.mp4", video_renderers.get(14).texId());
+                                current_video_renderer = video_renderers.get(14);
+                            }
+                            else if (target_name.equals("15") && video_renderers.get(15).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P15.mp4", video_renderers.get(15).texId());
+                                current_video_renderer = video_renderers.get(15);
+                            }
+                            else if (target_name.equals("16") && video_renderers.get(16).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P16.mp4", video_renderers.get(16).texId());
+                                current_video_renderer = video_renderers.get(16);
+                            }
+                            else if (target_name.equals("namecard") && video_renderers.get(6).texId() != 0) {
                                 video = new ARVideo();
                                 video.openTransparentVideoFile("transparentvideo.mp4", video_renderers.get(1).texId());
                                 current_video_renderer = video_renderers.get(1);

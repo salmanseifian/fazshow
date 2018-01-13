@@ -13,6 +13,7 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
@@ -26,9 +27,11 @@ import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.ImageHelper;
 import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.movie.MovieActivity;
 import com.owjmedia.faaz.news.NewsActivity;
+import com.owjmedia.faaz.videodetail.VideoActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
 
 import butterknife.BindView;
@@ -57,6 +60,8 @@ public class HomeActivity extends AppCompatActivity {
             ab.setHomeAsUpIndicator(R.drawable.ic_menu);
             ab.setDisplayHomeAsUpEnabled(true);
         }
+
+        ImageHelper.getInstance(this).imageLoader(AppManager.getString(this, Constants.KEYS.HOMEPAGE_IMAGE), imgBanner);
     }
 
     @Override
@@ -75,6 +80,11 @@ public class HomeActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         setupDrawer();
+    }
+
+    @OnClick(R.id.img_banner)
+    public void goVideoPlayer() {
+        startActivity(new Intent(HomeActivity.this, VideoActivity.class));
     }
 
     @OnClick(R.id.rl_profile)
@@ -186,5 +196,8 @@ public class HomeActivity extends AppCompatActivity {
 
     @BindView(R.id.rl_exit)
     ViewGroup mRlExit;
+
+    @BindView(R.id.img_banner)
+    ImageView imgBanner;
 
 }

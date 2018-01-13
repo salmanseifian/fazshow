@@ -71,8 +71,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mNewsPresenter = new NewsPresenter(this);
         mProgressDialog = new ProgressDialog(this);
 
-        ImageHelper.getInstance(this).imageLoader("http://94.182.227.211/media/CACHE/images/video_gallery/images/9S3B7995465465465465465465465465465465463/bc74ab5905dde5c981e1319f7d6d6465.jpg"
-                , imgVideo);
+        ImageHelper.getInstance(this).imageLoader(AppManager.getString(this, Constants.KEYS.HOMEPAGE_IMAGE), imgVideo);
 
 
         // Set up recycler view

@@ -102,7 +102,7 @@
                 android:id="@+id/txt_info"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_info"
-                android:text="@string/info" />
+                android:text="@string/contact_us" />
         </RelativeLayout>
 
         <RelativeLayout

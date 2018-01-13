@@ -26,6 +26,7 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 
 import java.util.HashMap;
+import java.util.List;
 
 import cn.easyar.Engine;
 
@@ -78,8 +79,8 @@ public class ArActivity extends AppCompatActivity implements ArContract.View {
     }
 
     @Override
-    public void setArItem(ArItem arItem) {
-        AppManager.setString(this, Constants.KEYS.AR_VIDEO_PATH, arItem.getVideo());
+    public void setArItems(List<ArItem> arItems) {
+        AppManager.setString(this, Constants.KEYS.AR_VIDEO_PATH, arItems.get(0).getVideo());
     }
 
     private interface PermissionCallback {

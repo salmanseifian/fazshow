@@ -39,6 +39,9 @@ public class AppInfoResponse {
     @SerializedName("homepage_video")
     @Expose
     private String homepageVideo;
+    @SerializedName("homepage_image")
+    @Expose
+    private String homepageImage;
     @SerializedName("updated_jalali")
     @Expose
     private String updatedJalali;
@@ -140,5 +143,13 @@ public class AppInfoResponse {
 
     public void setHomepageVideo(String homepageVideo) {
         this.homepageVideo = homepageVideo;
+    }
+
+    public String getHomepageImage() {
+        return homepageImage;
+    }
+
+    public void setHomepageImage(String homepageImage) {
+        this.homepageImage = homepageImage;
     }
 }

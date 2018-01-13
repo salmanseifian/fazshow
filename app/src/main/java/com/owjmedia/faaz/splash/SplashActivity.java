@@ -27,11 +27,8 @@ public class SplashActivity extends AppCompatActivity implements AppInfoContract
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Fabric.with(this, new Crashlytics());
+        setContentView(R.layout.splash_act);
         new AppInfoPresenter(this).getAppInfo();
-        View decorView = getWindow().getDecorView();
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
     }
 
     @Override
@@ -53,6 +50,7 @@ public class SplashActivity extends AppCompatActivity implements AppInfoContract
     public void showAppInfo(AppInfoResponse appInfoResponse) {
         AppManager.setString(this, Constants.KEYS.ABOUT_US, appInfoResponse.getAboutUs());
         AppManager.setString(this, Constants.KEYS.HOMEPAGE_VIDEO, appInfoResponse.getHomepageVideo());
+        AppManager.setString(this, Constants.KEYS.HOMEPAGE_IMAGE, appInfoResponse.getHomepageImage());
 
         if (BuildConfig.HOME_SCREEN)
             startActivity(new Intent(SplashActivity.this, HomeActivity.class));

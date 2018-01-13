@@ -20,7 +20,7 @@ public class Global extends Application {
     public void onCreate() {
         super.onCreate();
         instance = this;
-//        Fabric.with(this, new Crashlytics());
+        Fabric.with(this, new Crashlytics());
         OneSignal.startInit(this)
                 .inFocusDisplaying(OneSignal.OSInFocusDisplayOption.InAppAlert)
                 .unsubscribeWhenNotificationsAreDisabled(true)

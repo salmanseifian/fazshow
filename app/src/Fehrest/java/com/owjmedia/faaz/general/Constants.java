@@ -24,6 +24,7 @@ public class Constants {
         public static final String AR_VIDEO_PATH = "arVideoPath";
         public static final String ABOUT_US = "aboutUs";
         public static final String HOMEPAGE_VIDEO = "homePageVideo";
+        public static final String HOMEPAGE_IMAGE = "homePageImage";
     }
 
     public static final class FONTS {
