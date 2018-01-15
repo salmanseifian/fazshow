@@ -48,6 +48,7 @@
         <item name="android:background">@drawable/bg_button</item>
         <item name="android:clickable">true</item>
         <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
         <item name="android:elevation">4dp</item>
     </style>
 

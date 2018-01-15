@@ -43,8 +43,8 @@ android {
 
         Fehrest {
             applicationId "com.owjmedia.fehrest"
-            versionCode 7
-            versionName "1.2.1"
+            versionCode 8
+            versionName "1.2.2"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
             buildConfigField "boolean", "LOTTERY", "true"

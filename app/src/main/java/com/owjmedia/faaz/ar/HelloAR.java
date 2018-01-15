@@ -252,8 +252,8 @@ public class HelloAR {
                                 current_video_renderer = video_renderers.get(0);
                             } else if (target_name.equals("01") && video_renderers.get(1).texId() != 0) {
                                 video = new ARVideo();
-                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P01_pcwoU2x.mp4", video_renderers.get(1).texId());
-                                current_video_renderer = video_renderers.get(0);
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P001.mp4", video_renderers.get(1).texId());
+                                current_video_renderer = video_renderers.get(1);
                             } else if (target_name.equals("02") && video_renderers.get(2).texId() != 0) {
                                 video = new ARVideo();
                                 video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P02.mp4", video_renderers.get(2).texId());

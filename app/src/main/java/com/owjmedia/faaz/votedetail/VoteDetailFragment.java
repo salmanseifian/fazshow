@@ -84,7 +84,6 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
                         voteItem.setVoted(false);
                         lottieAnimationView.setVisibility(View.GONE);
                     } else {
-                        ImageHelper.getInstance(getContext()).imageLoader(voteItem.getVotedImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
                         voteItem.setVoted(true);
                         lottieAnimationView.setVisibility(View.VISIBLE);
                         lottieAnimationView.playAnimation();

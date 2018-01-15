@@ -81,7 +81,6 @@ public class VideoFragment extends Fragment {
     public void onPause() {
         if (Util.SDK_INT <= 23) {
             releasePlayer();
-            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
         }
         super.onPause();
     }
@@ -90,7 +89,6 @@ public class VideoFragment extends Fragment {
     public void onStop() {
         if (Util.SDK_INT > 23) {
             releasePlayer();
-//            ((GalleryActivity) getActivity()).toolbar.setBackgroundColor(ResourcesCompat.getColor(getResources(), R.color.colorPrimary, null));
         }
         super.onStop();
     }

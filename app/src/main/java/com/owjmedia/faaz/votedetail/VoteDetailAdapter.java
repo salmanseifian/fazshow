@@ -37,16 +37,15 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     public void onBindViewHolder(VoteDetailViewHolder holder, int position) {
         Item votingItem = mVoteItems.get(position);
         holder.bind(votingItem, listener);
-
-        if (votingItem.isVoted()) {
-            holder.lottieCheck.setVisibility(View.VISIBLE);
-            ImageHelper.getInstance(mContext).imageLoader(votingItem.getVotedImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
-        } else {
-            holder.lottieCheck.setVisibility(View.INVISIBLE);
-            ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
-        }
+        ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
 
         holder.txtCandidateName.setText(votingItem.getText());
+        if (votingItem.isVoted()) {
+            holder.lottieCheck.setVisibility(View.VISIBLE);
+        } else {
+            holder.lottieCheck.setVisibility(View.INVISIBLE);
+        }
+
     }
 
     @Override
