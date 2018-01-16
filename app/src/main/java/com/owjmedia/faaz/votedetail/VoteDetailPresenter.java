@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.votedetail;
 
+import com.owjmedia.faaz.general.model.DetailResponse;
 import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.networking.Injector;
@@ -51,7 +52,13 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
         call.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
-                mVoteDetailView.votedSuccessfully();
+                if (response.code() == 200 || response.code() == 201)
+                    mVoteDetailView.votedSuccessfully();
+                else if (response.code() == 400)
+                    mVoteDetailView.showMessage("رای خود را ثبت نموده اید");
+                else
+                    mVoteDetailView.showMessage(Injector.parseError(response).getDetail());
+
             }
 
             @Override

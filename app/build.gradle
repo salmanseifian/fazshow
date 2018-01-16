@@ -19,7 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -30,8 +30,8 @@ android {
 
         Faaz {
             applicationId "com.owjmedia.faaz"
-            versionCode 4
-            versionName "1.1.0"
+            versionCode 5
+            versionName "1.2.0"
             buildConfigField "boolean", "HOME_SCREEN", "false"
             buildConfigField "boolean", "VOTE", "true"
             buildConfigField "boolean", "LOTTERY", "false"
@@ -54,6 +54,25 @@ android {
                                     onesignal_google_project_number: "REMOTE"]
         }
     }
+
+    applicationVariants.all{ variant ->
+        renameAPK(variant)
+    }
+}
+
+def renameAPK(variant){
+    variant.outputs.each { output ->
+        def SEP = "_"
+        def flavor = variant.flavorName
+        def buildType = variant.variantData.variantConfiguration.buildType.name
+        def versionName = variant.versionName
+        def versionCode = variant.versionCode
+
+        def apkName = flavor + SEP + buildType + SEP + versionName + SEP + versionCode + ".apk"
+        output.outputFile = new File(output.outputFile.parent, apkName)
+
+    }
+
 }
 
 dependencies {

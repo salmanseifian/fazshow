@@ -61,4 +61,6 @@
     <string name="images">عکس ها</string>
     <string name="until">تا</string>
     <string name="contact_us">تماس با ما</string>
+    <string name="vote_confirmation">پس از تایید، رای شما قابل بازگشتن نخواهد بود. از ثبت این رای مطمئن هستید؟</string>
+    <string name="voted_successfully">رای شما با موفقیت ثبت شد</string>
 </resources>

@@ -19,31 +19,16 @@
 
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_phase_title"
+            android:id="@+id/txt_phase_subtitle"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="match_parent"
             android:layout_marginRight="32dp"
-            android:layout_weight="0.7"
             android:ellipsize="end"
             android:gravity="right|center"
             android:maxLines="1"
             android:textColor="@android:color/white"
             android:textSize="16sp"
             tools:text="@string/confirm" />
-
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_phase_description"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_marginRight="32dp"
-            android:layout_weight="0.3"
-            android:ellipsize="end"
-            android:gravity="right|center"
-            android:maxLines="1"
-            android:textColor="@android:color/white"
-            android:textSize="12sp"
-            tools:text="@string/confirm" />
-
     </LinearLayout>
 
     <LinearLayout
@@ -52,52 +37,20 @@
         android:layout_height="64dp"
         android:layout_gravity="center"
         android:layout_marginLeft="16dp"
+        android:padding="8dp"
         android:layout_marginRight="8dp"
         android:background="@drawable/bg_date"
-        android:orientation="vertical"
-        android:weightSum="3">
+        android:orientation="vertical">
 
         <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_until"
+            android:id="@+id/txt_phase_title"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:text="@string/until"
+            android:layout_height="match_parent"
+            android:gravity="center"
             android:textColor="@color/colorWhite"
             android:textSize="13sp"
-            android:textStyle="bold" />
-
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_day"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center|bottom"
-            android:textColor="@color/colorWhite"
-            android:textSize="13sp"
-            android:textStyle="bold" />
-
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-            android:id="@+id/txt_month"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:gravity="center|top"
-            android:textColor="@color/colorWhite"
-            android:textSize="13sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            tools:text="@string/confirm"/>
     </LinearLayout>
-
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-        android:id="@+id/txt_time"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_marginRight="8dp"
-        android:layout_weight="1"
-        android:gravity="center"
-        android:maxLines="1"
-        android:textColor="@color/colorWhite"
-        android:textSize="13sp" />
 
 </LinearLayout>

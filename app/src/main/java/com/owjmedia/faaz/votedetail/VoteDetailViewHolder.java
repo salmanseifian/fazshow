@@ -2,6 +2,7 @@ package com.owjmedia.faaz.votedetail;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -28,6 +29,12 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
                 listener.onItemClick(item, lottieCheck, imgCandidate);
             }
         });
+        new VoteDetailAdapter.onVotedListener() {
+            @Override
+            public void onVoted() {
+                lottieCheck.setVisibility(View.VISIBLE);
+            }
+        };
     }
 
     @BindView(R.id.txtCandidateName)
@@ -38,5 +45,8 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
 
     @BindView(R.id.lottieCheck)
     LottieAnimationView lottieCheck;
+
+    @BindView(R.id.parent)
+    ViewGroup parent;
 
 }

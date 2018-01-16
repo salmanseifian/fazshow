@@ -15,6 +15,9 @@ public class VotingResponse {
     @SerializedName("title")
     @Expose
     private String title;
+    @SerializedName("subtitle")
+    @Expose
+    private String subtitle;
     @SerializedName("description")
     @Expose
     private String description;
@@ -29,10 +32,10 @@ public class VotingResponse {
     private boolean enable;
     @SerializedName("updated_jalali")
     @Expose
-    private String updated;
+    private String updatedJalali;
     @SerializedName("created_jalali")
     @Expose
-    private String created;
+    private String createdJalali;
 
     public int getId() {
         return id;
@@ -48,6 +51,14 @@ public class VotingResponse {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getSubtitle() {
+        return subtitle;
+    }
+
+    public void setSubtitle(String subtitle) {
+        this.subtitle = subtitle;
     }
 
     public String getDescription() {
@@ -82,20 +93,20 @@ public class VotingResponse {
         this.enable = enable;
     }
 
-    public String getUpdated() {
-        return updated;
+    public String getUpdatedJalali() {
+        return updatedJalali;
     }
 
-    public void setUpdated(String updated) {
-        this.updated = updated;
+    public void setUpdatedJalali(String updatedJalali) {
+        this.updatedJalali = updatedJalali;
     }
 
-    public String getCreated() {
-        return created;
+    public String getCreatedJalali() {
+        return createdJalali;
     }
 
-    public void setCreated(String created) {
-        this.created = created;
+    public void setCreatedJalali(String createdJalali) {
+        this.createdJalali = createdJalali;
     }
 
 }

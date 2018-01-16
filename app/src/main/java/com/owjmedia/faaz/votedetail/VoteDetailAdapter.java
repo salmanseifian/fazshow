@@ -34,7 +34,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     }
 
     @Override
-    public void onBindViewHolder(VoteDetailViewHolder holder, int position) {
+    public void onBindViewHolder(final VoteDetailViewHolder holder, int position) {
         Item votingItem = mVoteItems.get(position);
         holder.bind(votingItem, listener);
         ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
@@ -42,9 +42,17 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
         holder.txtCandidateName.setText(votingItem.getText());
         if (votingItem.isVoted()) {
             holder.lottieCheck.setVisibility(View.VISIBLE);
-        } else {
-            holder.lottieCheck.setVisibility(View.INVISIBLE);
+            holder.lottieCheck.playAnimation();
         }
+
+        new onVotedListener() {
+            @Override
+            public void onVoted() {
+                holder.lottieCheck.setVisibility(View.VISIBLE);
+                holder.lottieCheck.playAnimation();
+            }
+        };
+
 
     }
 
@@ -53,13 +61,17 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
         return (mVoteItems != null ? mVoteItems.size() : 0);
     }
 
+    public void update(List<Item> voteItems) {
+        mVoteItems = voteItems;
+        notifyDataSetChanged();
+    }
+
     interface OnItemClickListener {
         void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate);
     }
 
-    public void update(List<Item> voteItems) {
-        mVoteItems = voteItems;
-        notifyDataSetChanged();
+    interface onVotedListener {
+        void onVoted();
     }
 
     private List<Item> mVoteItems;

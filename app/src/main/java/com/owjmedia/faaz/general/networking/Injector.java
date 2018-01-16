@@ -2,9 +2,11 @@ package com.owjmedia.faaz.general.networking;
 
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.Global;
+import com.owjmedia.faaz.general.model.DetailResponse;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.annotation.Annotation;
 import java.util.concurrent.TimeUnit;
 
 import okhttp3.Cache;
@@ -13,6 +15,8 @@ import okhttp3.Interceptor;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
+import retrofit2.Converter;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
@@ -21,7 +25,7 @@ public class Injector {
 
     private static Retrofit retrofit = null;
 
-    private static Retrofit provideRetrofit() {
+    static Retrofit provideRetrofit() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)
@@ -89,5 +93,23 @@ public class Injector {
 
     public static ApiService provideApiService() {
         return provideRetrofit().create(ApiService.class);
+    }
+
+
+    public static DetailResponse parseError(retrofit2.Response<?> response) {
+        Converter<ResponseBody, DetailResponse> converter =
+                provideRetrofit()
+                        .responseBodyConverter(DetailResponse.class, new Annotation[0]);
+
+
+        DetailResponse error;
+
+        try {
+            error = converter.convert(response.errorBody());
+        } catch (IOException e) {
+            return new DetailResponse();
+        }
+
+        return error;
     }
 }

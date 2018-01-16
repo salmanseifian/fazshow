@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="192dp"
+    android:id="@+id/parent"
     android:layout_height="192dp"
     android:elevation="4dp"
     app:cardBackgroundColor="@color/colorCardItemVote"
@@ -24,6 +25,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:layout_margin="8dp"
+            android:visibility="gone"
             app:lottie_autoPlay="true"
             app:lottie_fileName="plus.json" />
 

@@ -58,9 +58,10 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     @Override
     public void onResume() {
         super.onResume();
-//        if (mVoteDetailPresenter != null)
-//            mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
+        if (mVoteDetailPresenter != null)
+            mVoteDetailPresenter.getCandidates(getArguments().getString(Constants.KEYS.POLL_ID));
     }
+
 
     private void initCarouselLayoutManager() {
         CarouselLayoutManager layoutManager = new CarouselLayoutManager(CarouselLayoutManager.HORIZONTAL, true);
@@ -78,17 +79,7 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
                 if (!AppManager.isLogin(getContext()))
                     new AuthenticationDialog().show(getFragmentManager(), null);
                 else {
-                    mVoteDetailPresenter.vote(getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId());
-                    if (voteItem.isVoted()) {
-                        ImageHelper.getInstance(getContext()).imageLoader(voteItem.getImage(), imgCandidate, ImageHelper.ImageType.AVATAR);
-                        voteItem.setVoted(false);
-                        lottieAnimationView.setVisibility(View.GONE);
-                    } else {
-                        voteItem.setVoted(true);
-                        lottieAnimationView.setVisibility(View.VISIBLE);
-                        lottieAnimationView.playAnimation();
-                    }
-
+                    ConfirmationDialog.getInstance(getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId()).show(getFragmentManager(), "");
                 }
             }
         });

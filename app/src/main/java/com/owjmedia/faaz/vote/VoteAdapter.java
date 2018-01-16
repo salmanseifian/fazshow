@@ -42,10 +42,7 @@ class VoteAdapter extends RecyclerView.Adapter<VoteViewHolder> {
         }
 
         holder.txtPhaseTitle.setText(votingResponse.getTitle());
-        holder.txtPhaseDescription.setText(Html.fromHtml(votingResponse.getDescription()));
-        holder.txtDay.setText(AppManager.getStringDate(votingResponse.getCreated())[1]);
-        holder.txtMonth.setText(AppManager.getStringDate(votingResponse.getCreated())[2]);
-        holder.txtTime.setText(AppManager.getStringDate(votingResponse.getCreated())[0]);
+        holder.txtPhaseSubtitle.setText(votingResponse.getSubtitle());
     }
 
     @Override

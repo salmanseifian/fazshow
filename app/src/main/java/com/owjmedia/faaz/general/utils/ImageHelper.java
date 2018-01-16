@@ -37,7 +37,7 @@ public class ImageHelper {
             case AVATAR:
                 Picasso.with(context)
                         .load(imageUrl)
-                        .placeholder(R.drawable.avatar)
+                        .placeholder(R.drawable.placeholder)
                         .into(imageView);
                 break;
             case NEWS:

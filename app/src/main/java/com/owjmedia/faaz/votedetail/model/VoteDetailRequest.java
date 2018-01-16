@@ -23,12 +23,5 @@ public class VoteDetailRequest {
         this.itemId = itemId;
     }
 
-    public int getItemId() {
-        return itemId;
-    }
-
-    public void setItemId(int itemId) {
-        this.itemId = itemId;
-    }
 
 }
