@@ -22,19 +22,14 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
         ButterKnife.bind(this, itemView);
     }
 
-    public void bind(final Item item, final VoteDetailAdapter.OnItemClickListener listener) {
+    public void bind(final int position, final int itemId, final VoteDetailAdapter.OnItemClickListener listener,
+                     final ConfirmationDialog.OnVotedListener votedListener) {
         itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(item, lottieCheck, imgCandidate);
+                listener.onItemClick(position, itemId, votedListener);
             }
         });
-        new VoteDetailAdapter.onVotedListener() {
-            @Override
-            public void onVoted() {
-                lottieCheck.setVisibility(View.VISIBLE);
-            }
-        };
     }
 
     @BindView(R.id.txtCandidateName)

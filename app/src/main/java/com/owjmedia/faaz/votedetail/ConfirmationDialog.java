@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.votedetail;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,13 +20,18 @@ import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 
 public class ConfirmationDialog extends DialogFragment implements VoteDetailContract.View {
 
-    public static ConfirmationDialog getInstance(String pollId, int vote_item) {
+    public static ConfirmationDialog getInstance(String pollId, int vote_item, int position) {
         ConfirmationDialog confirmationDialog = new ConfirmationDialog();
         Bundle bundle = new Bundle();
         bundle.putString(POLL_ID, pollId);
         bundle.putInt(VOTE_ITEM_ID, vote_item);
+        bundle.putInt(POSITION, position);
         confirmationDialog.setArguments(bundle);
         return confirmationDialog;
+    }
+
+    public void setListener(OnVotedListener listener) {
+        mListener = listener;
     }
 
     @Nullable
@@ -78,12 +84,17 @@ public class ConfirmationDialog extends DialogFragment implements VoteDetailCont
     @Override
     public void votedSuccessfully() {
         ActivityUtils.showToast(getContext(), getString(R.string.voted_successfully), "emoji_wink.json");
+        mListener.onVoted(getArguments().getInt(POSITION));
         dismiss();
+    }
+
+    public interface OnVotedListener {
+        void onVoted(int position);
     }
 
     public static final String POLL_ID = "poll_id";
     public static final String VOTE_ITEM_ID = "vote_item_id";
+    public static final String POSITION = "position";
     VoteDetailContract.Presenter mVoteDetailPresenter;
-
-    VoteDetailAdapter.onVotedListener listener;
+    private OnVotedListener mListener;
 }

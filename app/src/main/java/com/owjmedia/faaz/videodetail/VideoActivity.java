@@ -24,6 +24,6 @@ public class VideoActivity extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString(Constants.KEYS.VIDEO_PATH, AppManager.getString(this, Constants.KEYS.HOMEPAGE_VIDEO));
         fragment.setArguments(bundle);
-        ActivityUtils.addFragmentToActivity(getSupportFragmentManager(), fragment, R.id.contentFrame);
+        ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), fragment, R.id.contentFrame);
     }
 }

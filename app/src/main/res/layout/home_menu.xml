@@ -58,6 +58,22 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_faz_meter"
+            style="@style/MenuItem">
+
+            <ImageView
+                android:id="@+id/img_faz_meter"
+                style="@style/MenuItemIcon"
+                android:src="@drawable/ic_file_upload" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                android:id="@+id/txt_faz_meter"
+                style="@style/MenuItemText"
+                android:layout_toLeftOf="@+id/img_faz_meter"
+                android:text="@string/faz_meter" />
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/rl_lottery"
             style="@style/MenuItem">
 

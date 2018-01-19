@@ -75,11 +75,14 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     private void initAdapter() {
         mVoteDetailAdapter = new VoteDetailAdapter(mVotingItems, new VoteDetailAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate) {
+            public void onItemClick(int position, int itemId, ConfirmationDialog.OnVotedListener votedListener) {
                 if (!AppManager.isLogin(getContext()))
                     new AuthenticationDialog().show(getFragmentManager(), null);
                 else {
-                    ConfirmationDialog.getInstance(getArguments().getString(Constants.KEYS.POLL_ID), voteItem.getId()).show(getFragmentManager(), "");
+                    ConfirmationDialog confirmationDialog = ConfirmationDialog.getInstance(getArguments().getString(Constants.KEYS.POLL_ID), itemId, position);
+                    confirmationDialog.setListener(votedListener);
+                    confirmationDialog.show(getFragmentManager(), "");
+
                 }
             }
         });

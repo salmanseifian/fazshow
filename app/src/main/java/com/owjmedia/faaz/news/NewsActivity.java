@@ -38,6 +38,7 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
+import com.owjmedia.faaz.upload.UploadActivity;
 import com.owjmedia.faaz.videodetail.VideoActivity;
 import com.owjmedia.faaz.videodetail.VideoFragment;
 import com.owjmedia.faaz.vote.VoteActivity;
@@ -205,6 +206,12 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
     public void goToVote() {
         Intent votingIntent = new Intent(NewsActivity.this, VoteActivity.class);
         startActivity(votingIntent);
+    }
+
+    @OnClick(R.id.rl_faz_meter)
+    public void goToFazMeter() {
+        Intent uploadIntent = new Intent(NewsActivity.this, UploadActivity.class);
+        startActivity(uploadIntent);
     }
 
     @OnClick(R.id.rl_lottery)

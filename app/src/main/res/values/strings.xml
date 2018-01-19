@@ -63,4 +63,9 @@
     <string name="contact_us">تماس با ما</string>
     <string name="vote_confirmation">پس از تایید، رای شما قابل بازگشتن نخواهد بود. از ثبت این رای مطمئن هستید؟</string>
     <string name="voted_successfully">رای شما با موفقیت ثبت شد</string>
+    <string name="i_agree">متن را مطالعه کرده و شرایط را قبول دارم</string>
+    <string name="start">شروع کن!</string>
+    <string name="choose_image_file">انتخاب فایل عکس</string>
+    <string name="faz_meter">فاز متر</string>
+    <string name="upload">بارگزاری</string>
 </resources>

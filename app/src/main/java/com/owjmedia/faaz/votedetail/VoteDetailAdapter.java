@@ -18,7 +18,7 @@ import java.util.List;
  * Created by salman on 11/11/17.
  */
 
-public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder> {
+public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder> implements ConfirmationDialog.OnVotedListener {
 
     public VoteDetailAdapter(List<Item> voteItems, OnItemClickListener listener) {
         this.mVoteItems = voteItems;
@@ -36,7 +36,7 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
     @Override
     public void onBindViewHolder(final VoteDetailViewHolder holder, int position) {
         Item votingItem = mVoteItems.get(position);
-        holder.bind(votingItem, listener);
+        holder.bind(position, votingItem.getId(), listener, this);
         ImageHelper.getInstance(mContext).imageLoader(votingItem.getImage(), holder.imgCandidate, ImageHelper.ImageType.AVATAR);
 
         holder.txtCandidateName.setText(votingItem.getText());
@@ -44,16 +44,6 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
             holder.lottieCheck.setVisibility(View.VISIBLE);
             holder.lottieCheck.playAnimation();
         }
-
-        new onVotedListener() {
-            @Override
-            public void onVoted() {
-                holder.lottieCheck.setVisibility(View.VISIBLE);
-                holder.lottieCheck.playAnimation();
-            }
-        };
-
-
     }
 
     @Override
@@ -66,12 +56,13 @@ public class VoteDetailAdapter extends RecyclerView.Adapter<VoteDetailViewHolder
         notifyDataSetChanged();
     }
 
-    interface OnItemClickListener {
-        void onItemClick(Item voteItem, LottieAnimationView lottieAnimationView, ImageView imgCandidate);
+    @Override
+    public void onVoted(int position) {
+        notifyItemChanged(position);
     }
 
-    interface onVotedListener {
-        void onVoted();
+    interface OnItemClickListener {
+        void onItemClick(int position, int itemId, ConfirmationDialog.OnVotedListener listener);
     }
 
     private List<Item> mVoteItems;
