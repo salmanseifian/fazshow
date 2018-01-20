@@ -9,20 +9,17 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
-import com.airbnb.lottie.LottieAnimationView;
 import com.azoft.carousellayoutmanager.CarouselLayoutManager;
 import com.azoft.carousellayoutmanager.CarouselZoomPostLayoutListener;
 import com.azoft.carousellayoutmanager.CenterScrollListener;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
-import com.owjmedia.faaz.general.utils.ImageHelper;
 import com.owjmedia.faaz.votedetail.model.Item;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 
 import java.util.ArrayList;
@@ -136,9 +133,9 @@ public class VoteDetailFragment extends Fragment implements VoteDetailContract.V
     RecyclerView mRecyclerView;
 
     @BindView(R.id.txt_phase_title)
-    TypefacedTextView txtPhaseTitle;
+    TypefaceTextView txtPhaseTitle;
 
     @BindView(R.id.txt_phase_description)
-    TypefacedTextView txtPhaseDescription;
+    TypefaceTextView txtPhaseDescription;
 
 }

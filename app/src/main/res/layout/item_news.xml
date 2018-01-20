@@ -23,11 +23,11 @@
             android:scaleType="centerCrop"
             android:transitionName="@string/news_image" />
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txtNewsTitle"
             style="@style/NewsTitleRow" />
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txtNewsTime"
             style="@style/NewsTimeTextView" />
     </LinearLayout>

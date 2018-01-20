@@ -9,7 +9,7 @@
     android:orientation="horizontal"
     android:padding="8dp">
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txt_toast"
         android:layout_width="0dp"
         android:layout_height="wrap_content"

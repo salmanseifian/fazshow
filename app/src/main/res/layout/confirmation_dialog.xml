@@ -5,8 +5,8 @@
     android:gravity="center"
     android:orientation="vertical">
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
-        style="@style/DescriptionTextView"
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        style="@style/WhiteDescriptionTextView"
         android:text="@string/vote_confirmation" />
 
     <LinearLayout

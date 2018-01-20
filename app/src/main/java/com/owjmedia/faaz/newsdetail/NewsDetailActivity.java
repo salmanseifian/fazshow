@@ -9,7 +9,6 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
@@ -18,7 +17,7 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.general.utils.AppManager;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import butterknife.BindView;
@@ -131,10 +130,10 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
     ImageView imgNews;
 
     @BindView(R.id.txtNewsTitle)
-    TypefacedTextView txtNewsTitle;
+    TypefaceTextView txtNewsTitle;
 
     @BindView(R.id.txtNewsContent)
-    TypefacedTextView txtNewsContent;
+    TypefaceTextView txtNewsContent;
 
     @BindView(R.id.lottieLike)
     LottieAnimationView lottieLike;

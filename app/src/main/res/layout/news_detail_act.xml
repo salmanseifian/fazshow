@@ -51,13 +51,13 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txtNewsTitle"
                 style="@style/NewsTitleTextView"
                 android:layout_marginTop="16dp"
                 android:transitionName="@string/news_title" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txtNewsContent"
                 style="@style/NewsContentTextView"
                 android:layout_below="@+id/txtNewsTitle" />

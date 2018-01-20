@@ -20,9 +20,7 @@ import android.widget.Toast;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
-
-import static cn.easyar.engine.EasyAR.getApplicationContext;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 
 /**
  * Created by salman on 11/8/17.
@@ -43,6 +41,13 @@ public class ActivityUtils {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(frameId, fragment);
         transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.commit();
+    }
+
+    public static void replaceFragmentToActivitySlidly(FragmentManager fragmentManager, Fragment fragment, int frameId) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
+        transaction.replace(frameId, fragment);
         transaction.commit();
     }
 
@@ -85,7 +90,7 @@ public class ActivityUtils {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.custom_toast, (ViewGroup) ((Activity) context).findViewById(R.id.custom_toast));
 
-        TypefacedTextView txtToast = view.findViewById(R.id.txt_toast);
+        TypefaceTextView txtToast = view.findViewById(R.id.txt_toast);
         txtToast.setText(message);
 
         LottieAnimationView lottieToast = view.findViewById(R.id.lottie_toast);
@@ -101,7 +106,7 @@ public class ActivityUtils {
         LayoutInflater inflater = LayoutInflater.from(context);
         View view = inflater.inflate(R.layout.custom_toast, (ViewGroup) ((Activity) context).findViewById(R.id.custom_toast));
 
-        TypefacedTextView txtToast = view.findViewById(R.id.txt_toast);
+        TypefaceTextView txtToast = view.findViewById(R.id.txt_toast);
         txtToast.setText(message);
 
         Toast toast = new Toast(context);

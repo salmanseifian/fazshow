@@ -30,7 +30,7 @@
             app:lottie_fileName="plus.json" />
 
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txtCandidateName"
             android:layout_width="match_parent"
             android:layout_height="32dp"

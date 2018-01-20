@@ -22,13 +22,13 @@
                 android:layout_centerHorizontal="true"
                 android:src="@drawable/ic_logo_transparent" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_version"
                 style="@style/CenteredTextView"
                 android:layout_below="@+id/img_logo"
                 android:text="@string/version" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_about_us"
                 style="@style/NewsContentTextView"
                 android:layout_below="@id/txt_version"

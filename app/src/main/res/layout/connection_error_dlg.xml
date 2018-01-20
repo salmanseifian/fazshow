@@ -12,7 +12,7 @@
         app:lottie_fileName="no_internet_connection.json"
         app:lottie_loop="true" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         style="@style/BlackDescriptionTextView"
         android:text="@string/no_internet_connection"
         android:layout_marginBottom="16dp"/>

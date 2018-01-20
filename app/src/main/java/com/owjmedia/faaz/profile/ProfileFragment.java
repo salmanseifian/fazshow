@@ -10,11 +10,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
@@ -116,7 +115,7 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     ProgressDialog mProgressDialog;
 
     @BindView(R.id.txt_score)
-    TypefacedTextView txtScore;
+    TypefaceTextView txtScore;
 
     @BindView(R.id.edtGender)
     TypefacedEditText edtGender;

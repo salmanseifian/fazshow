@@ -5,9 +5,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.galleries.GalleriesAdapter;
 import com.owjmedia.faaz.galleries.model.GalleriesResponse;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +32,7 @@ class GalleriesViewHolder extends RecyclerView.ViewHolder {
     }
 
     @BindView(R.id.txt_galley_title)
-    TypefacedTextView txtGalleyTitle;
+    TypefaceTextView txtGalleyTitle;
     @BindView(R.id.img_gallery)
     ImageView imgGallery;
 

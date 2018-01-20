@@ -30,7 +30,7 @@
         app:layout_parallaxFactor="0.6"
         tools:src="@android:drawable/sym_action_call" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txt_title_slide"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="0dp"
         android:layout_weight="0.5">
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txt_description_slide"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

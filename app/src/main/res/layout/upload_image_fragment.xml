@@ -6,9 +6,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="256dp"
         android:layout_margin="16dp"
-        android:layout_weight="0.5"
         android:background="@drawable/bg_upload"
         android:orientation="vertical">
 
@@ -20,17 +19,17 @@
             android:layout_margin="16dp"
             android:contentDescription="" />
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/btn_choose_image_file"
-            style="@style/StartButton"
+            style="@style/LinkStyle"
             android:layout_gravity="center_horizontal|bottom"
             android:text="@string/choose_image_file" />
+
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_margin="16dp"
-        android:layout_weight="0.5"
-        android:background="@drawable/bg_upload"></LinearLayout>
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        android:id="@+id/btn_upload_image"
+        style="@style/ClickableTextView"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="@string/upload_image_file" />
 </LinearLayout>

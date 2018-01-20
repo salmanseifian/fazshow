@@ -18,7 +18,7 @@ public class UploadActivity extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.upload_act);
-        ActivityUtils.replaceFragmentToActivity(getSupportFragmentManager(), new UploadMediaFragment(), R.id.contentFrame);
+        ActivityUtils.replaceFragmentToActivitySlidly(getSupportFragmentManager(), new AgreementFragment(), R.id.contentFrame);
 
     }
 }

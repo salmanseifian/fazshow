@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.crashlytics.android.Crashlytics;
 import com.owjmedia.faaz.BuildConfig;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.appinfo.AppInfoActivity;
@@ -30,17 +28,15 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.Global;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
 import com.owjmedia.faaz.general.utils.ImageHelper;
-import com.owjmedia.faaz.home.HomeActivity;
 import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.news.model.Result;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
 import com.owjmedia.faaz.upload.UploadActivity;
 import com.owjmedia.faaz.videodetail.VideoActivity;
-import com.owjmedia.faaz.videodetail.VideoFragment;
 import com.owjmedia.faaz.vote.VoteActivity;
 
 import java.util.List;
@@ -48,7 +44,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import io.fabric.sdk.android.Fabric;
 
 
 public class NewsActivity extends AppCompatActivity implements NewsContract.View {
@@ -109,6 +104,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
             findViewById(R.id.llMenu).setVisibility(View.VISIBLE);
         else
             findViewById(R.id.llMenu).setVisibility(View.GONE);
+
+        if (BuildConfig.UPLOAD)
+            findViewById(R.id.rl_faz_meter).setVisibility(View.VISIBLE);
+        else
+            findViewById(R.id.rl_faz_meter).setVisibility(View.GONE);
     }
 
     private void initView() {
@@ -116,7 +116,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         mRecyclerView.setHasFixedSize(true);
         mNewsAdapter = new NewsAdapter(mNews, new NewsAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(Result newsItem, ImageView imgNews, TypefacedTextView txtNews) {
+            public void onItemClick(Result newsItem, ImageView imgNews, TypefaceTextView txtNews) {
                 Intent intent = new Intent(NewsActivity.this, NewsDetailActivity.class);
                 intent.putExtra(Constants.KEYS.NEWS_ID, String.valueOf(newsItem.getId()));
 
@@ -260,7 +260,7 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
 
     @BindView(R.id.txt_profile)
-    TypefacedTextView mTxtProfile;
+    TypefaceTextView mTxtProfile;
 
     @BindView(R.id.rl_vote)
     ViewGroup mRlVote;

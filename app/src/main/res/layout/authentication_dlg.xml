@@ -12,13 +12,13 @@
         app:lottie_fileName="android_fingerprint.json"
         app:lottie_loop="true" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txtVote"
         style="@style/CenteredTextView"
         android:layout_below="@+id/lottieRegisterToVote"
         android:text="@string/you_should_login_first" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txtGoToAuthentication"
         style="@style/ClickableTextView"
         android:layout_below="@+id/txtVote"

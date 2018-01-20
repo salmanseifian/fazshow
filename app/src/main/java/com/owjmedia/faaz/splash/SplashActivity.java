@@ -51,6 +51,7 @@ public class SplashActivity extends AppCompatActivity implements AppInfoContract
         AppManager.setString(this, Constants.KEYS.ABOUT_US, appInfoResponse.getAboutUs());
         AppManager.setString(this, Constants.KEYS.HOMEPAGE_VIDEO, appInfoResponse.getHomepageVideo());
         AppManager.setString(this, Constants.KEYS.HOMEPAGE_IMAGE, appInfoResponse.getHomepageImage());
+        AppManager.setString(this, Constants.KEYS.AGREEMENT, appInfoResponse.getAgreement());
 
         if (BuildConfig.HOME_SCREEN)
             startActivity(new Intent(SplashActivity.this, HomeActivity.class));

@@ -5,11 +5,23 @@
     android:layout_margin="16dp"
     android:orientation="vertical">
 
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        style="@style/DescriptionTextView"
+        android:text="@string/faz_meter_scanning"
+        android:textColor="@color/colorPrimaryDark" />
+
+    <View
+        android:layout_width="160dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:layout_marginBottom="16dp"
+        android:background="@color/colorPrimary" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txt_agreement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,9 +37,10 @@
         android:layout_marginTop="16dp"
         android:text="@string/i_agree" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/btn_start"
         style="@style/StartButton"
+        android:enabled="false"
         android:text="@string/start" />
 
 </LinearLayout>

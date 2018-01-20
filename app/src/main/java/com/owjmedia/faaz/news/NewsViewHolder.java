@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.news.model.Result;
 
 import butterknife.BindView;
@@ -33,7 +33,7 @@ public class NewsViewHolder extends RecyclerView.ViewHolder {
     @BindView((R.id.imgNews))
     ImageView imgNews;
     @BindView(R.id.txtNewsTitle)
-    TypefacedTextView txtNewsTitle;
+    TypefaceTextView txtNewsTitle;
     @BindView(R.id.txtNewsTime)
-    TypefacedTextView txtNewsTime;
+    TypefaceTextView txtNewsTime;
 }

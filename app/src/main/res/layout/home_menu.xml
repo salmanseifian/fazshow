@@ -34,7 +34,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_account_circle" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_profile"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_account"
@@ -50,7 +50,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_poll" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_poll"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_poll"
@@ -66,7 +66,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_file_upload" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_faz_meter"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_faz_meter"
@@ -82,7 +82,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_casino" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_competition"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_competition"
@@ -91,14 +91,15 @@
 
         <RelativeLayout
             android:id="@+id/rl_club"
-            style="@style/MenuItem">
+            style="@style/MenuItem"
+            android:visibility="gone">
 
             <ImageView
                 android:id="@+id/img_club"
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_group" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_club"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_club"
@@ -114,7 +115,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_info" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_info"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_info"
@@ -130,7 +131,7 @@
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_exit_to_app" />
 
-            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                 android:id="@+id/txt_exit"
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_exit"

@@ -19,7 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -36,6 +36,7 @@ android {
             buildConfigField "boolean", "VOTE", "true"
             buildConfigField "boolean", "LOTTERY", "false"
             buildConfigField "boolean", "NEWS_MENU", "true"
+            buildConfigField "boolean", "UPLOAD", "true"
             manifestPlaceholders = [onesignal_app_id               : "f775336f-ac87-4498-86f2-af645f59ff73",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]
@@ -43,12 +44,13 @@ android {
 
         Fehrest {
             applicationId "com.owjmedia.fehrest"
-            versionCode 8
-            versionName "1.2.2"
+            versionCode 9
+            versionName "1.2.3"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
             buildConfigField "boolean", "LOTTERY", "true"
             buildConfigField "boolean", "NEWS_MENU", "false"
+            buildConfigField "boolean", "UPLOAD", "false"
             manifestPlaceholders = [onesignal_app_id               : "67a639bc-82c7-4ab2-a35e-7203945afc1b",
                                     // Project number pulled from dashboard, local value is ignored.
                                     onesignal_google_project_number: "REMOTE"]

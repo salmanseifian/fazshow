@@ -11,7 +11,7 @@ import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import agency.tango.materialintroscreen.SlideFragment;
@@ -97,9 +97,9 @@ public class MovieFragment extends SlideFragment {
     ImageView imageSlide;
 
     @BindView(R.id.txt_title_slide)
-    TypefacedTextView txtTitle;
+    TypefaceTextView txtTitle;
 
     @BindView(R.id.txt_description_slide)
-    TypefacedTextView txtContent;
+    TypefaceTextView txtContent;
 
 }

@@ -7,9 +7,7 @@ import android.widget.ImageView;
 
 import com.airbnb.lottie.LottieAnimationView;
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.votedetail.model.Item;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
-import com.owjmedia.faaz.general.utils.RoundedImageView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -33,7 +31,7 @@ class VoteDetailViewHolder extends RecyclerView.ViewHolder {
     }
 
     @BindView(R.id.txtCandidateName)
-    TypefacedTextView txtCandidateName;
+    TypefaceTextView txtCandidateName;
 
     @BindView(R.id.imgCandidate)
     ImageView imgCandidate;

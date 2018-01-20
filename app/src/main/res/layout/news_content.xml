@@ -75,7 +75,7 @@
                         android:clickable="true"
                         android:orientation="horizontal">
 
-                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:gravity="center"
@@ -110,7 +110,7 @@
                                 style="@style/NewsIcon"
                                 android:src="@drawable/ic_video_player" />
 
-                            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"
@@ -138,7 +138,7 @@
                                 style="@style/NewsIcon"
                                 android:src="@drawable/ic_picture" />
 
-                            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:gravity="center"

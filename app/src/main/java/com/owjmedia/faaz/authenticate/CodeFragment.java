@@ -13,7 +13,7 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 import com.owjmedia.faaz.profile.ProfileFragment;
@@ -138,7 +138,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     TypefacedEditText edtCode;
 
     @BindView(R.id.txt_timer)
-    TypefacedTextView txtTimer;
+    TypefaceTextView txtTimer;
 
 
 }

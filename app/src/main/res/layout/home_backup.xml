@@ -23,7 +23,7 @@
                     style="@style/HomeCardImageView"
                     android:src="@drawable/ic_augmented_reality" />
 
-                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                     style="@style/HomeCardTextView"
                     android:text="@string/augmented_reality" />
             </RelativeLayout>
@@ -42,7 +42,7 @@
                             style="@style/HomeCardImageView"
                             android:src="@drawable/ic_newspaper" />
 
-                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/news" />
                     </RelativeLayout>
@@ -60,7 +60,7 @@
                             style="@style/HomeCardImageView"
                             android:src="@drawable/ic_film" />
 
-                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/movie_page" />
                     </RelativeLayout>
@@ -82,7 +82,7 @@
                             style="@style/HomeCardImageView"
                             android:src="@drawable/ic_picture" />
 
-                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/image_gallery" />
                     </RelativeLayout>
@@ -100,7 +100,7 @@
                             style="@style/HomeCardImageView"
                             android:src="@drawable/ic_video_player" />
 
-                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+                        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                             style="@style/HomeCardTextView"
                             android:text="@string/movie_gallery" />
                     </RelativeLayout>

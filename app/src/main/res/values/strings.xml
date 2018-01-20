@@ -65,7 +65,9 @@
     <string name="voted_successfully">رای شما با موفقیت ثبت شد</string>
     <string name="i_agree">متن را مطالعه کرده و شرایط را قبول دارم</string>
     <string name="start">شروع کن!</string>
-    <string name="choose_image_file">انتخاب فایل عکس</string>
     <string name="faz_meter">فاز متر</string>
     <string name="upload">بارگزاری</string>
+    <string name="faz_meter_scanning">پویش فازمتر</string>
+    <string name="upload_image_file">بارگزاری عکس</string>
+    <string name="choose_image_file"><u>انتخاب فایل عکس</u></string>
 </resources>

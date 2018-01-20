@@ -6,10 +6,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
-import com.owjmedia.faaz.galleries.model.GalleriesResponse;
 import com.owjmedia.faaz.gallerydetail.model.GalleryItem;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
-import com.owjmedia.faaz.general.utils.ImageHelper;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

@@ -9,23 +9,23 @@ import android.widget.TextView;
 import com.owjmedia.faaz.general.Constants;
 
 
-public class TypefacedTextView extends TextView {
-    public TypefacedTextView(Context context) {
+public class TypefaceTextView extends TextView {
+    public TypefaceTextView(Context context) {
         super(context);
         setTypeface(context);
     }
 
-    public TypefacedTextView(Context context, @Nullable AttributeSet attrs) {
+    public TypefaceTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setTypeface(context);
     }
 
-    public TypefacedTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TypefaceTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setTypeface(context);
     }
 
-    public TypefacedTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public TypefaceTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setTypeface(context);
     }

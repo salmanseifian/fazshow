@@ -11,7 +11,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView
+        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
             android:id="@+id/txt_galley_title"
             style="@style/GalleryCardTextView"
             android:layout_height="match_parent" />

@@ -14,18 +14,18 @@ import android.widget.ImageView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 
 /**
  * Created by salman on 1/19/18.
  */
 
-public class UploadMediaFragment extends Fragment {
+public class UploadImageFragment extends Fragment {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.upload_fragment, container, false);
+        return inflater.inflate(R.layout.upload_image_fragment, container, false);
     }
 
     @Override
@@ -33,11 +33,20 @@ public class UploadMediaFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         ActivityUtils.verifyStoragePermissions(getActivity());
         btnChooseImageFile = view.findViewById(R.id.btn_choose_image_file);
+        btnUploadImage = view.findViewById(R.id.btn_upload_image);
         imgChosen = view.findViewById(R.id.img_chosen);
         btnChooseImageFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showGallery();
+            }
+        });
+        btnUploadImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (imagePath != null)
+                    upload(imagePath);
+
             }
         });
     }
@@ -50,6 +59,11 @@ public class UploadMediaFragment extends Fragment {
         final Intent chooserIntent = Intent.createChooser(galleryIntent, "Choose image");
         startActivityForResult(chooserIntent, 100);
     }
+
+
+    private void upload(String imagePath) {
+    }
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -64,12 +78,12 @@ public class UploadMediaFragment extends Fragment {
             imgChosen.setImageURI(imageUri);
 
             imagePath = ActivityUtils.getRealPathFromURI(imageUri, getContext().getApplicationContext());
-            btnChooseImageFile.setText(getString(R.string.upload));
 
         }
     }
 
     private String imagePath;
-    TypefacedTextView btnChooseImageFile;
     ImageView imgChosen;
+    TypefaceTextView btnChooseImageFile;
+    TypefaceTextView btnUploadImage;
 }

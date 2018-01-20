@@ -27,6 +27,9 @@ public class AppInfoResponse {
     @SerializedName("about_us")
     @Expose
     private String aboutUs;
+    @SerializedName("faazmetr_agreement")
+    @Expose
+    private String agreement;
     @SerializedName("email")
     @Expose
     private String email;
@@ -151,5 +154,9 @@ public class AppInfoResponse {
 
     public void setHomepageImage(String homepageImage) {
         this.homepageImage = homepageImage;
+    }
+
+    public String getAgreement() {
+        return agreement;
     }
 }

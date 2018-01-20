@@ -14,7 +14,7 @@ import android.view.MenuItem;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.AppManager;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -38,7 +38,7 @@ public class AppInfoActivity extends AppCompatActivity {
 
         try {
             PackageInfo packageInfo = this.getPackageManager().getPackageInfo(getPackageName(), 0);
-            ((TypefacedTextView) findViewById(R.id.txt_version)).append(" " + packageInfo.
+            ((TypefaceTextView) findViewById(R.id.txt_version)).append(" " + packageInfo.
                     versionName);
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
@@ -63,5 +63,5 @@ public class AppInfoActivity extends AppCompatActivity {
 
 
     @BindView(R.id.txt_about_us)
-    TypefacedTextView txtAboutUs;
+    TypefaceTextView txtAboutUs;
 }

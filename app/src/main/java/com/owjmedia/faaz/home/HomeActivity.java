@@ -26,7 +26,7 @@ import com.owjmedia.faaz.general.Global;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.AuthenticationDialog;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedTextView;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ImageHelper;
 import com.owjmedia.faaz.lottery.LotteryActivity;
 import com.owjmedia.faaz.movie.MovieActivity;
@@ -176,6 +176,12 @@ public class HomeActivity extends AppCompatActivity {
         else
             mRlLottery.setVisibility(View.GONE);
 
+        if (BuildConfig.UPLOAD)
+            findViewById(R.id.rl_faz_meter).setVisibility(View.VISIBLE);
+        else
+            findViewById(R.id.rl_faz_meter).setVisibility(View.GONE);
+
+
     }
 
 
@@ -186,7 +192,7 @@ public class HomeActivity extends AppCompatActivity {
     DrawerLayout mDrawerLayout;
 
     @BindView(R.id.txt_profile)
-    TypefacedTextView mTxtProfile;
+    TypefaceTextView mTxtProfile;
 
     @BindView(R.id.rl_vote)
     ViewGroup mRlVote;
