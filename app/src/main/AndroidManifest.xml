@@ -62,7 +62,7 @@
             android:name=".videodetail.VideoActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".upload.UploadActivity"
+            android:name=".upload.status.UploadActivity"
             android:screenOrientation="portrait" />
 
         <meta-data

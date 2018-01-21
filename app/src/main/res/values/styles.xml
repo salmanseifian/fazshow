@@ -38,6 +38,20 @@
         <item name="android:layout_marginLeft">16dp</item>
     </style>
 
+    <style name="DescriptionEditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">256dp</item>
+        <item name="android:background">@drawable/bg_edit_text_description</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textColorHint">@color/colorEditTextHint</item>
+        <item name="android:padding">16dp</item>
+        <item name="android:lines">8</item>
+        <item name="android:gravity">right</item>
+        <item name="android:layout_marginRight">16dp</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="android:layout_marginLeft">16dp</item>
+    </style>
+
     <style name="ClickableTextView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">?actionBarSize</item>

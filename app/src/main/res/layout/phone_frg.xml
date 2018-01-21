@@ -18,7 +18,7 @@
         android:layout_below="@+id/imgLogo"
         android:text="@string/login_desc" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText
         android:id="@+id/edtPhone"
         style="@style/CustomEditText"
         android:layout_below="@+id/txtHint"

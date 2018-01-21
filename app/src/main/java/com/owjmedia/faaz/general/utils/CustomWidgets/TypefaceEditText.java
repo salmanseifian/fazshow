@@ -9,23 +9,23 @@ import android.widget.EditText;
 import com.owjmedia.faaz.general.Constants;
 
 
-public class TypefacedEditText extends EditText {
-    public TypefacedEditText(Context context) {
+public class TypefaceEditText extends EditText {
+    public TypefaceEditText(Context context) {
         super(context);
         setTypeface(context);
     }
 
-    public TypefacedEditText(Context context, @Nullable AttributeSet attrs) {
+    public TypefaceEditText(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         setTypeface(context);
     }
 
-    public TypefacedEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public TypefaceEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         setTypeface(context);
     }
 
-    public TypefacedEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public TypefaceEditText(Context context, @Nullable AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         setTypeface(context);
     }

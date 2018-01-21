@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.upload;
+package com.owjmedia.faaz.upload.image;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -11,16 +11,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.networking.ProgressRequestBody;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
+
+import java.io.File;
+
+import okhttp3.MultipartBody;
 
 /**
  * Created by salman on 1/19/18.
  */
 
-public class UploadImageFragment extends Fragment {
+public class UploadImageFragment extends Fragment implements UploadImageContract.View, ProgressRequestBody.UploadCallbacks {
 
     @Nullable
     @Override
@@ -35,6 +41,7 @@ public class UploadImageFragment extends Fragment {
         btnChooseImageFile = view.findViewById(R.id.btn_choose_image_file);
         btnUploadImage = view.findViewById(R.id.btn_upload_image);
         imgChosen = view.findViewById(R.id.img_chosen);
+        prgUpload = view.findViewById(R.id.prg_upload);
         btnChooseImageFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +69,10 @@ public class UploadImageFragment extends Fragment {
 
 
     private void upload(String imagePath) {
+        File file = new File(imagePath);
+        ProgressRequestBody fileBody = new ProgressRequestBody(file, this);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("image", file.getName(), fileBody);
+        new UploadImagePresenter(this).uploadImage(filePart);
     }
 
 
@@ -82,8 +93,46 @@ public class UploadImageFragment extends Fragment {
         }
     }
 
+
+    @Override
+    public void setLoadingIndicator(boolean active) {
+
+    }
+
+    @Override
+    public void showMessage(String message) {
+
+    }
+
+    @Override
+    public void showConnectionError() {
+
+    }
+
+    @Override
+    public void onImageUploadedSuccessfully() {
+        getActivity().onBackPressed();
+    }
+
+    @Override
+    public void onProgressUpdate(int percentage) {
+        prgUpload.setProgress(percentage);
+    }
+
+    @Override
+    public void onError() {
+
+    }
+
+    @Override
+    public void finish() {
+        prgUpload.setProgress(100);
+
+    }
+
     private String imagePath;
     ImageView imgChosen;
     TypefaceTextView btnChooseImageFile;
     TypefaceTextView btnUploadImage;
+    ProgressBar prgUpload;
 }

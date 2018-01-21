@@ -12,7 +12,7 @@ import android.widget.Spinner;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
@@ -118,16 +118,16 @@ public class ProfileFragment extends Fragment implements ProfileContract.View {
     TypefaceTextView txtScore;
 
     @BindView(R.id.edtGender)
-    TypefacedEditText edtGender;
+    TypefaceEditText edtGender;
 
     @BindView(R.id.spinnerGender)
     Spinner spinnerGender;
 
     @BindView(R.id.edtCity)
-    TypefacedEditText edtCity;
+    TypefaceEditText edtCity;
 
     @BindView(R.id.edtBirthYear)
-    TypefacedEditText edtBirthYear;
+    TypefaceEditText edtBirthYear;
 
 
 }

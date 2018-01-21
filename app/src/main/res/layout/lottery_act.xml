@@ -18,7 +18,7 @@
         android:layout_below="@+id/imgLogo"
         android:text="@string/please_enter_lottery_code" />
 
-    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText
         android:id="@+id/edtCode"
         style="@style/CustomEditText"
         android:layout_below="@+id/txtHint"

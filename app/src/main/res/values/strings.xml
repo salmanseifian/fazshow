@@ -70,4 +70,6 @@
     <string name="faz_meter_scanning">پویش فازمتر</string>
     <string name="upload_image_file">بارگزاری عکس</string>
     <string name="choose_image_file"><u>انتخاب فایل عکس</u></string>
+    <string name="description">توضیحات</string>
+    <string name="title">عنوان</string>
 </resources>

@@ -35,7 +35,7 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
-import com.owjmedia.faaz.upload.UploadActivity;
+import com.owjmedia.faaz.upload.status.UploadActivity;
 import com.owjmedia.faaz.videodetail.VideoActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
 

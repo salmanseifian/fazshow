@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText
+        android:id="@+id/edt_title"
+        style="@style/CustomEditText"
+        android:layout_marginTop="16dp"
+        android:hint="@string/title"
+        android:inputType="textMultiLine" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText
+        android:id="@+id/edt_description"
+        style="@style/DescriptionEditText"
+        android:layout_marginTop="16dp"
+        android:hint="@string/description"
+        android:inputType="textMultiLine" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        android:id="@+id/btn_send"
+        style="@style/ClickableTextView"
+        android:layout_marginTop="32dp"
+        android:text="@string/send" />
+
+</LinearLayout>

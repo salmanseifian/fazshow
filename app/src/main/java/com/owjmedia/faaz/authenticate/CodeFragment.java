@@ -12,7 +12,7 @@ import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
@@ -135,7 +135,7 @@ public class CodeFragment extends Fragment implements AuthenticateContract.View 
     CountDownTimer mCountDownTimer;
 
     @BindView(R.id.edtCode)
-    TypefacedEditText edtCode;
+    TypefaceEditText edtCode;
 
     @BindView(R.id.txt_timer)
     TypefaceTextView txtTimer;

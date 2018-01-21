@@ -6,16 +6,15 @@
     android:orientation="vertical">
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
-        style="@style/DescriptionTextView"
-        android:text="@string/faz_meter_scanning"
-        android:textColor="@color/colorPrimaryDark" />
+        style="@style/WhiteDescriptionTextView"
+        android:text="@string/faz_meter_scanning" />
 
     <View
         android:layout_width="160dp"
         android:layout_height="2dp"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp"
-        android:background="@color/colorPrimary" />
+        android:background="@color/colorWhite" />
 
     <ScrollView
         android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:id="@+id/txt_agreement"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/bg_agreement" />
+            android:background="@drawable/bg_edit_text_description" />
     </ScrollView>
 
 
@@ -35,6 +34,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="16dp"
+        android:textColor="@color/colorWhite"
         android:text="@string/i_agree" />
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView

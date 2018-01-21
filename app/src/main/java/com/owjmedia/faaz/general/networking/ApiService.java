@@ -14,18 +14,23 @@ import com.owjmedia.faaz.news.model.NewsResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
+import com.owjmedia.faaz.upload.status.model.UploadStatus;
+import com.owjmedia.faaz.upload.text.model.UploadTextRequest;
 import com.owjmedia.faaz.vote.model.VotingResponse;
 import com.owjmedia.faaz.votedetail.model.VoteDetailRequest;
 import com.owjmedia.faaz.votedetail.model.VoteDetailResponse;
 
 import java.util.List;
 
+import okhttp3.MultipartBody;
 import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
+import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
+import retrofit2.http.Part;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
 
@@ -88,5 +93,16 @@ public interface ApiService {
 
     @GET("v1/ar_items/")
     Call<List<ArItem>> getArItems();
+
+    @GET("v1/upload/status/")
+    Call<UploadStatus> getUploadStatus();
+
+    @POST("v1/upload/text/")
+    Call<ResponseBody> uploadText(@Body UploadTextRequest uploadTextRequest);
+
+    @Multipart
+    @POST("v1/upload/image/")
+    Call<ResponseBody> uploadImage(@Part MultipartBody.Part file);
+
 
 }

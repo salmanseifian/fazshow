@@ -6,7 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 
@@ -60,5 +60,5 @@ public class LotteryActivity extends AppCompatActivity implements LotteryContrac
     private ProgressDialog mProgressDialog;
 
     @BindView(R.id.edtCode)
-    TypefacedEditText edtCode;
+    TypefaceEditText edtCode;
 }

@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefacedEditText;
+import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
 
@@ -89,6 +89,6 @@ public class PhoneFragment extends Fragment implements AuthenticateContract.View
     ProgressDialog mProgressDialog;
 
     @BindView(R.id.edtPhone)
-    TypefacedEditText edtPhone;
+    TypefaceEditText edtPhone;
 
 }

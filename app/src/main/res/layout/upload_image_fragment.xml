@@ -32,4 +32,13 @@
         style="@style/ClickableTextView"
         android:layout_gravity="center_horizontal|bottom"
         android:text="@string/upload_image_file" />
+
+    <ProgressBar
+        android:id="@+id/prg_upload"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:indeterminate="false"/>
 </LinearLayout>

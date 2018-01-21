@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.upload;
+package com.owjmedia.faaz.upload.status;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -15,6 +15,8 @@ import com.owjmedia.faaz.general.Constants;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
+import com.owjmedia.faaz.upload.image.UploadImageFragment;
+import com.owjmedia.faaz.upload.text.UploadTextFragment;
 
 /**
  * Created by salman on 1/19/18.
@@ -47,7 +49,7 @@ public class AgreementFragment extends Fragment {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityUtils.replaceFragmentToActivitySlidly(getFragmentManager(), new UploadImageFragment(), R.id.contentFrame);
+                ActivityUtils.replaceFragmentToActivitySlidly(getFragmentManager(), new UploadTextFragment(), R.id.contentFrame);
             }
         });
 
