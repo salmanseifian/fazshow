@@ -2,43 +2,44 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_margin="8dp"
+    android:background="@drawable/bg_dlg"
     android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="256dp"
+    <ImageView
+        android:id="@+id/img_chosen"
+        android:layout_width="256dp"
+        android:layout_height="160dp"
+        android:layout_gravity="center"
         android:layout_margin="16dp"
         android:background="@drawable/bg_upload"
-        android:orientation="vertical">
+        android:contentDescription=""
+        android:padding="8dp" />
 
-        <ImageView
-            android:id="@+id/img_chosen"
-            android:layout_width="match_parent"
-            android:layout_height="128dp"
-            android:layout_gravity="center"
-            android:layout_margin="16dp"
-            android:contentDescription="" />
-
-        <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
-            android:id="@+id/btn_choose_image_file"
-            style="@style/LinkStyle"
-            android:layout_gravity="center_horizontal|bottom"
-            android:text="@string/choose_image_file" />
-
-    </LinearLayout>
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
-        android:id="@+id/btn_upload_image"
-        style="@style/ClickableTextView"
+        android:id="@+id/btn_choose_image_file"
+        style="@style/LinkStyle"
         android:layout_gravity="center_horizontal|bottom"
-        android:text="@string/upload_image_file" />
+        android:text="@string/choose_image_file" />
 
     <ProgressBar
         android:id="@+id/prg_upload"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="32dp"
+        android:layout_marginBottom="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginRight="16dp"
-        android:indeterminate="false"/>
+        android:indeterminateOnly="false"
+        android:max="100"
+        android:progressDrawable="@drawable/progress_upload"
+        android:visibility="gone" />
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        android:id="@+id/btn_upload_image"
+        style="@style/ClickableTextView"
+        android:layout_gravity="center_horizontal|bottom"
+        android:text="@string/upload_image"
+        android:visibility="gone" />
 </LinearLayout>

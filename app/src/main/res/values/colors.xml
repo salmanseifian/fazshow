@@ -34,4 +34,9 @@
     <color name="colorPlaceholder">#aaa</color>
     <color name="colorHomeBackground">#000000</color>
     <color name="colorHomeBorder">#ffffff</color>
+
+    <color name="colorUploadTitle">#99E91E63</color>
+    <color name="colorUploadText">#339C27B0</color>
+    <color name="colorUploadImage">#333E2723</color>
+    <color name="colorUploadVideo">#33009688</color>
 </resources>

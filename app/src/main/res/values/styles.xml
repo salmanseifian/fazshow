@@ -345,5 +345,37 @@
         <item name="android:layout_alignParentBottom">true</item>
     </style>
 
+    <style name="UploadLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_weight">0.25</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="UploadTextView">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_weight">0.5</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
+    <style name="UploadImageView">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:layout_marginLeft">16dp</item>
+    </style>
+
+    <style name="UploadLottie">
+        <item name="android:layout_width">64dp</item>
+        <item name="android:layout_height">64dp</item>
+        <item name="android:layout_gravity">center_vertical</item>
+        <item name="android:visibility">invisible</item>
+        <item name="android:layout_marginRight">16dp</item>
+    </style>
+
 
 </resources>

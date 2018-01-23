@@ -31,7 +31,7 @@ public class ProgressRequestBody extends RequestBody {
     @Nullable
     @Override
     public MediaType contentType() {
-        return MediaType.parse("image/*");
+        return MediaType.parse("multipart/form-data");
     }
 
     @Override

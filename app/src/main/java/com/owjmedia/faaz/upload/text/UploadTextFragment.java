@@ -11,10 +11,7 @@ import android.view.ViewGroup;
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
-import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.Validator;
-import com.owjmedia.faaz.upload.image.UploadImageFragment;
-import com.owjmedia.faaz.upload.text.model.UploadTextRequest;
 
 /**
  * Created by salman on 1/21/18.
@@ -67,7 +64,7 @@ public class UploadTextFragment extends Fragment implements UploadTextContract.V
 
     @Override
     public void onSuccessfullyUploaded() {
-        ActivityUtils.replaceFragmentToActivitySlidly(getFragmentManager(), new UploadImageFragment(), R.id.contentFrame);
+        getActivity().onBackPressed();
     }
 
     private TypefaceEditText edtTitle;

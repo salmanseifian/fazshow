@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class DetailResponse {
 
-    @SerializedName("detail")
+    @SerializedName("details")
     @Expose
     private String detail;
 

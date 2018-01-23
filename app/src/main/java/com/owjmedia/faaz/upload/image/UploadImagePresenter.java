@@ -1,5 +1,7 @@
 package com.owjmedia.faaz.upload.image;
 
+import android.util.Log;
+
 import com.owjmedia.faaz.general.networking.Injector;
 
 import java.io.File;
@@ -29,6 +31,8 @@ public class UploadImagePresenter implements UploadImageContract.Presenter {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 if (response.isSuccessful())
                     view.onImageUploadedSuccessfully();
+                else
+                    view.showMessage(Injector.parseError(response).getDetail());
             }
 
             @Override

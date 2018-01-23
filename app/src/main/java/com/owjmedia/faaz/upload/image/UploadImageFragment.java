@@ -2,11 +2,13 @@ package com.owjmedia.faaz.upload.image;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,11 +28,12 @@ import okhttp3.MultipartBody;
  * Created by salman on 1/19/18.
  */
 
-public class UploadImageFragment extends Fragment implements UploadImageContract.View, ProgressRequestBody.UploadCallbacks {
+public class UploadImageFragment extends DialogFragment implements UploadImageContract.View, ProgressRequestBody.UploadCallbacks {
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         return inflater.inflate(R.layout.upload_image_fragment, container, false);
     }
 
@@ -60,9 +63,8 @@ public class UploadImageFragment extends Fragment implements UploadImageContract
 
     public void showGallery() {
         final Intent galleryIntent = new Intent();
-        galleryIntent.setType("image/*");
+        galleryIntent.setType("image/jpg");
         galleryIntent.setAction(Intent.ACTION_PICK);
-
         final Intent chooserIntent = Intent.createChooser(galleryIntent, "Choose image");
         startActivityForResult(chooserIntent, 100);
     }
@@ -82,13 +84,15 @@ public class UploadImageFragment extends Fragment implements UploadImageContract
 
         if (resultCode == Activity.RESULT_OK && requestCode == 100) {
             if (data == null) {
-                ActivityUtils.showToast(getContext(), "Unable to pick image");
+                ActivityUtils.showToast(getActivity(), "Unable to pick image");
                 return;
             }
             Uri imageUri = data.getData();
             imgChosen.setImageURI(imageUri);
-
-            imagePath = ActivityUtils.getRealPathFromURI(imageUri, getContext().getApplicationContext());
+            imagePath = ActivityUtils.getRealPathFromURI(imageUri, getActivity().getApplicationContext());
+            btnChooseImageFile.setText(getString(R.string.change_image_file));
+            btnUploadImage.setVisibility(View.VISIBLE);
+            prgUpload.setVisibility(View.VISIBLE);
 
         }
     }
@@ -101,7 +105,8 @@ public class UploadImageFragment extends Fragment implements UploadImageContract
 
     @Override
     public void showMessage(String message) {
-
+        ActivityUtils.showToast(getActivity(), message);
+        dismiss();
     }
 
     @Override
@@ -111,7 +116,7 @@ public class UploadImageFragment extends Fragment implements UploadImageContract
 
     @Override
     public void onImageUploadedSuccessfully() {
-        getActivity().onBackPressed();
+        dismiss();
     }
 
     @Override
@@ -127,7 +132,6 @@ public class UploadImageFragment extends Fragment implements UploadImageContract
     @Override
     public void finish() {
         prgUpload.setProgress(100);
-
     }
 
     private String imagePath;

@@ -68,8 +68,11 @@
     <string name="faz_meter">فاز متر</string>
     <string name="upload">بارگزاری</string>
     <string name="faz_meter_scanning">پویش فازمتر</string>
-    <string name="upload_image_file">بارگزاری عکس</string>
+    <string name="upload_image">بارگذاری عکس</string>
     <string name="choose_image_file"><u>انتخاب فایل عکس</u></string>
     <string name="description">توضیحات</string>
     <string name="title">عنوان</string>
+    <string name="upload_text">بارگذاری متن</string>
+    <string name="upload_video">بارگذاری ویدیو</string>
+    <string name="change_image_file">تغییر فایل عکس</string>
 </resources>

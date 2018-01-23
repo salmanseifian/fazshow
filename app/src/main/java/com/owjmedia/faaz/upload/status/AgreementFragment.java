@@ -49,7 +49,7 @@ public class AgreementFragment extends Fragment {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ActivityUtils.replaceFragmentToActivitySlidly(getFragmentManager(), new UploadTextFragment(), R.id.contentFrame);
+                ActivityUtils.addFragmentToActivity(getFragmentManager(), new UploadTextFragment(), R.id.contentFrame);
             }
         });
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -11,6 +12,84 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/blure_bg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                style="@style/UploadLayout"
+                android:background="@color/colorUploadTitle">
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                    style="@style/UploadTextView"
+                    android:text="@string/faz_meter"
+                    android:textSize="22sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lyt_upload_text"
+                style="@style/UploadLayout"
+                android:background="@color/colorUploadText">
+
+                <ImageView
+                    style="@style/UploadImageView"
+                    android:src="@drawable/ic_newspaper" />
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                    style="@style/UploadTextView"
+                    android:text="@string/upload_text" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/text_done"
+                    style="@style/UploadLottie"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="done.json" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lyt_upload_image"
+                style="@style/UploadLayout"
+                android:background="@color/colorUploadImage">
+
+                <ImageView
+                    style="@style/UploadImageView"
+                    android:src="@drawable/ic_picture" />
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                    style="@style/UploadTextView"
+                    android:text="@string/upload_image" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/image_done"
+                    style="@style/UploadLottie"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="done.json" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lyt_upload_video"
+                style="@style/UploadLayout"
+                android:background="@color/colorUploadVideo">
+
+                <ImageView
+                    style="@style/UploadImageView"
+                    android:src="@drawable/ic_video_player" />
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                    style="@style/UploadTextView"
+                    android:text="@string/upload_video" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/video_done"
+                    style="@style/UploadLottie"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="done.json" />
+            </LinearLayout>
+        </LinearLayout>
 
     </FrameLayout>
 </LinearLayout>
