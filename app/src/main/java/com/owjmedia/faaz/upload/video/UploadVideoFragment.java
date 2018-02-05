@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.upload.image;
+package com.owjmedia.faaz.upload.video;
 
 import android.app.Activity;
 import android.content.Context;
@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
+import android.widget.VideoView;
 
 import com.owjmedia.faaz.R;
 import com.owjmedia.faaz.general.ConnectionErrorDialog;
@@ -27,12 +28,14 @@ import com.owjmedia.faaz.upload.video.UploadVideoContract;
 import com.owjmedia.faaz.upload.video.UploadVideoPresenter;
 
 import java.io.File;
-import java.util.Observable;
 
 import okhttp3.MultipartBody;
 
+/**
+ * Created by salman on 1/19/18.
+ */
 
-public class UploadImageFragment extends DialogFragment implements UploadImageContract.View, ProgressRequestBody.UploadCallbacks {
+public class UploadVideoFragment extends DialogFragment implements UploadVideoContract.View, ProgressRequestBody.UploadCallbacks {
 
     @Override
     public void onAttach(Context context) {
@@ -48,7 +51,7 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        return inflater.inflate(R.layout.upload_image_fragment, container, false);
+        return inflater.inflate(R.layout.upload_video_fragment, container, false);
     }
 
     @Override
@@ -56,9 +59,9 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
         super.onViewCreated(view, savedInstanceState);
         ActivityUtils.verifyStoragePermissions(getActivity());
         mProgressDialog = new ProgressDialog(getActivity());
-        btnChooseFile = view.findViewById(R.id.btn_choose_image_file);
-        btnUploadImage = view.findViewById(R.id.btn_upload_image);
-        imgChosen = view.findViewById(R.id.img_chosen);
+        btnChooseFile = view.findViewById(R.id.btn_choose_file);
+        btnUploadFile = view.findViewById(R.id.btn_upload_file);
+        videoView = view.findViewById(R.id.video_view);
         prgUpload = view.findViewById(R.id.prg_upload);
         btnChooseFile.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -66,11 +69,11 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
                 showGallery();
             }
         });
-        btnUploadImage.setOnClickListener(new View.OnClickListener() {
+        btnUploadFile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (imagePath != null)
-                    upload(imagePath);
+                if (videoPath != null)
+                    upload(videoPath);
 
             }
         });
@@ -78,9 +81,9 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
 
     public void showGallery() {
         final Intent galleryIntent = new Intent();
-        galleryIntent.setType("image/jpg");
+        galleryIntent.setType("video/*");
         galleryIntent.setAction(Intent.ACTION_PICK);
-        final Intent chooserIntent = Intent.createChooser(galleryIntent, "Choose image");
+        final Intent chooserIntent = Intent.createChooser(galleryIntent, "Choose video");
         startActivityForResult(chooserIntent, 100);
     }
 
@@ -88,8 +91,8 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
     private void upload(String imagePath) {
         File file = new File(imagePath);
         ProgressRequestBody fileBody = new ProgressRequestBody(file, this);
-        MultipartBody.Part filePart = MultipartBody.Part.createFormData("image", file.getName(), fileBody);
-        new UploadImagePresenter(this).uploadImage(filePart);
+        MultipartBody.Part filePart = MultipartBody.Part.createFormData("video", file.getName(), fileBody);
+        new UploadVideoPresenter(this).uploadVideo(filePart);
     }
 
 
@@ -102,11 +105,12 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
                 ActivityUtils.showToast(getActivity(), "Unable to pick image");
                 return;
             }
-            Uri imageUri = data.getData();
-            imgChosen.setImageURI(imageUri);
-            imagePath = ActivityUtils.getRealPathFromURI(imageUri, getActivity().getApplicationContext());
-            btnChooseFile.setText(getString(R.string.change_image_file));
-            btnUploadImage.setVisibility(View.VISIBLE);
+            Uri videoUri = data.getData();
+            videoView.setVideoURI(videoUri);
+            videoView.start();
+            videoPath = ActivityUtils.getRealPathFromURI(videoUri, getActivity().getApplicationContext());
+            btnChooseFile.setText(getString(R.string.change_video_file));
+            btnUploadFile.setVisibility(View.VISIBLE);
             prgUpload.setVisibility(View.VISIBLE);
 
         }
@@ -134,8 +138,8 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
     }
 
     @Override
-    public void onImageUploaded() {
-        mListener.onImageUploaded();
+    public void onVideoUploaded() {
+        mListener.onVideoUploaded();
         dismiss();
     }
 
@@ -156,11 +160,9 @@ public class UploadImageFragment extends DialogFragment implements UploadImageCo
 
     OnUploaded mListener;
     ProgressDialog mProgressDialog;
-    private String imagePath;
-    ImageView imgChosen;
+    private String videoPath;
+    private VideoView videoView;
     TypefaceTextView btnChooseFile;
-    TypefaceTextView btnUploadImage;
+    TypefaceTextView btnUploadFile;
     ProgressBar prgUpload;
-
-
 }

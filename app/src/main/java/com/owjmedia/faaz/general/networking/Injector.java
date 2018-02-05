@@ -25,7 +25,7 @@ public class Injector {
 
     private static Retrofit retrofit = null;
 
-    static Retrofit provideRetrofit() {
+    private static Retrofit provideRetrofit() {
         if (retrofit == null) {
             retrofit = new Retrofit.Builder()
                     .baseUrl(Constants.BASE_URL)

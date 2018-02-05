@@ -22,4 +22,5 @@
     <color name="colorCardBackground">#66FFFFFF</color>
     <color name="colorArCardBackground">#33FFFFFF</color>
     <color name="colorVideoForeground">#99000000</color>
+    <color name="colorWarning">#FFA500</color>
 </resources>

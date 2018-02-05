@@ -1,9 +1,7 @@
-package com.owjmedia.faaz.upload.image;
+package com.owjmedia.faaz.upload.video;
 
 import com.owjmedia.faaz.general.BasePresenter;
 import com.owjmedia.faaz.general.BaseView;
-
-import java.io.File;
 
 import okhttp3.MultipartBody;
 
@@ -11,13 +9,13 @@ import okhttp3.MultipartBody;
  * Created by salman on 1/22/18.
  */
 
-public interface UploadImageContract {
+public interface UploadVideoContract {
 
     interface View extends BaseView<Presenter> {
-        void onImageUploaded();
+        void onVideoUploaded();
     }
 
     interface Presenter extends BasePresenter {
-        void uploadImage(MultipartBody.Part part);
+        void uploadVideo(MultipartBody.Part part);
     }
 }

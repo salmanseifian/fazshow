@@ -20,12 +20,25 @@
 
             <LinearLayout
                 style="@style/UploadLayout"
-                android:background="@color/colorUploadTitle">
+                android:background="@color/colorUploadTitle"
+                android:orientation="vertical">
 
                 <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
                     style="@style/UploadTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
                     android:text="@string/faz_meter"
                     android:textSize="22sp" />
+
+                <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                    android:id="@+id/txt_upload_subtitle"
+                    style="@style/UploadTextView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/faz_meter"
+                    android:textSize="16sp" />
 
             </LinearLayout>
 

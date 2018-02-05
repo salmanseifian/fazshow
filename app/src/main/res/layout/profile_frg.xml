@@ -41,6 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 app:lottie_autoPlay="true"
+                app:lottie_loop="true"
                 app:lottie_fileName="star.json" />
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
@@ -58,7 +59,7 @@
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txtHint"
-        style="@style/BlackDescriptionTextView"
+        style="@style/WhiteDescriptionTextView"
         android:layout_below="@+id/rl_score"
         android:text="@string/profile_desc" />
 
@@ -105,7 +106,7 @@
 
     <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
         android:id="@+id/txtSkip"
-        style="@style/BlackDescriptionTextView"
+        style="@style/WhiteDescriptionTextView"
         android:layout_below="@+id/btnContinue"
         android:text="@string/complete_later" />
 

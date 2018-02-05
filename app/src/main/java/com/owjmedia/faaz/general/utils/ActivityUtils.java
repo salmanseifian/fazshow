@@ -37,6 +37,13 @@ public class ActivityUtils {
         transaction.commit();
     }
 
+    public static void addFragmentToActivityBack(FragmentManager fragmentManager, Fragment fragment, int frameId) {
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.add(frameId, fragment);
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction.commit();
+    }
+
     public static void replaceFragmentToActivity(FragmentManager fragmentManager, Fragment fragment, int frameId) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         transaction.replace(frameId, fragment);
@@ -44,12 +51,6 @@ public class ActivityUtils {
         transaction.commit();
     }
 
-    public static void replaceFragmentToActivitySlidly(FragmentManager fragmentManager, Fragment fragment, int frameId) {
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setCustomAnimations(R.anim.enter_from_right, R.anim.exit_to_left);
-        transaction.replace(frameId, fragment);
-        transaction.commit();
-    }
 
     public static void addFragmentToActivity(FragmentManager fragmentManager, Fragment fragment, int frameId, ImageView sharedView, String name) {
         FragmentTransaction transaction = fragmentManager.beginTransaction();

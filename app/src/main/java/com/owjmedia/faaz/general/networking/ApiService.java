@@ -12,6 +12,8 @@ import com.owjmedia.faaz.lottery.model.LotteryResponse;
 import com.owjmedia.faaz.movie.model.MovieResponse;
 import com.owjmedia.faaz.news.model.NewsResponse;
 import com.owjmedia.faaz.newsdetail.model.NewsDetailResponse;
+import com.owjmedia.faaz.poll.model.Poll;
+import com.owjmedia.faaz.poll.model.PollRequest;
 import com.owjmedia.faaz.profile.model.ProfileResponse;
 import com.owjmedia.faaz.profile.model.UpdateProfileRequest;
 import com.owjmedia.faaz.upload.status.model.UploadStatus;
@@ -104,5 +106,13 @@ public interface ApiService {
     @POST("v1/upload/image/")
     Call<ResponseBody> uploadImage(@Part MultipartBody.Part file);
 
+    @Multipart
+    @POST("v1/upload/video/")
+    Call<ResponseBody> uploadVideo(@Part MultipartBody.Part file);
 
+    @GET("/v1/surveys/active/")
+    Call<Poll> getPoll();
+
+    @POST("/v1/surveys/active/voting/")
+    Call<ResponseBody> participateInPoll(@Body PollRequest pollRequest);
 }

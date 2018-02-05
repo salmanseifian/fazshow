@@ -69,5 +69,5 @@ public class VoteDetailPresenter implements VoteDetailContract.Presenter {
 
     }
 
-    VoteDetailContract.View mVoteDetailView;
+    private VoteDetailContract.View mVoteDetailView;
 }

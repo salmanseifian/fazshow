@@ -22,6 +22,9 @@ public class UploadStatus {
     @SerializedName("faazmetr_agreement")
     @Expose
     private String faazmetrAgreement;
+    @SerializedName("faazmetr_description")
+    @Expose
+    private String faazmetrDescription;
 
     public boolean isText() {
         return text;
@@ -55,4 +58,11 @@ public class UploadStatus {
         this.faazmetrAgreement = faazmetrAgreement;
     }
 
+    public String getFaazmetrDescription() {
+        return faazmetrDescription;
+    }
+
+    public void setFaazmetrDescription(String faazmetrDescription) {
+        this.faazmetrDescription = faazmetrDescription;
+    }
 }

@@ -75,4 +75,9 @@
     <string name="upload_text">بارگذاری متن</string>
     <string name="upload_video">بارگذاری ویدیو</string>
     <string name="change_image_file">تغییر فایل عکس</string>
+    <string name="choose_video_file"><u>انتخاب فایل ویدیو</u></string>
+    <string name="change_video_file">تغییر فایل ویدیو</string>
+    <string name="only_one_time_you_can_upload_video">فقط یکبار میتوانید فایل ویدیو را آپلود کنید</string>
+    <string name="only_one_time_you_can_upload_image">فقط یکبار میتوانید فایل عکس را آپلود کنید</string>
+    <string name="poll">نظرسنجی</string>
 </resources>

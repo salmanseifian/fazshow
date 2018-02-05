@@ -1,5 +1,6 @@
 package com.owjmedia.faaz.upload.text;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -9,13 +10,13 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.owjmedia.faaz.R;
+import com.owjmedia.faaz.general.ConnectionErrorDialog;
 import com.owjmedia.faaz.general.utils.ActivityUtils;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceEditText;
+import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.general.utils.Validator;
+import com.owjmedia.faaz.upload.status.UploadActivity;
 
-/**
- * Created by salman on 1/21/18.
- */
 
 public class UploadTextFragment extends Fragment implements UploadTextContract.View {
 
@@ -28,6 +29,7 @@ public class UploadTextFragment extends Fragment implements UploadTextContract.V
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        mProgressDialog = new ProgressDialog(getActivity());
         edtTitle = view.findViewById(R.id.edt_title);
         edtDescription = view.findViewById(R.id.edt_description);
         view.findViewById(R.id.btn_send).setOnClickListener(new View.OnClickListener() {
@@ -49,24 +51,30 @@ public class UploadTextFragment extends Fragment implements UploadTextContract.V
 
     @Override
     public void setLoadingIndicator(boolean active) {
-
+        if (active)
+            mProgressDialog.show();
+        else
+            mProgressDialog.cancel();
     }
 
     @Override
     public void showMessage(String message) {
-
+        ActivityUtils.showToast(getActivity(), message);
     }
 
     @Override
     public void showConnectionError() {
-
+        new ConnectionErrorDialog().show(getFragmentManager(), null);
     }
 
     @Override
     public void onSuccessfullyUploaded() {
-        getActivity().onBackPressed();
+        getActivity().finish();
+        Intent intent = new Intent(getContext(), UploadActivity.class);
+        startActivity(intent);
     }
 
+    ProgressDialog mProgressDialog;
     private TypefaceEditText edtTitle;
     private TypefaceEditText edtDescription;
 }

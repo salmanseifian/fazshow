@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ll_parent"
+    android:layout_width="match_parent"
+    android:layout_height="92dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/answer_bg"
+    android:clickable="true"
+    android:elevation="2dp"
+    android:orientation="vertical">
+
+    <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+        android:id="@+id/txt_answer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center" />
+
+</LinearLayout>

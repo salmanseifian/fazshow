@@ -1,16 +1,14 @@
 package com.owjmedia.faaz.upload.status;
 
+import android.support.annotation.NonNull;
+
 import com.owjmedia.faaz.general.networking.Injector;
-import com.owjmedia.faaz.splash.model.AppInfoResponse;
 import com.owjmedia.faaz.upload.status.model.UploadStatus;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-/**
- * Created by salman on 1/21/18.
- */
 
 public class UploadStatusPresenter implements UploadStatusContract.Presenter {
 
@@ -25,14 +23,14 @@ public class UploadStatusPresenter implements UploadStatusContract.Presenter {
         mView.setLoadingIndicator(true);
         call.enqueue(new Callback<UploadStatus>() {
             @Override
-            public void onResponse(Call<UploadStatus> call, Response<UploadStatus> response) {
+            public void onResponse(@NonNull Call<UploadStatus> call, @NonNull Response<UploadStatus> response) {
                 mView.setLoadingIndicator(false);
                 if (response.isSuccessful())
                     mView.showUploadStatus(response.body());
             }
 
             @Override
-            public void onFailure(Call<UploadStatus> call, Throwable t) {
+            public void onFailure(@NonNull Call<UploadStatus> call, @NonNull Throwable t) {
                 mView.setLoadingIndicator(false);
             }
         });

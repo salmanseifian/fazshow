@@ -2,7 +2,6 @@
 <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/HomeActionBar"
-    android:id="@+id/action_bar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:theme="@style/HomeActionBar">
@@ -11,7 +10,7 @@
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/colorHomeToolbar"
+        android:background="@color/colorBlack"
         android:minHeight="?actionBarSize"
         android:transitionName="@string/toolbar_name"
         app:theme="@style/HomeToolbar" />

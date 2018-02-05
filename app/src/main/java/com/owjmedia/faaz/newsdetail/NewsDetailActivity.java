@@ -44,7 +44,6 @@ public class NewsDetailActivity extends AppCompatActivity implements NewsDetailC
             ab.setDisplayShowTitleEnabled(false);
             ab.setDisplayHomeAsUpEnabled(true);
         }
-
         mNewsDetailPresenter = new NewsDetailPresenter(this);
         mNewsDetailPresenter.getNewsDetail(getNewsId());
     }

@@ -35,6 +35,7 @@ import com.owjmedia.faaz.general.utils.AppManager;
 import com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView;
 import com.owjmedia.faaz.general.utils.ProgressDialog;
 import com.owjmedia.faaz.newsdetail.NewsDetailActivity;
+import com.owjmedia.faaz.poll.PollActivity;
 import com.owjmedia.faaz.upload.status.UploadActivity;
 import com.owjmedia.faaz.videodetail.VideoActivity;
 import com.owjmedia.faaz.vote.VoteActivity;
@@ -177,8 +178,8 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         startActivity(new Intent(NewsActivity.this, VideoActivity.class));
     }
 
-    @OnClick(R.id.ll_vote)
-    public void goToPoll() {
+    @OnClick({R.id.ll_vote, R.id.rl_vote})
+    public void goToVote() {
         startActivity(new Intent(NewsActivity.this, VoteActivity.class));
     }
 
@@ -202,16 +203,15 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         startActivity(profileIntent);
     }
 
-    @OnClick(R.id.rl_vote)
-    public void goToVote() {
-        Intent votingIntent = new Intent(NewsActivity.this, VoteActivity.class);
-        startActivity(votingIntent);
-    }
 
-    @OnClick(R.id.rl_faz_meter)
+    @OnClick({R.id.rl_faz_meter, R.id.txt_faz_meter})
     public void goToFazMeter() {
-        Intent uploadIntent = new Intent(NewsActivity.this, UploadActivity.class);
-        startActivity(uploadIntent);
+        if (Global.isLogin()) {
+            startActivity(new Intent(NewsActivity.this, UploadActivity.class));
+        } else {
+            new AuthenticationDialog().show(getSupportFragmentManager(), null);
+        }
+
     }
 
     @OnClick(R.id.rl_lottery)
@@ -221,6 +221,11 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
         } else {
             new AuthenticationDialog().show(getSupportFragmentManager(), null);
         }
+    }
+
+    @OnClick({R.id.rl_poll, R.id.txt_poll})
+    public void goToPoll() {
+        startActivity(new Intent(NewsActivity.this, PollActivity.class));
     }
 
     @OnClick(R.id.rl_club)
@@ -264,6 +269,9 @@ public class NewsActivity extends AppCompatActivity implements NewsContract.View
 
     @BindView(R.id.rl_vote)
     ViewGroup mRlVote;
+
+    @BindView(R.id.rl_poll)
+    ViewGroup mRlPoll;
 
     @BindView(R.id.rl_lottery)
     ViewGroup mRlLottery;

@@ -19,7 +19,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled false
+            minifyEnabled true
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -30,8 +30,8 @@ android {
 
         Faaz {
             applicationId "com.owjmedia.faaz"
-            versionCode 5
-            versionName "1.2.0"
+            versionCode 6
+            versionName "1.3.0"
             buildConfigField "boolean", "HOME_SCREEN", "false"
             buildConfigField "boolean", "VOTE", "true"
             buildConfigField "boolean", "LOTTERY", "false"

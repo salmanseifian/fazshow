@@ -1,4 +1,4 @@
-package com.owjmedia.faaz.upload.image;
+package com.owjmedia.faaz.upload.video;
 
 import com.owjmedia.faaz.general.networking.Injector;
 
@@ -12,15 +12,15 @@ import retrofit2.Response;
  * Created by salman on 1/22/18.
  */
 
-public class UploadImagePresenter implements UploadImageContract.Presenter {
+public class UploadVideoPresenter implements UploadVideoContract.Presenter {
 
-    public UploadImagePresenter(UploadImageContract.View view) {
+    public UploadVideoPresenter(UploadVideoContract.View view) {
         this.view = view;
     }
 
     @Override
-    public void uploadImage(MultipartBody.Part part) {
-        Call<ResponseBody> call = Injector.provideApiService().uploadImage(part);
+    public void uploadVideo(MultipartBody.Part part) {
+        Call<ResponseBody> call = Injector.provideApiService().uploadVideo(part);
 
         view.setLoadingIndicator(true);
         call.enqueue(new Callback<ResponseBody>() {
@@ -28,7 +28,7 @@ public class UploadImagePresenter implements UploadImageContract.Presenter {
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 view.setLoadingIndicator(false);
                 if (response.isSuccessful())
-                    view.onImageUploaded();
+                    view.onVideoUploaded();
                 else
                     view.showMessage(Injector.parseError(response).getDetail());
             }
@@ -41,7 +41,7 @@ public class UploadImagePresenter implements UploadImageContract.Presenter {
         });
     }
 
-    private UploadImageContract.View view;
+    private UploadVideoContract.View view;
 
 
 }

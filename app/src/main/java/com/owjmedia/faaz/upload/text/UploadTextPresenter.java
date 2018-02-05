@@ -35,11 +35,14 @@ public class UploadTextPresenter implements UploadTextContract.Presenter {
                 mView.setLoadingIndicator(false);
                 if (response.isSuccessful())
                     mView.onSuccessfullyUploaded();
+                else
+                    mView.showMessage(Injector.parseError(response).getDetail());
             }
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
                 mView.setLoadingIndicator(false);
+                mView.showConnectionError();
             }
         });
     }

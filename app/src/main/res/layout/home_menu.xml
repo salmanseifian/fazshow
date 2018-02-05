@@ -46,14 +46,14 @@
             style="@style/MenuItem">
 
             <ImageView
-                android:id="@+id/img_poll"
+                android:id="@+id/img_vote"
                 style="@style/MenuItemIcon"
                 android:src="@drawable/ic_poll" />
 
             <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
-                android:id="@+id/txt_poll"
+                android:id="@+id/txt_vote"
                 style="@style/MenuItemText"
-                android:layout_toLeftOf="@+id/img_poll"
+                android:layout_toLeftOf="@+id/img_vote"
                 android:text="@string/voting" />
         </RelativeLayout>
 
@@ -71,6 +71,22 @@
                 style="@style/MenuItemText"
                 android:layout_toLeftOf="@+id/img_faz_meter"
                 android:text="@string/faz_meter" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_poll"
+            style="@style/MenuItem">
+
+            <ImageView
+                android:id="@+id/img_poll"
+                style="@style/MenuItemIcon"
+                android:src="@drawable/ic_poll" />
+
+            <com.owjmedia.faaz.general.utils.CustomWidgets.TypefaceTextView
+                android:id="@+id/txt_poll"
+                style="@style/MenuItemText"
+                android:layout_toLeftOf="@+id/img_poll"
+                android:text="@string/poll" />
         </RelativeLayout>
 
         <RelativeLayout
