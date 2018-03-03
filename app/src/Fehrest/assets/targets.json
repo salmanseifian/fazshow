@@ -74,6 +74,22 @@
       "name" : "16"
     },
     {
+      "image" : "Haran.jpg",
+      "name" : "Haran"
+    },
+    {
+      "image" : "Refghe.jpg",
+      "name" : "Refghe"
+    },
+    {
+      "image" : "Saleh.jpg",
+      "name" : "Saleh"
+    },
+    {
+      "image" : "Box.jpg",
+      "name" : "Box"
+    },
+    {
       "image" : "idback.jpg",
       "name" : "idback",
       "size" : [8.56, 5.4],

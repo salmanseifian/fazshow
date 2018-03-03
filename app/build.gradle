@@ -10,6 +10,7 @@ android {
     defaultConfig {
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
+        vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -19,16 +20,17 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         release {
-            minifyEnabled true
+            minifyEnabled false
             useProguard true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
 
-
+    flavorDimensions "clone"
     productFlavors {
 
         Faaz {
+            dimension "clone"
             applicationId "com.owjmedia.faaz"
             versionCode 6
             versionName "1.3.0"
@@ -43,9 +45,10 @@ android {
         }
 
         Fehrest {
+            dimension "clone"
             applicationId "com.owjmedia.fehrest"
-            versionCode 9
-            versionName "1.2.3"
+            versionCode 7
+            versionName "1.3.0"
             buildConfigField "boolean", "HOME_SCREEN", "true"
             buildConfigField "boolean", "VOTE", "false"
             buildConfigField "boolean", "LOTTERY", "true"
@@ -62,7 +65,7 @@ android {
     }
 }
 
-def renameAPK(variant){
+static def renameAPK(variant){
     variant.outputs.each { output ->
         def SEP = "_"
         def flavor = variant.flavorName
@@ -71,7 +74,7 @@ def renameAPK(variant){
         def versionCode = variant.versionCode
 
         def apkName = flavor + SEP + buildType + SEP + versionName + SEP + versionCode + ".apk"
-        output.outputFile = new File(output.outputFile.parent, apkName)
+        output.outputFileName = new File(output.outputFile.parent, apkName)
 
     }
 

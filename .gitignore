@@ -129,3 +129,6 @@ fabric.properties
 !/gradle/wrapper/gradle-wrapper.jar
 
 # End of https://www.gitignore.io/api/androidstudio
+gradle/wrapper/gradle-wrapper\.properties
+
+app/Fehrest/release/

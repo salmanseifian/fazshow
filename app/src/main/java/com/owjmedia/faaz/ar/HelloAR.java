@@ -168,7 +168,7 @@ public class HelloAR {
         }
         videobg_renderer = new Renderer();
         video_renderers = new ArrayList<VideoRenderer>();
-        for (int k = 0; k < 20; k += 1) {
+        for (int k = 0; k < 25; k += 1) {
             VideoRenderer video_renderer = new VideoRenderer();
             video_renderer.init();
             video_renderers.add(video_renderer);
@@ -328,6 +328,26 @@ public class HelloAR {
                                 video = new ARVideo();
                                 video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/P16.mp4", video_renderers.get(16).texId());
                                 current_video_renderer = video_renderers.get(16);
+                            }
+                            else if (target_name.equals("Haran") && video_renderers.get(17).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/Haran.mp4", video_renderers.get(17).texId());
+                                current_video_renderer = video_renderers.get(17);
+                            }
+                            else if (target_name.equals("Refghe") && video_renderers.get(18).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/Refghe.mp4", video_renderers.get(18).texId());
+                                current_video_renderer = video_renderers.get(18);
+                            }
+                            else if (target_name.equals("Saleh") && video_renderers.get(19).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/Saleh.mp4", video_renderers.get(19).texId());
+                                current_video_renderer = video_renderers.get(19);
+                            }
+                            else if (target_name.equals("Box") && video_renderers.get(20).texId() != 0) {
+                                video = new ARVideo();
+                                video.openStreamingVideo("http://94.182.227.211/media/ar_item/videos/Box.mp4", video_renderers.get(20).texId());
+                                current_video_renderer = video_renderers.get(20);
                             }
                             else if (target_name.equals("namecard") && video_renderers.get(6).texId() != 0) {
                                 video = new ARVideo();
